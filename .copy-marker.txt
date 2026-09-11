@@ -1,0 +1,4 @@
+Working copy created: 2026-09-08
+Source: ../prototype-mobile-v7-20260831
+Scope: consumer, government, merchant-assistant, shared assets and project documentation.
+Runtime port: 4188

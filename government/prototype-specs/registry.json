@@ -1,0 +1,49 @@
+{
+  "specSchemaVersion": 2,
+  "storageFormat": "markdown",
+  "pages": [
+    {
+      "pageKey": "hot-topics",
+      "pageName": "热点问题",
+      "sourceFile": "hot-topics.html",
+      "routeHint": "hot-topics.html"
+    },
+    {
+      "pageKey": "login",
+      "pageName": "铜梁文旅 · 政府端登录",
+      "sourceFile": "login.html",
+      "routeHint": "login.html"
+    },
+    {
+      "pageKey": "merchants",
+      "pageName": "商户增长",
+      "sourceFile": "merchants.html",
+      "routeHint": "merchants.html"
+    },
+    {
+      "pageKey": "negative-feedback",
+      "pageName": "负面反馈",
+      "sourceFile": "negative-feedback.html",
+      "routeHint": "negative-feedback.html"
+    },
+    {
+      "pageKey": "overview",
+      "pageName": "运营总览",
+      "sourceFile": "index.html",
+      "routeHint": "index.html"
+    },
+    {
+      "pageKey": "report",
+      "pageName": "运行报告",
+      "sourceFile": "report.html",
+      "routeHint": "report.html"
+    },
+    {
+      "pageKey": "users",
+      "pageName": "用户增长",
+      "sourceFile": "users.html",
+      "routeHint": "users.html"
+    }
+  ],
+  "lastUpdated": "2026-09-04T17:42:50+08:00"
+}

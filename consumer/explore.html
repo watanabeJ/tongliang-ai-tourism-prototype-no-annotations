@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>周末到铜梁AI伴游 - 边走边耍</title><link rel="stylesheet" href="../vendor/leaflet/leaflet.css"><link rel="stylesheet" href="../styles.css?v=agent-tools-v2"><link rel="stylesheet" href="../consumer-map.css?v=no-zoom-controls-v1"></head>
+<body><main class="stage"><section class="phone"><div class="screen map-screen">
+  <div class="statusbar wx-statusbar"><span class="status-time">15:30</span><span class="wechat-capsule" aria-label="小程序控制区"><i class="wechat-more">•••</i><i class="wechat-separator"></i><i class="wechat-circle"></i></span></div><header class="map-appbar main-page-appbar"><div class="app-actions"><button class="language-switch" type="button" aria-label="打开对话菜单" aria-pressed="false"><span class="language-current">中</span><span class="language-divider">/</span><span class="language-other">EN</span></button></div><strong class="main-page-title">边走边耍</strong><div class="main-page-context" aria-label="当前位置和天气"><button class="context-action context-location" type="button" data-route-explore aria-label="查看当前位置"><span data-icon="pin"></span><strong data-i18n="contextPlace">铜梁区玄天湖...</strong></button><button class="context-action context-weather" type="button" data-context-action="weather" aria-label="查看天气"><span data-i18n="contextWeather">晴 23℃</span></button></div><button class="top-explore-entry home-entry-icon" type="button" data-page="plan" aria-label="返回在铜梁主页"><span data-icon="home"></span></button></header><div class="map-canvas"></div>
+  <div class="category-bar" aria-label="地图分类"><button class="category" data-category="eat" data-ann="map-category-eat"><span><i data-icon="food"></i><b>吃</b></span></button><button class="category" data-category="stay"><span><i data-icon="hotel"></i><b>住</b></span></button><button class="category" data-category="tour"><span><i data-icon="flag"></i><b>游</b></span></button><button class="category" data-category="shop"><span><i data-icon="bag"></i><b>购</b></span></button><button class="category category-wishlist" data-category="wishlist" aria-label="心愿单"><span><i data-icon="heart"></i></span></button></div>
+  <div class="marker-layer"></div><div class="marker-card"></div>
+  <div class="toast"></div>
+</div></section></main><script src="../vendor/leaflet/leaflet.js"></script><script src="../consumer-map.js?v=no-zoom-controls-v1"></script><script src="../consumer-agent.js?v=live-agent-v1"></script><script src="../consumer-agent-ui.js?v=agent-tools-v2"></script><script src="../app.js?v=agent-tools-v2"></script><!-- proto-spec-annotator-viewer:start -->
+
+<script>
+(function () {
+  const mount = document.currentScript.previousElementSibling;
+  const pageKey = "explore";
+  const viewerMode = "dual-view" || "dual-view";
+  const script = document.currentScript;
+  const style = document.createElement("style");
+  style.textContent = ".proto-spec-switcher,.proto-spec-doc{--proto-spec-bg:#f5f7fa;--proto-spec-surface:#fff;--proto-spec-muted:#647083;--proto-spec-text:#1f2933;--proto-spec-border:#d8dee8;--proto-spec-soft:#eef2f6;--proto-spec-accent:#e65f3f;--proto-spec-accent-dark:#bd452d;--proto-spec-focus:#2563eb;box-sizing:border-box}.proto-spec-route-shell{min-height:100%}.proto-spec-switcher{position:fixed;top:16px;left:50%;z-index:2147483000;display:inline-flex;transform:translateX(-50%);gap:2px;border:1px solid var(--proto-spec-border);border-radius:8px;background:rgba(255,255,255,.96);padding:3px;box-shadow:0 10px 24px rgba(15,23,42,.12);backdrop-filter:blur(10px);cursor:grab;touch-action:none;user-select:none}.proto-spec-switcher.is-dragging,.proto-spec-switcher.is-dragging button{cursor:grabbing}.proto-spec-switcher button,.proto-spec-doc__toolbar button{-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:0;text-align:center;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;white-space:nowrap;-webkit-text-fill-color:currentColor;opacity:1;filter:none}.proto-spec-switcher button::before,.proto-spec-switcher button::after,.proto-spec-doc__toolbar button::before,.proto-spec-doc__toolbar button::after{content:none!important;display:none!important}.proto-spec-switcher button{min-width:88px;min-height:36px;border:0;border-radius:6px;background:transparent;color:var(--proto-spec-muted);cursor:pointer;font:700 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:0;padding:9px 13px}.proto-spec-switcher button:hover{background:var(--proto-spec-soft);color:var(--proto-spec-accent-dark);-webkit-text-fill-color:currentColor}.proto-spec-switcher button.is-active{background:var(--proto-spec-accent);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc{min-height:100vh;background:var(--proto-spec-bg);color:var(--proto-spec-text);padding:88px 24px 56px;font:14px/1.75 Inter,ui-sans-serif,system-ui,sans-serif}.proto-spec-doc *{box-sizing:border-box}.proto-spec-doc__inner{width:min(1040px,100%);margin:0 auto}.proto-spec-doc header{border-bottom:1px solid var(--proto-spec-border);margin:0 0 18px;padding:0 0 22px}.proto-spec-doc__eyebrow{color:var(--proto-spec-muted);font-size:12px;font-weight:800;letter-spacing:0;margin:0 0 8px;text-transform:uppercase}.proto-spec-doc h1{color:var(--proto-spec-text);font-size:30px;font-weight:800;line-height:1.2;margin:0 0 10px}.proto-spec-doc header p:not(.proto-spec-doc__eyebrow){color:var(--proto-spec-muted);font-size:15px;line-height:1.7;max-width:78ch;margin:0}.proto-spec-doc h2{border-top:1px solid var(--proto-spec-border);color:var(--proto-spec-text);font-size:20px;font-weight:800;line-height:1.35;margin:28px 0 12px;padding-top:24px}.proto-spec-doc h2:first-child{border-top:0;margin-top:0;padding-top:0}.proto-spec-doc h3{color:var(--proto-spec-text);font-size:16px;font-weight:800;line-height:1.45;margin:22px 0 8px}.proto-spec-doc h4{color:var(--proto-spec-muted);font-size:14px;font-weight:800;line-height:1.45;margin:18px 0 6px}.proto-spec-doc p{margin:0 0 12px}.proto-spec-doc a{color:var(--proto-spec-accent-dark);text-decoration:none}.proto-spec-doc a:hover{text-decoration:underline}.proto-spec-doc ul,.proto-spec-doc ol{margin:0 0 14px 22px;padding:0}.proto-spec-doc ul ul,.proto-spec-doc ul ol,.proto-spec-doc ol ul,.proto-spec-doc ol ol{margin-top:6px;margin-bottom:6px}.proto-spec-doc li{margin:5px 0}.proto-spec-doc li::marker{color:var(--proto-spec-accent)}.proto-spec-task-checkbox{width:15px;height:15px;margin:0 7px 0 0;vertical-align:-2px;accent-color:var(--proto-spec-accent)}.proto-spec-doc code{border-radius:5px;background:var(--proto-spec-soft);color:var(--proto-spec-text);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 5px}.proto-spec-doc mark{border-radius:4px;background:#fff2b8;color:var(--proto-spec-text);padding:1px 4px}.proto-spec-doc pre{overflow:auto;border:1px solid var(--proto-spec-border);border-radius:8px;background:#f8fafc;color:var(--proto-spec-text);margin:14px 0;padding:14px}.proto-spec-doc pre code{background:transparent;padding:0}.proto-spec-doc blockquote{border-left:4px solid var(--proto-spec-accent);color:var(--proto-spec-muted);margin:16px 0;padding:2px 0 2px 14px}.proto-spec-callout{border:1px solid var(--proto-spec-border)!important;border-left:4px solid var(--proto-spec-accent)!important;border-radius:8px;background:#fffaf7;color:var(--proto-spec-text)!important;padding:12px 14px!important}.proto-spec-callout__title{color:var(--proto-spec-accent-dark);font-weight:800;margin:0 0 6px!important}.proto-spec-doc img{display:block;max-width:100%;height:auto;border:1px solid var(--proto-spec-border);border-radius:8px;background:#fff;margin:14px 0}.proto-spec-doc__toolbar{position:sticky;top:66px;z-index:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 16px;padding:10px 0;background:var(--proto-spec-bg)}.proto-spec-doc__button,.proto-spec-doc__toolbar button{min-height:38px;border:1px solid var(--proto-spec-border);border-radius:6px;background:var(--proto-spec-surface);color:var(--proto-spec-text);cursor:pointer;font:800 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:0;padding:9px 12px}.proto-spec-doc__button:hover,.proto-spec-doc__button:active,.proto-spec-doc__toolbar button:hover,.proto-spec-doc__toolbar button:active{border-color:var(--proto-spec-accent);color:var(--proto-spec-accent-dark);-webkit-text-fill-color:currentColor}.proto-spec-doc__button--primary{border-color:var(--proto-spec-accent);background:var(--proto-spec-accent);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc__button--primary:hover,.proto-spec-doc__button--primary:active,.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent-dark);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc__toolbar button.proto-spec-doc__button--primary,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:hover,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:active,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent)!important;border-color:var(--proto-spec-accent)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:13px!important;line-height:1.2!important;text-indent:0!important;text-shadow:none!important;visibility:visible!important;opacity:1!important;overflow:visible!important}.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:hover,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:active,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent-dark)!important}.proto-spec-doc__mode-toggle{display:inline-flex;gap:2px;border:1px solid var(--proto-spec-border);border-radius:8px;background:var(--proto-spec-soft);padding:3px}.proto-spec-doc__mode-toggle button{min-height:32px;border:0;background:transparent;color:var(--proto-spec-muted);padding:7px 11px}.proto-spec-doc__mode-toggle button.is-active{background:var(--proto-spec-surface);box-shadow:0 1px 2px rgba(15,23,42,.08);color:var(--proto-spec-text);-webkit-text-fill-color:currentColor}.proto-spec-doc__status{color:var(--proto-spec-muted);font-size:13px;font-weight:700}.proto-spec-doc__content{background:var(--proto-spec-surface);border:1px solid var(--proto-spec-border);border-radius:8px;box-shadow:0 14px 30px rgba(15,23,42,.06);display:block;margin-top:0;padding:30px 34px}.proto-spec-doc__content>*{max-width:78ch}.proto-spec-doc__content table{border-collapse:collapse;width:100%;max-width:100%;background:white;margin:16px 0}.proto-spec-doc__content th,.proto-spec-doc__content td{border:1px solid var(--proto-spec-border);padding:9px 11px;text-align:left;vertical-align:top}.proto-spec-doc__content th{background:var(--proto-spec-soft);font-weight:800}.proto-spec-mermaid{border:1px solid var(--proto-spec-border);border-radius:8px;background:#fff;margin:16px 0;padding:14px;max-width:100%}.proto-spec-mermaid[data-rendered='loading']::after{content:'正在渲染 Mermaid 图表...';display:block;color:var(--proto-spec-muted);font-size:12px;font-weight:700;margin-top:8px}.proto-spec-mermaid[data-rendered='failed']::after{content:'Mermaid 图表渲染失败，已保留源码。';display:block;color:var(--proto-spec-accent-dark);font-size:12px;font-weight:700;margin-top:8px}.proto-spec-mermaid figcaption{color:var(--proto-spec-muted);font-size:12px;font-weight:800;letter-spacing:0;margin:0 0 8px;text-transform:uppercase}.proto-spec-mermaid svg{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}.proto-spec-mermaid foreignObject,.proto-spec-mermaid foreignObject *{box-sizing:content-box;line-height:1.2!important}.proto-spec-doc__editor{box-sizing:border-box;width:100%;min-height:64vh;border:1px solid var(--proto-spec-border);border-radius:8px;background:var(--proto-spec-surface);box-shadow:0 14px 30px rgba(15,23,42,.06);color:var(--proto-spec-text);font:14px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;padding:22px;resize:vertical}.proto-spec-doc__editor:focus,.proto-spec-doc button:focus-visible,.proto-spec-switcher button:focus-visible{outline:2px solid var(--proto-spec-focus);outline-offset:2px}@media (max-width:720px){.proto-spec-switcher{top:10px}.proto-spec-switcher button{min-width:auto;padding:8px 10px}.proto-spec-doc{padding:74px 14px 32px}.proto-spec-doc h1{font-size:24px}.proto-spec-doc__toolbar{top:54px}.proto-spec-doc__content{padding:22px 18px}.proto-spec-doc__content>*{max-width:100%}.proto-spec-doc__editor{min-height:58vh;padding:16px}}";
+  document.head.appendChild(style);
+  const switcher = document.createElement("div");
+  switcher.className = "proto-spec-switcher";
+  switcher.innerHTML = '<button type="button" data-view="product" class="is-active">产品页面</button><button type="button" data-view="spec">需求说明</button>';
+  document.body.appendChild(switcher);
+  const productNodes = Array.from(document.body.children).filter(function (node) {
+    return node !== switcher && node !== mount && node !== script && node.tagName !== "SCRIPT";
+  });
+  const specPanel = document.createElement("main");
+  specPanel.className = "proto-spec-doc";
+  specPanel.hidden = true;
+  specPanel.innerHTML = '<div class="proto-spec-doc__inner"><h1>需求说明</h1><p>正在加载...</p></div>';
+  document.body.appendChild(specPanel);
+  let frontmatterText = "";
+  let bodyMarkdown = "";
+  let draft = "";
+  let editing = false;
+  let editorMode = "write";
+  let status = "";
+  function splitFrontmatter(markdown) {
+    if (!markdown.startsWith("---\n")) return { frontmatterText: "", body: markdown.trim() };
+    const end = markdown.indexOf("\n---", 4);
+    if (end === -1) return { frontmatterText: "", body: markdown.trim() };
+    return {
+      frontmatterText: markdown.slice(4, end),
+      body: markdown.slice(end + 4).replace(/^\s*\n/, "").trim()
+    };
+  }
+  function composeMarkdown() {
+    return frontmatterText ? "---\n" + frontmatterText + "\n---\n\n" + draft.trim() + "\n" : draft.trim() + "\n";
+  }
+  function renderMarkdown(markdown) {
+    const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+    const out = [];
+    let paragraph = [];
+    function flushParagraph() {
+      if (!paragraph.length) return;
+      out.push("<p>" + paragraph.map(renderInline).join("<br>") + "</p>");
+      paragraph = [];
+    }
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index];
+      const trimmed = line.trim();
+      const fence = trimmed.match(/^```\s*([A-Za-z0-9_-]*)\s*$/);
+      if (fence) {
+        flushParagraph();
+        const lang = (fence[1] || "").toLowerCase();
+        const code = [];
+        index += 1;
+        while (index < lines.length && !lines[index].trim().startsWith("```")) {
+          code.push(lines[index]);
+          index += 1;
+        }
+        const codeText = code.join("\n");
+        out.push(lang === "mermaid"
+          ? '<figure class="proto-spec-mermaid" data-mermaid="' + escapeAttr(codeText) + '"><figcaption>Mermaid</figcaption><pre><code>' + escapeHtml(codeText) + "</code></pre></figure>"
+          : '<pre><code>' + escapeHtml(codeText) + "</code></pre>");
+        continue;
+      }
+      if (!trimmed) {
+        flushParagraph();
+        continue;
+      }
+      const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
+      if (heading) {
+        flushParagraph();
+        out.push("<h" + heading[1].length + ">" + renderInline(heading[2]) + "</h" + heading[1].length + ">");
+        continue;
+      }
+      if (isQuoteStart(trimmed)) {
+        flushParagraph();
+        const quote = renderQuoteBlock(lines, index);
+        out.push(quote.html);
+        index = quote.index - 1;
+        continue;
+      }
+      if (isTableStart(lines, index)) {
+        flushParagraph();
+        const headers = parseTableRow(lines[index]);
+        index += 2;
+        const rows = [];
+        while (index < lines.length && lines[index].trim().startsWith("|")) {
+          rows.push(parseTableRow(lines[index]));
+          index += 1;
+        }
+        index -= 1;
+        out.push(renderTable(headers, rows));
+        continue;
+      }
+      if (parseListItem(line)) {
+        flushParagraph();
+        const list = renderListBlock(lines, index);
+        out.push(list.html);
+        index = list.index - 1;
+        continue;
+      }
+      paragraph.push(line);
+    }
+    flushParagraph();
+    return out.join("");
+  }
+  function isQuoteStart(trimmed) {
+    return /^>\s?/.test(trimmed);
+  }
+  function renderQuoteBlock(lines, start) {
+    const quoteLines = [];
+    let index = start;
+    while (index < lines.length) {
+      const line = lines[index] || "";
+      if (!line.trim()) {
+        quoteLines.push("");
+        index += 1;
+        continue;
+      }
+      const quote = line.match(/^\s*>\s?(.*)$/);
+      if (!quote) break;
+      quoteLines.push(quote[1] || "");
+      index += 1;
+    }
+    const callout = quoteLines[0]?.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION|TODO|INFO|RISK)\]\s*(.*)$/i);
+    if (callout) {
+      const type = callout[1].toLowerCase();
+      const title = callout[2] || calloutLabel(type);
+      const body = quoteLines.slice(1).join("\n").trim();
+      return {
+        html: '<blockquote class="proto-spec-callout proto-spec-callout--' + escapeAttr(type) + '"><p class="proto-spec-callout__title">' + renderInline(title) + "</p>" + (body ? renderMarkdown(body) : "") + "</blockquote>",
+        index
+      };
+    }
+    return { html: "<blockquote>" + renderMarkdown(quoteLines.join("\n").trim()) + "</blockquote>", index };
+  }
+  function calloutLabel(type) {
+    return { note: "说明", tip: "建议", important: "重要", warning: "警告", caution: "注意", todo: "待办", info: "信息", risk: "风险" }[type] || "说明";
+  }
+  function parseListItem(line) {
+    const match = String(line || "").match(/^(\s*)([-*+]|\d+[.)])\s+(?:\[( |x|X)\]\s+)?(.+)$/);
+    if (!match) return null;
+    return {
+      indent: match[1].replace(/\t/g, "    ").length,
+      ordered: /^\d/.test(match[2]),
+      task: match[3] !== undefined,
+      checked: /x/i.test(match[3] || ""),
+      text: match[4]
+    };
+  }
+  function renderListBlock(lines, start) {
+    const first = parseListItem(lines[start]);
+    if (!first) return { html: "", index: start + 1 };
+    const tag = first.ordered ? "ol" : "ul";
+    const items = [];
+    let index = start;
+    while (index < lines.length) {
+      const item = parseListItem(lines[index]);
+      if (!item || item.indent !== first.indent || item.ordered !== first.ordered) break;
+      let content = (item.task ? renderTaskCheckbox(item.checked) : "") + renderInline(item.text);
+      index += 1;
+      while (index < lines.length) {
+        const next = parseListItem(lines[index]);
+        const raw = lines[index] || "";
+        if (!raw.trim()) {
+          index += 1;
+          continue;
+        }
+        if (next && next.indent > first.indent) {
+          const nested = renderListBlock(lines, index);
+          content += nested.html;
+          index = nested.index;
+          continue;
+        }
+        if (next && next.indent <= first.indent) break;
+        const continuationIndent = raw.match(/^\s*/)[0].replace(/\t/g, "    ").length;
+        if (continuationIndent > first.indent) {
+          content += "<br>" + renderInline(raw.trim());
+          index += 1;
+          continue;
+        }
+        break;
+      }
+      items.push("<li>" + content + "</li>");
+    }
+    return { html: "<" + tag + ">" + items.join("") + "</" + tag + ">", index };
+  }
+  function renderTaskCheckbox(checked) {
+    return '<input class="proto-spec-task-checkbox" type="checkbox" disabled' + (checked ? " checked" : "") + ' aria-label="' + (checked ? "已完成" : "未完成") + '">';
+  }
+  function isTableStart(lines, index) {
+    return Boolean(lines[index] && lines[index + 1] && lines[index].trim().startsWith("|") && lines[index + 1].trim().startsWith("|") && parseTableRow(lines[index + 1]).every(function (cell) { return /^:?-{3,}:?$/.test(cell); }));
+  }
+  function parseTableRow(line) {
+    return line.trim().replace(/^\||\|$/g, "").split("|").map(function (cell) { return cell.trim(); });
+  }
+  function renderTable(headers, rows) {
+    return "<table><thead><tr>" + headers.map(function (cell) { return "<th>" + renderInline(cell) + "</th>"; }).join("") + "</tr></thead><tbody>" + rows.map(function (row) { return "<tr>" + headers.map(function (_header, index) { return "<td>" + renderInline(row[index] || "") + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table>";
+  }
+  function renderInline(value) {
+    let output = "";
+    let cursor = 0;
+    const pattern = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)|\[([^\]]+)\]\(([^)\s]+)\)|`([^`]+)`|\*\*([^*]+)\*\*|==([^=]+)==/g;
+    let match;
+    while ((match = pattern.exec(value)) !== null) {
+      output += escapeHtml(value.slice(cursor, match.index));
+      if (match[1] !== undefined) output += '<img src="' + escapeAttr(match[2]) + '" alt="' + escapeAttr(match[1]) + '"' + (match[3] ? ' title="' + escapeAttr(match[3]) + '"' : "") + ">";
+      else if (match[4] !== undefined) output += '<a href="' + escapeAttr(match[5]) + '" target="_blank" rel="noreferrer">' + escapeHtml(match[4]) + "</a>";
+      else if (match[6] !== undefined) output += "<code>" + escapeHtml(match[6]) + "</code>";
+      else if (match[7] !== undefined) output += "<strong>" + escapeHtml(match[7]) + "</strong>";
+      else if (match[8] !== undefined) output += "<mark>" + escapeHtml(match[8]) + "</mark>";
+      cursor = match.index + match[0].length;
+    }
+    return output + escapeHtml(value.slice(cursor));
+  }
+  function loadMermaid() {
+    if (window.mermaid && typeof window.mermaid.render === "function") {
+      initializeMermaid(window.mermaid);
+      return Promise.resolve(window.mermaid);
+    }
+    if (window.__protoSpecMermaidPromise) return window.__protoSpecMermaidPromise;
+    window.__protoSpecMermaidPromise = new Promise(function (resolve, reject) {
+      const existing = document.querySelector("script[data-proto-spec-mermaid]");
+      if (existing) {
+        existing.addEventListener("load", function () {
+          if (window.mermaid && typeof window.mermaid.render === "function") {
+            initializeMermaid(window.mermaid);
+            resolve(window.mermaid);
+          } else {
+            reject(new Error("Mermaid failed to initialize."));
+          }
+        }, { once: true });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js";
+      script.async = true;
+      script.dataset.protoSpecMermaid = "true";
+      script.onload = function () {
+        if (window.mermaid && typeof window.mermaid.render === "function") {
+          initializeMermaid(window.mermaid);
+          resolve(window.mermaid);
+        } else {
+          reject(new Error("Mermaid failed to initialize."));
+        }
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+    return window.__protoSpecMermaidPromise;
+  }
+  function initializeMermaid(mermaid) {
+    if (window.__protoSpecMermaidInitialized) return;
+    if (typeof mermaid.initialize === "function") mermaid.initialize({ startOnLoad: false, securityLevel: "strict" });
+    window.__protoSpecMermaidInitialized = true;
+  }
+  function renderMermaidDiagrams() {
+    const nodes = Array.from(specPanel.querySelectorAll(".proto-spec-mermaid[data-mermaid]:not([data-rendered])"));
+    if (!nodes.length) return;
+    nodes.forEach(function (node) { node.setAttribute("data-rendered", "loading"); });
+    loadMermaid().then(function (mermaid) {
+      nodes.forEach(function (node, index) {
+      const code = node.getAttribute("data-mermaid") || "";
+      mermaid.render("proto-spec-mermaid-" + pageKey + "-" + index + "-" + Date.now(), code).then(function (result) {
+        node.setAttribute("data-rendered", "true");
+        node.innerHTML = result.svg || node.innerHTML;
+      }).catch(function () {
+        node.setAttribute("data-rendered", "failed");
+      });
+      });
+    }).catch(function () {
+      nodes.forEach(function (node) { node.setAttribute("data-rendered", "failed"); });
+    });
+  }
+  function renderSpec() {
+    const displayStatus = status || (editing && draft !== bodyMarkdown ? "未保存" : "");
+    const toolbar = editing
+      ? '<div class="proto-spec-doc__toolbar"><div class="proto-spec-doc__mode-toggle" role="group" aria-label="编辑模式"><button type="button" data-action="write" class="' + (editorMode === "write" ? "is-active" : "") + '">Markdown</button><button type="button" data-action="preview" class="' + (editorMode === "preview" ? "is-active" : "") + '">预览</button></div><button type="button" class="proto-spec-doc__button proto-spec-doc__button--primary" data-action="save">保存</button><button type="button" class="proto-spec-doc__button" data-action="cancel">取消</button>' + (displayStatus ? '<span class="proto-spec-doc__status">' + escapeHtml(displayStatus) + '</span>' : "") + '</div>'
+      : '<div class="proto-spec-doc__toolbar"><button type="button" class="proto-spec-doc__button" data-action="edit">编辑</button>' + (displayStatus ? '<span class="proto-spec-doc__status">' + escapeHtml(displayStatus) + '</span>' : "") + '</div>';
+    const content = editing && editorMode === "write"
+      ? '<textarea class="proto-spec-doc__editor"></textarea>'
+      : '<article class="proto-spec-doc__content">' + renderMarkdown(editing ? draft : bodyMarkdown) + '</article>';
+    specPanel.innerHTML = '<div class="proto-spec-doc__inner">' + toolbar + content + '</div>';
+    const editor = specPanel.querySelector(".proto-spec-doc__editor");
+    if (editor) editor.value = draft;
+    if (!editing) renderMermaidDiagrams();
+  }
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>]/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[ch]; });
+  }
+  function escapeAttr(value) {
+    return escapeHtml(value).replace(/"/g, "&quot;");
+  }
+  function embeddedSpecMarkdown() {
+    const nodes = Array.from(document.querySelectorAll("script[data-proto-spec-markdown]"));
+    const node = nodes.find(function (item) { return item.getAttribute("data-proto-spec-markdown") === pageKey; });
+    if (!node) return "";
+    try {
+      return JSON.parse(node.textContent || "\"\"");
+    } catch (error) {
+      return node.textContent || "";
+    }
+  }
+  async function fetchFirstText(urls) {
+    const embedded = embeddedSpecMarkdown();
+    if (embedded) return embedded;
+    let lastError = null;
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (res.ok) return res.text();
+        lastError = new Error(url + " returned " + res.status);
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw lastError || new Error("spec not found");
+  }
+  async function saveSpec() {
+    const editor = specPanel.querySelector(".proto-spec-doc__editor");
+    if (editor) draft = editor.value;
+    status = "保存中...";
+    renderSpec();
+    try {
+      const res = await fetch("/__prototype-specs/specs/" + encodeURIComponent(pageKey), {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ markdown: composeMarkdown() })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      bodyMarkdown = draft;
+      editing = false;
+      editorMode = "write";
+      status = "已保存";
+    } catch (error) {
+      status = "保存失败：请使用 node proto-spec-server.mjs 启动本地预览。";
+    }
+    renderSpec();
+  }
+  fetchFirstText([
+    "/__prototype-specs/specs/" + encodeURIComponent(pageKey),
+    "/prototype-specs/current/" + encodeURIComponent(pageKey) + ".md",
+    "../prototype-specs/current/" + encodeURIComponent(pageKey) + ".md"
+  ]).then(function (markdown) {
+    const parsed = splitFrontmatter(markdown);
+    frontmatterText = parsed.frontmatterText;
+    bodyMarkdown = parsed.body;
+    draft = bodyMarkdown;
+    renderSpec();
+  }).catch(function (error) {
+    specPanel.setAttribute("data-spec-error", error && (error.stack || error.message || String(error)) || "unknown");
+    specPanel.innerHTML = '<div class="proto-spec-doc__inner"><h1>需求说明</h1><p>读取需求说明失败。请确认已从项目根目录启动本地服务，或检查 prototype-specs/current/' + pageKey + '.md。</p></div>';
+  });
+  specPanel.addEventListener("click", function (event) {
+    const button = event.target.closest("button[data-action]");
+    if (!button) return;
+    if (button.dataset.action === "edit") {
+      editing = true;
+      editorMode = "write";
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "write" || button.dataset.action === "preview") {
+      const editor = specPanel.querySelector(".proto-spec-doc__editor");
+      if (editor) draft = editor.value;
+      editorMode = button.dataset.action === "preview" ? "preview" : "write";
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "cancel") {
+      editing = false;
+      editorMode = "write";
+      draft = bodyMarkdown;
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "save") saveSpec();
+  });
+  function setView(view) {
+    const showSpec = view === "spec";
+    specPanel.hidden = !showSpec;
+    if (viewerMode === "dual-view") productNodes.forEach(function (node) { node.hidden = showSpec; });
+    switcher.querySelectorAll("button").forEach(function (button) { button.classList.toggle("is-active", button.dataset.view === view); });
+  }
+  function clampSwitcherPosition(left, top) {
+    const rect = switcher.getBoundingClientRect();
+    const margin = 8;
+    return {
+      left: Math.min(Math.max(left, margin), Math.max(margin, window.innerWidth - rect.width - margin)),
+      top: Math.min(Math.max(top, margin), Math.max(margin, window.innerHeight - rect.height - margin))
+    };
+  }
+  let suppressClick = false;
+  function enableSwitcherDrag() {
+    let drag = null;
+    switcher.addEventListener("pointerdown", function (event) {
+      if (event.button !== 0) return;
+      const rect = switcher.getBoundingClientRect();
+      drag = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        left: rect.left,
+        top: rect.top,
+        moved: false
+      };
+      switcher.setPointerCapture?.(event.pointerId);
+    });
+    switcher.addEventListener("pointermove", function (event) {
+      if (!drag || event.pointerId !== drag.pointerId) return;
+      const dx = event.clientX - drag.startX;
+      const dy = event.clientY - drag.startY;
+      if (!drag.moved && Math.hypot(dx, dy) <= 5) return;
+      drag.moved = true;
+      const next = clampSwitcherPosition(drag.left + dx, drag.top + dy);
+      switcher.classList.add("is-dragging");
+      switcher.style.left = next.left + "px";
+      switcher.style.top = next.top + "px";
+      switcher.style.transform = "none";
+      event.preventDefault();
+    });
+    function finishDrag(event) {
+      if (!drag || event.pointerId !== drag.pointerId) return;
+      suppressClick = drag.moved && event.type === "pointerup";
+      switcher.classList.remove("is-dragging");
+      if (switcher.hasPointerCapture?.(event.pointerId)) switcher.releasePointerCapture(event.pointerId);
+      drag = null;
+    }
+    switcher.addEventListener("pointerup", finishDrag);
+    switcher.addEventListener("pointercancel", finishDrag);
+  }
+  enableSwitcherDrag();
+  switcher.addEventListener("click", function (event) {
+    if (suppressClick) {
+      suppressClick = false;
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+    const source = event.target instanceof Element ? event.target : switcher;
+    const button = source.closest("button[data-view]")
+      || document.elementFromPoint(event.clientX, event.clientY)?.closest("button[data-view]");
+    if (button) setView(button.dataset.view);
+  });
+})();
+</script>
+<!-- proto-spec-annotator-viewer:end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Prototype Annotator runtime -->
+<script>
+</script>
+<script id="prototype-annotations-data" type="application/json">
+{
+  "version": 1,
+  "pages": [
+    {
+      "pageKey": "P13",
+      "title": "周末到铜梁AI伴游 - 边走边耍",
+      "path": "explore.html",
+      "route": "/explore.html"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "ANN-P13-001",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+        "strategy": "tag",
+        "sourceElementId": "P13-E001",
+        "boundsHint": {
+          "text": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+          "tag": "main"
+        }
+      },
+      "title": "周末到铜梁AI伴游 - 边走边耍 · 页面介绍",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "annotationType": "P",
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+      ],
+      "topics": [
+        "source",
+        "business",
+        "flow"
+      ],
+      "updatedAt": "2026-09-02T01:39:05Z"
+    },
+    {
+      "id": "ANN-P13-002",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+        "strategy": "tag",
+        "sourceElementId": "P13-E001",
+        "boundsHint": {
+          "text": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+          "tag": "main"
+        }
+      },
+      "title": "AI处理逻辑",
+      "contentMarkdown": "### 业务含义\n\n说明地图页 AI 对话结果的范围、意图优先级与可信边界。\n\n### AI 处理规则\n\n- 用户最新明确输入优先于当前已确认意图；当前已确认意图优先于历史上下文中的旧意图。\n- AI 仅在吃、住、游、购范围内识别用户输入，并结合当前地图或对话上下文组织结果。\n- 可靠的关联知识和实时数据优先于 AI 推测。推荐内容必须来自关联知识或正式数据源。\n- 无可靠数据时只展示待确认状态，不伪造价格、库存、房态、场次、距离或营业状态。\n- 结果可包含 POI、实体卡片或必要的最小追问。\n- 用户端没有“加入计划”功能，AI 不自动创建、加入或修改计划；用户只可使用心愿单保存感兴趣的商品或商户。\n- 每条 AI 回复底部保留复制、喜欢、不喜欢操作，并显示“内容由 AI 生成，仅供参考”。\n- 长按或右键 AI 回复不弹出操作菜单，不提供菜单式删除、分享或收藏入口。\n\n### 页面流转\n\n- 来源：地图页输入或地图上下文；目标：AI 回复、POI 或必要追问。\n- 回复失败时由失败兜底标注承接，失败消息仍写入当前历史对话。\n\n### 待确认\n\n- 根据当前原型结构推断，正式 AI 数据协议与置信度展示口径需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "AI",
+      "kind": "ai",
+      "topics": [
+        "ai",
+        "business",
+        "exception"
+      ],
+      "dimension": "AI and automation",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-E001"
+      },
+      "evidence": [
+        "页面源码：explore.html",
+        "V7用户端规则定义文档：AI意图与异常处理规则"
+      ],
+      "nextActions": [],
+      "dependencies": [
+        "需确认 AI 输入来源、输出展示、人工确认与失败兜底规则。"
+      ],
+      "risks": [],
+      "openQuestions": [
+        "AI 结果是否需要置信度展示与人工确认后才能提交？"
+      ],
+      "candidateId": null,
+      "selectorQuality": null,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "updatedAt": "2026-09-02T01:39:33Z"
+    },
+    {
+      "id": "ANN-P13-003",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+        "strategy": "tag",
+        "sourceElementId": "P13-E001",
+        "boundsHint": {
+          "text": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+          "tag": "main"
+        }
+      },
+      "title": "AI 失败兜底",
+      "contentMarkdown": "### 业务含义\n\n定义 AI 无法完成处理时的用户可见反馈、历史留存与继续操作边界。\n\n### 失败与兜底\n\n- AI 回复失败消息保存到历史对话，消息必须标记为失败状态，不得当作成功回答或有效推荐结果。\n- 失败消息可提供重试入口；重试仍失败时保留每次失败记录，便于用户知道当时发生过什么。\n- 无法识别或超出铜梁区域吃、住、游、购、娱范围时，显示：“您的需求超出平台提供的服务范围，平台只提供铜梁区域范围内的吃、住、游、购、娱相关商户和商品信息以及相关问答回复，非常抱歉不能帮助到您。”\n- 定位失败时不显示伪造的附近结果或精确距离，用户仍可通过普通地图分类和文本输入继续探索。\n\n### 页面流转\n\n- 来源：AI 请求失败、无法识别或定位失败；目标：保存失败消息、展示完整兜底文案、标记失败状态或允许重试。\n- 失败消息可随历史对话恢复，但不产生有效推荐、心愿单或计划变更。\n\n### 待确认\n\n- 根据当前原型结构推断，失败重试次数与网络错误码映射需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "FALLBACK",
+      "kind": "ai",
+      "topics": [
+        "ai",
+        "exception"
+      ],
+      "dimension": "AI and automation",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-E001"
+      },
+      "evidence": [
+        "页面源码：explore.html",
+        "V7用户端规则定义文档：AI意图与异常处理规则"
+      ],
+      "nextActions": [],
+      "dependencies": [
+        "需确认 AI 失败后的人工修正、重试和提交阻断规则。"
+      ],
+      "risks": [],
+      "openQuestions": [
+        "AI 失败或低置信度时是否允许人工确认后继续提交？"
+      ],
+      "candidateId": null,
+      "selectorQuality": null,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "updatedAt": "2026-09-02T01:39:33Z"
+    },
+    {
+      "id": "ANN-P13-004",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "吃",
+        "strategy": "path",
+        "sourceElementId": "P13-E008",
+        "boundsHint": {
+          "text": "吃",
+          "selector": "html \u003e body \u003e main \u003e section"
+        }
+      },
+      "title": "地图分类切换",
+      "contentMarkdown": "### 业务含义\n\n地图分类控制当前可浏览的 POI 范围，并与点位图标颜色保持一致。\n\n### 交互规则\n\n- 分类栏包含吃、住、游、购和心愿五项；图标居中置于竖向胶囊内。\n- 无心愿时默认展示当前位置周边 5km 内吃住游购全量 POI。\n- 有心愿时，心愿分类展示默认已选择的心愿点位；预览没有路线虚线。\n- 点击返回当前位置后显示当前位置周边 5km 内吃住游购全量 POI，不显示心愿点位。\n\n### 状态与异常\n\n- 定位不可用时仍可切换分类浏览，不展示伪造精确距离。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-008"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-008"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-008",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P13-005",
+      "pageKey": "P13",
+      "target": {
+        "selector": "[aria-label=\"查看当前位置\"]",
+        "fallbackText": "铜梁区玄天湖...",
+        "strategy": "aria",
+        "sourceElementId": "P13-E005",
+        "boundsHint": {
+          "text": "铜梁区玄天湖...",
+          "selector": "[aria-label=\"查看当前位置\"]"
+        }
+      },
+      "title": "查看当前位置",
+      "contentMarkdown": "### 业务含义\n\n说明当前位置能力仅用于地图定位与附近内容展示。\n\n### 交互规则\n\n- 首次进入首页不主动申请定位；用户进入地图或主动使用附近服务时，按需申请一次当前位置。\n- 一次定位结果只用于当前地图、附近服务和当前浏览上下文，不开启持续定位。\n- 授权成功后地图回到当前位置，并显示有可靠数据支撑的 POI。\n- 用户拒绝定位时，普通地图固定 POI 仍可浏览；附近服务不得生成伪造的附近结果或精确距离。\n- 用户再次主动使用需要定位的功能时，可以重新申请一次定位。\n\n### 风险提示\n\n- 权限边界：仅申请当前设备定位；拒绝后不阻断分类浏览。\n- 定位结果不写入对话历史，也不作为心愿地图展示已选心愿 POI 的前置条件。\n\n### 页面流转\n\n- 来源：地图页当前位置按钮或附近服务入口；目标：系统授权、当前位置地图、附近结果或原地图页。\n\n### 待确认\n\n- 当前规则已确认；系统定位授权文案需结合最终交互稿确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "permission",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Permission and risk",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-005"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-005"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-005",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P13-006",
+      "pageKey": "P13",
+      "target": {
+        "selector": "[aria-label=\"查看天气\"]",
+        "fallbackText": "晴 23℃",
+        "strategy": "aria",
+        "sourceElementId": "P13-E006",
+        "boundsHint": {
+          "text": "晴 23℃",
+          "selector": "[aria-label=\"查看天气\"]"
+        }
+      },
+      "title": "天气信息提示",
+      "contentMarkdown": "### 业务含义\n\n说明天气入口当前处于信息展示与功能占位状态。\n\n### 状态与异常\n\n- 当前天气作为页面上下文展示。\n- 点击后显示“近一周天气功能将于后续开放”。\n- 该入口当前不承担正式天气查询。\n- 触发条件：用户点击天气入口；异常状态：天气不可用时保留占位提示。\n\n### 页面流转\n\n- 来源：地图页天气摘要；目标：轻量提示，不跳转其他页面。\n\n### 待确认\n\n- 根据当前原型结构推断，天气数据刷新频率与失效展示需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "S",
+      "kind": "state",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "State and exception",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-006"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-006"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-006",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P13-007",
+      "pageKey": "P13",
+      "target": {
+        "selector": "[aria-label=\"返回在铜梁主页\"]",
+        "fallbackText": "返回在铜梁主页",
+        "strategy": "aria",
+        "sourceElementId": "P13-E007",
+        "boundsHint": {
+          "text": "返回在铜梁主页",
+          "selector": "[aria-label=\"返回在铜梁主页\"]"
+        }
+      },
+      "title": "返回在铜梁主页",
+      "contentMarkdown": "### 业务含义\n\n说明地图页主页入口对共享用户上下文的保持规则。\n\n### 交互规则\n\n- 点击返回 `plan.html`。\n- 返回时保留共享会话和心愿单上下文。\n\n### 页面流转\n\n- 来源：`explore.html`；目标：`plan.html`；返回后保留会话和心愿单。\n\n### 待确认\n\n- 根据当前原型结构推断，地图筛选状态是否需要在返回后恢复需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-007"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-007"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-007",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P13-008",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "地图点位信息",
+        "strategy": "class",
+        "sourceElementId": "P13-E002",
+        "boundsHint": {
+          "text": "地图点位信息",
+          "selector": "html \u003e body \u003e main \u003e section"
+        }
+      },
+      "title": "POI 信息卡",
+      "contentMarkdown": "### 业务含义\n\nPOI 卡片让用户从地图点位继续查看详情、导航、管理心愿或发起咨询。\n\n### 显示与交互规则\n\n- 卡片展示图片、商户名称、蓝色地址导航行和底部操作。图片和名称进入详情。\n- 点击地址行的导航图标或文本进入地图导航页，并带入当前 POI 名称和地址。\n- 普通 POI 的心愿与咨询为靠右相邻的圆形图标。\n- 心愿 POI 额外显示同步的“还没去/去过了”胶囊；到访状态控制地图红蓝颜色。\n- 取消当前心愿后，点位和关联路线立即移除；刷新页面后不得恢复。\n\n### 状态与异常\n\n- 缺少可靠地址或坐标时，不生成导航、距离或路线。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "business",
+        "interaction"
+      ],
+      "dimension": "Data explanation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-E002"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-E002"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-E002",
+      "selectorQuality": {
+        "level": "acceptable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    }
+  ],
+  "project": {
+    "id": "prototype",
+    "name": "Prototype",
+    "source": "local"
+  },
+  "surfaces": [],
+  "productProfile": {
+    "productName": "周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "annotationMode": "standard",
+    "enabledAnnotationTypes": [
+      "P",
+      "A",
+      "J",
+      "S",
+      "R",
+      "DATA",
+      "AI",
+      "FALLBACK"
+    ],
+    "inferred": true
+  },
+  "audienceMode": "product-review",
+  "productContext": {
+    "productName": "产品说明书：周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "enabledAnnotationTypes": [
+      "P",
+      "E",
+      "C",
+      "A",
+      "J",
+      "S",
+      "R",
+      "PERM",
+      "DATA",
+      "AI",
+      "PROMPT",
+      "CTX",
+      "HITL",
+      "FALLBACK"
+    ],
+    "roles": [],
+    "coreObjects": [],
+    "coreFlows": [],
+    "pages": [],
+    "generatedAt": "2026-09-04T09:11:49Z",
+    "sources": [
+      "D:\\project_codex\\codex_tl-wl\\产品说明书\\产品说明书-用户端-20260904-v1.md",
+      "D:\\project_codex\\codex_tl-wl\\prototype-mobile-v7-20260831\\V7用户端规则定义文档-20260831.md"
+    ]
+  }
+}
+</script>
+<!-- /Prototype Annotator runtime -->
+</body></html>

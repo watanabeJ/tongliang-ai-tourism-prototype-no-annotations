@@ -1,0 +1,37 @@
+{
+  "specSchemaVersion": 2,
+  "storageFormat": "markdown",
+  "pages": [
+    {
+      "pageKey": "activity-detail",
+      "pageName": "活动详情",
+      "sourceFile": "activity-detail.html",
+      "routeHint": "activity-detail.html"
+    },
+    {
+      "pageKey": "explore",
+      "pageName": "周末到铜梁AI伴游 - 边走边耍",
+      "sourceFile": "explore.html",
+      "routeHint": "explore.html"
+    },
+    {
+      "pageKey": "map-navigation",
+      "pageName": "地图导航",
+      "sourceFile": "map-navigation.html",
+      "routeHint": "map-navigation.html"
+    },
+    {
+      "pageKey": "plan",
+      "pageName": "周末到铜梁AI伴游 - 计划",
+      "sourceFile": "plan.html",
+      "routeHint": "plan.html"
+    },
+    {
+      "pageKey": "product-detail",
+      "pageName": "商品展示",
+      "sourceFile": "product-detail.html",
+      "routeHint": "product-detail.html"
+    }
+  ],
+  "lastUpdated": "2026-09-04T17:11:49+08:00"
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>地图导航</title>
+  <link rel="stylesheet" href="../styles.css?v=poi-navigation-v2">
+</head>
+<body>
+<main class="stage">
+  <section class="phone">
+    <div class="screen poi-navigation-screen">
+      <div class="poi-navigation-status"><span>12:11</span><span class="poi-navigation-signals"><span>⌁</span><span>5G</span><span>4G</span><span>80</span></span></div>
+      <button class="poi-navigation-back" type="button" aria-label="返回上一页">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="poi-navigation-map" aria-label="地图导航区域">
+        <span class="poi-navigation-marker" aria-hidden="true"></span>
+        <button class="poi-navigation-locate" type="button" aria-label="回到当前位置">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+        </button>
+        <span class="poi-navigation-brand"><i>◆</i>腾讯地图</span>
+      </div>
+      <section class="poi-navigation-sheet" aria-label="目的地信息">
+        <span class="poi-navigation-grip" aria-hidden="true"></span>
+        <h1 data-navigation-name>目的地</h1>
+        <p data-navigation-address>重庆市铜梁区玄天湖周边</p>
+        <div class="poi-navigation-actions">
+          <button type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.8 3.2 9.8 21l-1.9-8-8-1.9 20.9-7.9Z"/></svg>
+            <span>导航</span>
+          </button>
+          <button type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14l-1-7-2-3H8l-2 3-1 7Z"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M6 11h12"/></svg>
+            <span>打车</span>
+          </button>
+          <button type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M4 4h15a1 1 0 0 1 1 1v16l-8-4-8 4V4Z"/></svg>
+            <span>收藏</span>
+          </button>
+          <button type="button" aria-label="更多">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+          </button>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  const params = new URLSearchParams(location.search);
+  const name = params.get('name') || '目的地';
+  const address = params.get('address') || '重庆市铜梁区玄天湖周边';
+  document.querySelector('[data-navigation-name]').textContent = name;
+  document.querySelector('[data-navigation-address]').textContent = address;
+  document.querySelector('.poi-navigation-back')?.addEventListener('click', () => {
+    if (history.length > 1) history.back();
+    else location.href = 'plan.html';
+  });
+})();
+</script>
+
+
+
+
+
+<!-- Prototype Annotator runtime -->
+<script>
+</script>
+<script id="prototype-annotations-data" type="application/json">
+{
+  "version": 1,
+  "pages": [
+    {
+      "pageKey": "P16",
+      "title": "地图导航",
+      "path": "map-navigation.html",
+      "route": "/map-navigation.html"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "ANN-P16-001",
+      "pageKey": "P16",
+      "target": {
+        "selector": "main",
+        "fallbackText": "目的地信息",
+        "strategy": "tag"
+      },
+      "title": "地图导航 · 页面介绍",
+      "annotationType": "P",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+        "页面可见目的地信息与导航操作"
+      ],
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已根据当前地图导航页面和页面说明完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P16-002",
+      "pageKey": "P16",
+      "target": {
+        "selector": "main",
+        "fallbackText": "目的地信息",
+        "strategy": "tag"
+      },
+      "title": "目的地信息与导航承接",
+      "contentMarkdown": "### 业务含义\n\n导航页承接 POI 卡片和对话推荐的地址操作，避免用户在跳转后丢失当前目的地。\n\n### 交互规则\n\n- 页面展示传入的目的地名称和地址；长地址自动换行，不遮挡导航操作。\n- 用户点击导航进入当前目的地的导航承接；打车和收藏未接入真实服务时仅给出原型反馈。\n\n### 页面流转\n\n- 来源：POI 卡片或对话推荐的蓝色地址导航行。\n- 目标：当前目的地导航操作；返回优先回到上一浏览页面，无可用上一页时回到首页。\n\n### 状态与异常\n\n- 地址或地图底图不可用时保留已有目的地信息和返回入口，不显示虚构路线。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "flow",
+      "topics": [
+        "business",
+        "interaction",
+        "flow",
+        "exception"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P16-001"
+      },
+      "evidence": [
+        "页面可见目的地信息和导航操作"
+      ],
+      "candidateId": "CAND-P16-001",
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已根据当前地图导航页面和页面说明完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    }
+  ],
+  "project": {
+    "id": "prototype",
+    "name": "Prototype",
+    "source": "local"
+  },
+  "surfaces": [],
+  "productProfile": {
+    "productName": "周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "annotationMode": "standard",
+    "enabledAnnotationTypes": [
+      "P",
+      "A",
+      "J",
+      "S",
+      "R",
+      "DATA",
+      "AI",
+      "FALLBACK"
+    ],
+    "inferred": true
+  },
+  "audienceMode": "product-review",
+  "productContext": {
+    "productName": "产品说明书：周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "enabledAnnotationTypes": [
+      "P",
+      "E",
+      "C",
+      "A",
+      "J",
+      "S",
+      "R",
+      "PERM",
+      "DATA",
+      "AI",
+      "PROMPT",
+      "CTX",
+      "HITL",
+      "FALLBACK"
+    ],
+    "roles": [],
+    "coreObjects": [],
+    "coreFlows": [],
+    "pages": [],
+    "generatedAt": "2026-09-04T09:11:49Z",
+    "sources": [
+      "D:\\project_codex\\codex_tl-wl\\产品说明书\\产品说明书-用户端-20260904-v1.md",
+      "D:\\project_codex\\codex_tl-wl\\prototype-mobile-v7-20260831\\V7用户端规则定义文档-20260831.md"
+    ]
+  }
+}
+</script>
+<!-- /Prototype Annotator runtime -->
+</body>
+</html>

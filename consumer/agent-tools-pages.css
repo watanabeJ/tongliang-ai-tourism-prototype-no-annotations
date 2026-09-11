@@ -1,0 +1,13 @@
+.agent-tools-page { width: min(100%, 430px); min-height: 100vh; margin: auto; background: #fff; }
+.agent-tools-page header { display: flex; align-items: center; gap: 20px; padding: 18px 16px; }
+.agent-tools-page h1 { font-size: 18px; margin: 0; }
+.agent-tools-page a { color: #1677d2; text-decoration: none; }
+#agent-map { height: 48vh; min-height: 280px; background: #eaf1f4; }
+.agent-destination { padding: 20px; line-height: 1.65; }
+.agent-destination h2 { margin: 0; font-size: 21px; }
+.agent-destination [data-status] { color: #647584; font-size: 13px; }
+.agent-destination a, .agent-destination button { display: block; padding: 10px 12px; margin-top: 10px; min-height: 44px; border: 1px solid #dce6ed; border-radius: 10px; background: #fff; text-align: left; cursor: pointer; }
+.agent-destination .agent-primary-action { color: #fff; background: #1677d2; }
+.agent-destination [hidden] { display: none; }
+.agent-entity-image { width: 100%; height: 260px; object-fit: cover; }
+.agent-tools-page :focus-visible { outline: 2px solid #1677d2; outline-offset: 3px; }

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>铜梁文旅原型入口</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #f4f6f8;
+      color: #18212b;
+      font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+    }
+
+    nav {
+      width: min(360px, calc(100% - 40px));
+      display: grid;
+      gap: 12px;
+    }
+
+    a {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #d8dde3;
+      border-radius: 6px;
+      background: #ffffff;
+      color: inherit;
+      padding: 0 18px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-decoration: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+
+    a::after {
+      content: "\2192";
+      color: #66717d;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    a:hover {
+      border-color: #e65f3f;
+      box-shadow: 0 6px 18px rgba(24, 33, 43, 0.08);
+      transform: translateY(-1px);
+    }
+
+    a:focus-visible {
+      outline: 3px solid rgba(230, 95, 63, 0.28);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="项目入口">
+    <a href="consumer/plan.html">游客端</a>
+    <a href="government/index.html">政府端</a>
+    <a href="merchant-assistant/workbench.html">商户端</a>
+  </nav>
+</body>
+</html>

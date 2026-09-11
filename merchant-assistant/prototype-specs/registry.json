@@ -1,0 +1,97 @@
+{
+  "specSchemaVersion": 2,
+  "storageFormat": "markdown",
+  "pages": [
+    {
+      "pageKey": "assistant-item",
+      "pageName": "铜梁旅游商户端 - 处理内容",
+      "sourceFile": "assistant-item.html",
+      "routeHint": "assistant-item.html"
+    },
+    {
+      "pageKey": "change-password",
+      "pageName": "铜梁旅游商户端 - 修改密码",
+      "sourceFile": "change-password.html",
+      "routeHint": "change-password.html"
+    },
+    {
+      "pageKey": "knowledge-import-relations",
+      "pageName": "铜梁旅游商户端 - 解析内容确认",
+      "sourceFile": "knowledge-import-relations.html",
+      "routeHint": "knowledge-import-relations.html"
+    },
+    {
+      "pageKey": "knowledge-import",
+      "pageName": "铜梁旅游商户端 - 添加知识内容",
+      "sourceFile": "knowledge-import.html",
+      "routeHint": "knowledge-import.html"
+    },
+    {
+      "pageKey": "knowledge",
+      "pageName": "铜梁旅游商户端 - 知识库",
+      "sourceFile": "knowledge.html",
+      "routeHint": "knowledge.html"
+    },
+    {
+      "pageKey": "login",
+      "pageName": "铜梁旅游商户端 - 登录",
+      "sourceFile": "login.html",
+      "routeHint": "login.html"
+    },
+    {
+      "pageKey": "merchant-profile-correction",
+      "pageName": "铜梁旅游商户端 - 补充商户资料",
+      "sourceFile": "merchant-profile-correction.html",
+      "routeHint": "merchant-profile-correction.html"
+    },
+    {
+      "pageKey": "merchant-profile",
+      "pageName": "铜梁旅游商户端 - 商户资料",
+      "sourceFile": "merchant-profile.html",
+      "routeHint": "merchant-profile.html"
+    },
+    {
+      "pageKey": "onboarding-success",
+      "pageName": "铜梁旅游商户端 - 资料已提交",
+      "sourceFile": "onboarding-success.html",
+      "routeHint": "onboarding-success.html"
+    },
+    {
+      "pageKey": "onboarding",
+      "pageName": "铜梁旅游商户端 - 提交商户资料",
+      "sourceFile": "onboarding.html",
+      "routeHint": "onboarding.html"
+    },
+    {
+      "pageKey": "personal-center",
+      "pageName": "铜梁旅游商户端 - 个人中心",
+      "sourceFile": "personal-center.html",
+      "routeHint": "personal-center.html"
+    },
+    {
+      "pageKey": "register",
+      "pageName": "铜梁旅游商户端 - 注册",
+      "sourceFile": "register.html",
+      "routeHint": "register.html"
+    },
+    {
+      "pageKey": "store-info",
+      "pageName": "铜梁旅游商户端 - 门店信息",
+      "sourceFile": "store-info.html",
+      "routeHint": "store-info.html"
+    },
+    {
+      "pageKey": "store-product-add",
+      "pageName": "铜梁旅游商户端 - 添加商品/套餐",
+      "sourceFile": "store-product-add.html",
+      "routeHint": "store-product-add.html"
+    },
+    {
+      "pageKey": "workbench",
+      "pageName": "铜梁旅游商户端 - 工作台",
+      "sourceFile": "workbench.html",
+      "routeHint": "workbench.html"
+    }
+  ],
+  "lastUpdated": "2026-09-04T10:47:47+08:00"
+}

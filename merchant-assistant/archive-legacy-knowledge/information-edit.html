@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>铜梁旅游商户端 - 修改店铺信息</title>
+  <link rel="stylesheet" href="merchant.css?v=20260827">
+</head>
+<body>
+  <main class="prototype-stage">
+    <section class="phone-shell" aria-label="修改店铺信息原型">
+      <form class="app-screen" data-information-edit-form>
+        <div class="status-bar">
+          <span>15:30</span>
+          <span class="status-icons"><i data-lucide="signal"></i><i data-lucide="wifi"></i><i data-lucide="battery-full"></i></span>
+        </div>
+        <header class="app-header">
+          <button class="icon-button" type="button" data-back="confirmInformation" aria-label="返回确认信息" title="返回"><i data-lucide="arrow-left"></i></button>
+          <div class="app-header-copy"><strong>修改店铺信息</strong><small>营业时间</small></div>
+          <span class="header-placeholder"></span>
+        </header>
+        <div class="page-content with-fixed-action">
+          <section class="section-block">
+            <div class="section-heading"><h2>现在的情况</h2></div>
+            <p class="section-caption">尽量填写明确的时间，方便 AI 正确回答</p>
+            <label class="field">
+              <span class="field-label"><span><b>*</b> 营业时间</span></span>
+              <input class="input" value="每天 10:30-21:30" aria-label="当前营业时间">
+            </label>
+          </section>
+          <section class="section-block">
+            <div class="section-heading"><h2>修改前</h2></div>
+            <div class="source-block"><small>平台已整理</small><strong>每天 10:00-21:00</strong></div>
+          </section>
+          <div class="notice">
+            <i data-lucide="shield-check"></i>
+            <div><strong>修改后会先由平台审核</strong>审核通过后，AI 才会使用新内容回答游客。</div>
+          </div>
+        </div>
+        <footer class="fixed-action"><button class="button primary block" type="submit">保存修改</button></footer>
+        <div class="modal-backdrop" id="edit-success-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="edit-success-title">
+          <div class="modal-dialog">
+            <h2 id="edit-success-title">修改已保存</h2>
+            <p>平台会先审核，再更新给游客。</p>
+            <button class="button primary block" type="button" data-route="knowledge">返回知识</button>
+          </div>
+        </div>
+        <div class="toast" data-toast-root role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+  <script src="assets/lucide.min.js"></script>
+  <script src="merchant.js?v=20260827"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Prototype Annotator runtime -->
+<script>
+</script>
+<script id="prototype-annotations-data" type="application/json">
+{
+  "version": 1,
+  "project": {
+    "id": "merchant-assistant",
+    "name": "merchant-assistant",
+    "source": "ai-reviewed"
+  },
+  "pages": [
+    {
+      "pageKey": "P05",
+      "title": "铜梁旅游商户端 - 修改店铺信息",
+      "path": "archive-legacy-knowledge\\information-edit.html",
+      "route": "/archive-legacy-knowledge\\information-edit.html"
+    }
+  ],
+  "productProfile": {
+    "productName": "V7 商户端规则定义文档",
+    "productType": "ai_enterprise_app",
+    "productForms": [
+      "B端应用",
+      "AI产品",
+      "内容/工具产品"
+    ],
+    "primaryUsers": [
+      "业务用户"
+    ],
+    "annotationMode": "standard",
+    "enabledAnnotationTypes": [
+      "P",
+      "E",
+      "C",
+      "A",
+      "J",
+      "S",
+      "R",
+      "PERM",
+      "DATA",
+      "AI",
+      "PROMPT",
+      "CTX",
+      "HITL",
+      "FALLBACK",
+      "ROLE",
+      "PLAN",
+      "TENANT",
+      "CONTENT",
+      "PUBLISH",
+      "MOD",
+      "REC",
+      "TRACK"
+    ],
+    "inferred": true
+  },
+  "audienceMode": "product-review",
+  "productContext": {
+    "productName": "V7 商户端规则定义文档",
+    "productType": "ai_enterprise_app",
+    "productForms": [
+      "B端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "业务用户"
+    ],
+    "enabledAnnotationTypes": [
+      "P",
+      "E",
+      "C",
+      "A",
+      "J",
+      "S",
+      "R",
+      "PERM",
+      "DATA",
+      "AI",
+      "PROMPT",
+      "CTX",
+      "HITL",
+      "FALLBACK"
+    ],
+    "roles": [],
+    "coreObjects": [],
+    "coreFlows": [],
+    "pages": [
+      {
+        "pageKey": "P01",
+        "pageName": "铜梁旅游商户端 - 确认到店地址",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 确认到店地址」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P02",
+        "pageName": "铜梁旅游商户端 - 修改到店地址",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 修改到店地址」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P03",
+        "pageName": "铜梁旅游商户端 - 经营助手",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 经营助手」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P04",
+        "pageName": "铜梁旅游商户端 - 确认店铺信息",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 确认店铺信息」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P05",
+        "pageName": "铜梁旅游商户端 - 修改店铺信息",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 修改店铺信息」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P06",
+        "pageName": "铜梁旅游商户端 - 到店地址详情",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 到店地址详情」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P07",
+        "pageName": "铜梁旅游商户端 - 亲子接待详情",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 亲子接待详情」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P08",
+        "pageName": "铜梁旅游商户端 - 营业时间详情",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 营业时间详情」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P09",
+        "pageName": "铜梁旅游商户端 - 内容详情",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 内容详情」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P10",
+        "pageName": "铜梁旅游商户端 - 知识",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 知识」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P11",
+        "pageName": "铜梁旅游商户端 - 回答游客问题",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 回答游客问题」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P12",
+        "pageName": "铜梁旅游商户端 - 回答预约问题",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 回答预约问题」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P13",
+        "pageName": "铜梁旅游商户端 - 回答亲子接待问题",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 回答亲子接待问题」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P14",
+        "pageName": "铜梁旅游商户端 - 回答停车问题",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 回答停车问题」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P15",
+        "pageName": "铜梁旅游商户端 - 处理内容",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 处理内容」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P16",
+        "pageName": "铜梁旅游商户端 - 修改密码",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 修改密码」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P17",
+        "pageName": "铜梁旅游商户端 - 解析内容确认",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 解析内容确认」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P18",
+        "pageName": "铜梁旅游商户端 - 添加知识内容",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 添加知识内容」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P19",
+        "pageName": "铜梁旅游商户端 - 知识库",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 知识库」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P20",
+        "pageName": "铜梁旅游商户端 - 登录",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 登录」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P21",
+        "pageName": "铜梁旅游商户端 - 补充商户资料",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 补充商户资料」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P22",
+        "pageName": "铜梁旅游商户端 - 商户资料",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 商户资料」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P23",
+        "pageName": "铜梁旅游商户端 - 资料已提交",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 资料已提交」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P24",
+        "pageName": "铜梁旅游商户端 - 提交商户资料",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 提交商户资料」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P25",
+        "pageName": "铜梁旅游商户端 - 个人中心",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 个人中心」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P26",
+        "pageName": "铜梁旅游商户端 - 注册",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 注册」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P27",
+        "pageName": "铜梁旅游商户端 - 门店信息",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 门店信息」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P28",
+        "pageName": "铜梁旅游商户端 - 添加商品/套餐",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 添加商品/套餐」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      },
+      {
+        "pageKey": "P29",
+        "pageName": "铜梁旅游商户端 - 工作台",
+        "purpose": "帮助用户在 V7 商户端规则定义文档 中完成与「铜梁旅游商户端 - 工作台」相关的业务操作。",
+        "primaryTasks": [],
+        "mainUser": ""
+      }
+    ],
+    "generatedAt": "2026-09-02T01:39:46Z",
+    "sources": [
+      "D:\\project_codex\\codex_tl-wl\\prototype-mobile-v7-20260831\\V7商户端规则定义文档-20260831.md",
+      "D:\\project_codex\\codex_tl-wl\\产品说明书\\产品说明书-商户端-20260831-v1.md"
+    ]
+  },
+  "annotations": [
+    {
+      "id": "ANN-P05-001",
+      "pageKey": "P05",
+      "target": {
+        "selector": "main",
+        "fallbackText": "铜梁旅游商户端 - 修改店铺信息",
+        "strategy": "tag",
+        "sourceElementId": "P05-E001",
+        "boundsHint": {
+          "text": "15:30 修改店铺信息 营业时间 现在的情况 尽量填写明确的时间，方便 AI 正确回答 营业时间 * 修改前 平台已整理 每天 10:00-21:00 审核通过后，AI 才会使用新内容回答游客。 修改后会先由平台审核 保存修改 修改已保存 平台会先审核，再更新给游客。 返回知识",
+          "tag": "main"
+        }
+      },
+      "title": "修改店铺信息 · 页面说明",
+      "audienceMode": "product-review",
+      "annotationType": "P",
+      "kind": "note",
+      "dimension": "Page overview",
+      "topics": [
+        "source",
+        "business",
+        "flow"
+      ],
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "page-spec",
+      },
+      "evidence": [
+        "页面：archive-legacy-knowledge\\information-edit.html",
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "user-confirmed-annotation-replan"
+      },
+      "updatedAt": "2026-09-04T10:47:47+08:00"
+    }
+  ],
+  "surfaces": []
+}
+</script>
+<!-- /Prototype Annotator runtime -->
+</body>
+</html>
+

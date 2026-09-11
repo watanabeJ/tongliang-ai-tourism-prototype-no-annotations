@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1400">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#06283d"/><stop offset="1" stop-color="#217861"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#fff7c7" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <pattern id="grass" width="140" height="100" patternUnits="userSpaceOnUse"><rect width="140" height="100" fill="#166d54"/><rect width="70" height="100" fill="#1c795c"/></pattern>
+  </defs>
+  <rect width="750" height="1400" fill="url(#sky)"/>
+  <circle cx="75" cy="290" r="340" fill="url(#light)"/><circle cx="710" cy="310" r="310" fill="url(#light)"/>
+  <path d="M0 520 Q375 340 750 520V730H0Z" fill="#0e4150"/>
+  <g fill="none" stroke="#589883" stroke-width="4" opacity=".5"><path d="M0 540Q375 360 750 540M0 570Q375 390 750 570M0 600Q375 420 750 600M0 630Q375 450 750 630"/></g>
+  <g fill="#fdf4c4"><rect x="25" y="260" width="135" height="16" rx="5"/><rect x="590" y="260" width="135" height="16" rx="5"/></g>
+  <path d="M70 280V500M680 280V500" stroke="#6b9699" stroke-width="9"/>
+  <path d="M90 590H660L880 1400H-130Z" fill="url(#grass)"/>
+  <g fill="none" stroke="#d5e8c7" stroke-width="4" opacity=".72">
+    <path d="M115 615H635L795 1320H-45Z"/><path d="M32 980H718"/>
+    <ellipse cx="375" cy="980" rx="110" ry="73"/><path d="M235 615L220 740H530L515 615M180 1320L213 1170H537L570 1320"/>
+  </g>
+  <circle cx="375" cy="980" r="6" fill="#f3efd5"/>
+  <g transform="translate(565 1070) rotate(12)">
+    <circle r="78" fill="#fffbea" stroke="#d8e8df" stroke-width="4"/>
+    <g fill="#163e40"><path d="M0-31 30-10 18 26H-18L-30-10Z"/><path d="M-10-76 12-76 26-60 0-48-25-60Z"/><path d="M70-30 78-4 70 22 53 12 48-13Z"/><path d="M36 69 8 78-15 73-9 53 19 47Z"/><path d="M-69 34-78 4-71-23-52-11-47 16Z"/></g>
+    <path d="M0-48V-31M48-13 30-10M19 47 18 26M-47 16-18 26M-52-11-30-10" stroke="#789b8c" stroke-width="3" fill="none"/>
+  </g>
+</svg>

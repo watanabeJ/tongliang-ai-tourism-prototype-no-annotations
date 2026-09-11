@@ -1,0 +1,137 @@
+/* Scoped to the two consumer map hosts; the homepage artwork stays unchanged. */
+.map-screen.has-real-map { background: #e7ece5; }
+.map-screen.has-real-map::before { display: none; }
+.map-screen.has-real-map .map-canvas {
+  inset: 0;
+  background: #e7ece5;
+  opacity: 1;
+  touch-action: none;
+}
+.map-screen.has-real-map .marker-layer { inset: 0; overflow: hidden; }
+.map-screen.has-real-map:not(.is-map-ready) .marker-layer,
+.map-screen.has-real-map:not(.is-map-ready) .map-current-location { visibility: hidden; }
+.map-screen.has-real-map .map-current-location { pointer-events: none; }
+.map-screen.has-real-map .map-canvas .leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* Five separate 44px touch targets; all right-side controls share the same centerline. */
+.map-screen.has-real-map .category-bar {
+  box-sizing: border-box;
+  top: 160px;
+  right: 12px;
+  width: 48px;
+  height: 230px;
+  padding: 4px 1px;
+  grid-template-rows: repeat(5, 44px);
+  gap: 0;
+  border-radius: 24px;
+}
+.map-screen.has-real-map .category-bar .category {
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 22px;
+  touch-action: manipulation;
+}
+.map-screen.has-real-map .category-bar .category span { width: 30px; height: 30px; }
+.map-screen.has-real-map .category-bar .category svg { width: 16px; height: 16px; }
+.map-screen.has-real-map .category-bar .category:focus-visible {
+  outline: 2px solid #1677d2;
+  outline-offset: -2px;
+}
+.map-screen.has-real-map .category-bar .category[aria-disabled="true"] {
+  color: #aeb8bf;
+  cursor: not-allowed;
+  opacity: .7;
+}
+.map-screen.has-real-map .category-bar .map-category-hint {
+  position: absolute;
+  z-index: 1;
+  right: calc(100% + 10px);
+  max-width: 180px;
+  padding: 7px 12px;
+  border: 1px solid rgba(37,54,69,.12);
+  border-radius: 10px;
+  color: #253645;
+  background: rgba(255,255,255,.98);
+  box-shadow: 0 4px 14px rgba(37,54,69,.16);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.map-screen.has-real-map .category-bar .map-category-hint[hidden] { display: none; }
+.map-category-hint::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid rgba(37,54,69,.12);
+  border-right: 1px solid rgba(37,54,69,.12);
+  background: #fff;
+  transform: translateY(-50%) rotate(45deg);
+}
+.map-screen.has-real-map .map-locate {
+  top: 402px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  touch-action: manipulation;
+}
+.map-data-note, .map-credits {
+  position: absolute;
+  z-index: 14;
+  max-width: calc(100% - 24px);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #53616a;
+  background: rgba(255,255,255,.94);
+  font-size: 10px;
+  line-height: 14px;
+}
+.map-data-note { right: 12px; bottom: 93px; pointer-events: none; }
+.map-credits { right: 12px; bottom: 73px; }
+.map-credits a { color: #286681; text-decoration: none; }
+.map-credits a:hover { text-decoration: underline; }
+.map-load-status {
+  position: absolute;
+  z-index: 14;
+  right: 74px;
+  bottom: 130px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid #d6e0df;
+  border-radius: 12px;
+  color: #42535a;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 4px 14px rgba(37,54,69,.1);
+  font-size: 12px;
+  line-height: 18px;
+}
+.map-load-status[hidden], .map-load-status button[hidden] { display: none; }
+.map-load-status button {
+  flex-shrink: 0;
+  min-width: 40px;
+  min-height: 32px;
+  padding: 3px 7px;
+  border: 0;
+  border-radius: 6px;
+  color: #1677d2;
+  background: #edf6ff;
+  cursor: pointer;
+}

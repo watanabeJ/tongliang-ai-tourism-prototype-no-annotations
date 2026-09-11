@@ -1,0 +1,2042 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>可使用订单</title><link rel="stylesheet" href="../styles.css?v=orders-v87"></head>
+<body><main class="stage"><section class="phone"><div class="screen orders-screen">
+  <div class="statusbar wx-statusbar"><span class="status-time">15:30</span><span class="wechat-capsule" aria-label="小程序控制区"><i class="wechat-more">•••</i><i class="wechat-separator"></i><i class="wechat-circle"></i></span></div>
+  <header class="orders-header"><button class="orders-back" type="button" data-page="profile" aria-label="返回"><span data-icon="chevron-left"></span></button><label class="orders-search"><span data-icon="search"></span><input type="search" placeholder="搜索我的订单" aria-label="搜索我的订单"></label><div class="orders-filter-wrap"><button class="orders-filter" type="button" aria-expanded="false" aria-controls="orders-category-menu">全部分类 <span data-icon="chevron"></span></button><div class="orders-category-menu" id="orders-category-menu" role="menu" hidden><button type="button" role="menuitem" data-order-filter="all">全部</button><button type="button" role="menuitem" data-order-filter="eat">吃</button><button type="button" role="menuitem" data-order-filter="stay">住</button><button type="button" role="menuitem" data-order-filter="tour">游</button><button type="button" role="menuitem" data-order-filter="shop">购</button></div></div></header>
+  <nav class="orders-tabs" aria-label="订单状态"><a href="orders-pending.html">待付款</a><a class="active" href="orders-usable.html">可使用</a><a href="orders-review.html">待点评</a><a href="orders-all.html">全部订单</a></nav>
+  <section class="orders-content">
+    <article class="order-card order-verify-card mcp-verify-card" data-order-category="eat">
+      <div class="order-store"><span class="order-store-mark" data-icon="food"></span><strong>三活春（飞凤街店）</strong><span data-icon="chevron"></span><em>待核销</em></div>
+      <div class="order-product-row"><img src="../assets/三活春油烧兔-1.png" alt="三活春油烧兔双人套餐"><div><strong>油烧兔双人套餐</strong><b>1 份 | ¥128.00</b><span class="order-payment-state">已支付</span><small>有效期至：2026-08-31 21:00</small></div><button class="order-qr-preview" type="button" data-verify-qr data-verify-title="三活春油烧兔双人套餐" data-verify-note="到店出示核销凭证，由商户扫码核销" aria-label="放大核销凭证"><span class="order-qr" aria-hidden="true"><i></i><b></b><em></em></span><small>核销凭证</small></button></div>
+      <div class="order-verify-note"><span class="order-verify-mode">美团 MCP 扫码核销</span>到店出示核销凭证，由商户扫码核销</div>
+    </article>
+    <article class="order-card order-verify-card" data-order-category="eat">
+      <div class="order-store"><span class="order-store-mark" data-icon="food"></span><strong>头刀菜（金龙大道店）</strong><span data-icon="chevron"></span><em>待核销</em></div>
+      <div class="order-product-row"><img src="../assets/头刀菜.jpeg" alt="铜梁头刀肉双人套餐"><div><strong>铜梁头刀肉双人套餐</strong><b>1 份 | ¥98.00</b><span class="order-payment-state">已下单，到店支付</span><small>有效期至：2026-09-03 21:00</small></div><button class="order-qr-preview" type="button" data-verify-qr data-verify-title="铜梁头刀肉双人套餐" data-verify-note="到店出示核销凭证，由商户扫码核销" aria-label="放大核销凭证"><span class="order-qr" aria-hidden="true"><i></i><b></b><em></em></span><small>核销凭证</small></button></div>
+      <div class="order-verify-note"><span class="order-verify-mode">商户人工核销</span>到店出示核销凭证，由商户扫码核销</div>
+    </article>
+    <p class="orders-empty" hidden>暂无该分类订单</p>
+    <p class="orders-tip">点击核销凭证可放大后出示给商户</p>
+  </section>
+  <div class="order-qr-dialog" data-qr-dialog hidden><div class="order-qr-dialog-mask" data-qr-close></div><section role="dialog" aria-modal="true" aria-label="核销凭证"><button type="button" class="order-qr-close" data-qr-close aria-label="关闭">×</button><strong data-qr-title>三活春油烧兔双人套餐</strong><span class="order-qr order-qr-large" aria-label="核销凭证"><i></i><b></b><em></em></span><p data-qr-note>请向商户出示二维码完成核销</p></section></div>
+  <div class="toast"></div>
+</div></section></main><script src="../app.js?v=orders-drawer-return-v1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Prototype Annotator runtime -->
+<script>
+</script>
+<script id="prototype-annotations-data" type="application/json">
+{
+  "version": 1,
+  "pages": [
+    {
+      "pageKey": "P01",
+      "title": "活动详情",
+      "path": "activity-detail.html",
+      "route": "/activity-detail.html"
+    },
+    {
+      "pageKey": "P13",
+      "title": "周末到铜梁AI伴游 - 边走边耍",
+      "path": "explore.html",
+      "route": "/explore.html"
+    },
+    {
+      "pageKey": "P14",
+      "title": "周末到铜梁AI伴游 - 计划",
+      "path": "plan.html",
+      "route": "/plan.html"
+    },
+    {
+      "pageKey": "P15",
+      "title": "商品展示",
+      "path": "product-detail.html",
+      "route": "/product-detail.html"
+    },
+    {
+      "pageKey": "P16",
+      "title": "地图导航",
+      "path": "map-navigation.html",
+      "route": "/map-navigation.html"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "ANN-P01-001",
+      "pageKey": "P01",
+      "target": {
+        "selector": "h1",
+        "fallbackText": "铜梁龙舞展演",
+        "strategy": "tag",
+        "sourceElementId": "P01-E005",
+        "boundsHint": {
+          "text": "铜梁龙舞展演",
+          "tag": "h1"
+        }
+      },
+      "title": "活动详情 · 页面介绍",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "annotationType": "P",
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+      ],
+      "topics": [
+        "source",
+        "business",
+        "flow"
+      ],
+      "updatedAt": "2026-09-02T01:39:05Z"
+    },
+    {
+      "id": "ANN-P13-001",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+        "strategy": "tag",
+        "sourceElementId": "P13-E001",
+        "boundsHint": {
+          "text": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+          "tag": "main"
+        }
+      },
+      "title": "周末到铜梁AI伴游 - 边走边耍 · 页面介绍",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "annotationType": "P",
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+      ],
+      "topics": [
+        "source",
+        "business",
+        "flow"
+      ],
+      "updatedAt": "2026-09-02T01:39:05Z"
+    },
+    {
+      "id": "ANN-P13-002",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+        "strategy": "tag",
+        "sourceElementId": "P13-E001",
+        "boundsHint": {
+          "text": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+          "tag": "main"
+        }
+      },
+      "title": "AI处理逻辑",
+      "contentMarkdown": "### 业务含义\n\n说明地图页 AI 对话结果的范围、意图优先级与可信边界。\n\n### AI 处理规则\n\n- 用户最新明确输入优先于当前已确认意图；当前已确认意图优先于历史上下文中的旧意图。\n- AI 仅在吃、住、游、购范围内识别用户输入，并结合当前地图或对话上下文组织结果。\n- 可靠的关联知识和实时数据优先于 AI 推测。推荐内容必须来自关联知识或正式数据源。\n- 无可靠数据时只展示待确认状态，不伪造价格、库存、房态、场次、距离或营业状态。\n- 结果可包含 POI、实体卡片或必要的最小追问。\n- 用户端没有“加入计划”功能，AI 不自动创建、加入或修改计划；用户只可使用心愿单保存感兴趣的商品或商户。\n- 每条 AI 回复底部保留复制、喜欢、不喜欢操作，并显示“内容由 AI 生成，仅供参考”。\n- 长按或右键 AI 回复不弹出操作菜单，不提供菜单式删除、分享或收藏入口。\n\n### 页面流转\n\n- 来源：地图页输入或地图上下文；目标：AI 回复、POI 或必要追问。\n- 回复失败时由失败兜底标注承接，失败消息仍写入当前历史对话。\n\n### 待确认\n\n- 根据当前原型结构推断，正式 AI 数据协议与置信度展示口径需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "AI",
+      "kind": "ai",
+      "topics": [
+        "ai",
+        "business",
+        "exception"
+      ],
+      "dimension": "AI and automation",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-E001"
+      },
+      "evidence": [
+        "页面源码：explore.html",
+        "V7用户端规则定义文档：AI意图与异常处理规则"
+      ],
+      "nextActions": [],
+      "dependencies": [
+        "需确认 AI 输入来源、输出展示、人工确认与失败兜底规则。"
+      ],
+      "risks": [],
+      "openQuestions": [
+        "AI 结果是否需要置信度展示与人工确认后才能提交？"
+      ],
+      "candidateId": null,
+      "selectorQuality": null,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "updatedAt": "2026-09-02T01:39:33Z"
+    },
+    {
+      "id": "ANN-P13-003",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+        "strategy": "tag",
+        "sourceElementId": "P13-E001",
+        "boundsHint": {
+          "text": "15:30 ••• 中 / EN 边走边耍 铜梁区玄天湖... 晴 23℃ 吃 住 游 购",
+          "tag": "main"
+        }
+      },
+      "title": "AI 失败兜底",
+      "contentMarkdown": "### 业务含义\n\n定义 AI 无法完成处理时的用户可见反馈、历史留存与继续操作边界。\n\n### 失败与兜底\n\n- AI 回复失败消息保存到历史对话，消息必须标记为失败状态，不得当作成功回答或有效推荐结果。\n- 失败消息可提供重试入口；重试仍失败时保留每次失败记录，便于用户知道当时发生过什么。\n- 无法识别或超出铜梁区域吃、住、游、购、娱范围时，显示：“您的需求超出平台提供的服务范围，平台只提供铜梁区域范围内的吃、住、游、购、娱相关商户和商品信息以及相关问答回复，非常抱歉不能帮助到您。”\n- 定位失败时不显示伪造的附近结果或精确距离，用户仍可通过普通地图分类和文本输入继续探索。\n\n### 页面流转\n\n- 来源：AI 请求失败、无法识别或定位失败；目标：保存失败消息、展示完整兜底文案、标记失败状态或允许重试。\n- 失败消息可随历史对话恢复，但不产生有效推荐、心愿单或计划变更。\n\n### 待确认\n\n- 根据当前原型结构推断，失败重试次数与网络错误码映射需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "FALLBACK",
+      "kind": "ai",
+      "topics": [
+        "ai",
+        "exception"
+      ],
+      "dimension": "AI and automation",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-E001"
+      },
+      "evidence": [
+        "页面源码：explore.html",
+        "V7用户端规则定义文档：AI意图与异常处理规则"
+      ],
+      "nextActions": [],
+      "dependencies": [
+        "需确认 AI 失败后的人工修正、重试和提交阻断规则。"
+      ],
+      "risks": [],
+      "openQuestions": [
+        "AI 失败或低置信度时是否允许人工确认后继续提交？"
+      ],
+      "candidateId": null,
+      "selectorQuality": null,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "updatedAt": "2026-09-02T01:39:33Z"
+    },
+    {
+      "id": "ANN-P14-001",
+      "pageKey": "P14",
+      "target": {
+        "selector": "h1",
+        "fallbackText": "周末到铜梁 啷个耍，才安逸哟",
+        "strategy": "tag",
+        "sourceElementId": "P14-E031",
+        "boundsHint": {
+          "text": "周末到铜梁 啷个耍，才安逸哟",
+          "tag": "h1"
+        }
+      },
+      "title": "周末到铜梁AI伴游 - 主页 · 页面介绍",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "annotationType": "P",
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+      ],
+      "topics": [
+        "source",
+        "business",
+        "flow"
+      ],
+      "updatedAt": "2026-09-02T01:39:05Z"
+    },
+    {
+      "id": "ANN-P15-001",
+      "pageKey": "P15",
+      "target": {
+        "selector": "h1",
+        "fallbackText": "推荐内容",
+        "strategy": "tag",
+        "sourceElementId": "P15-E006",
+        "boundsHint": {
+          "text": "推荐内容",
+          "tag": "h1"
+        }
+      },
+      "title": "商品展示 · 页面介绍",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "annotationType": "P",
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+      ],
+      "topics": [
+        "source",
+        "business",
+        "flow"
+      ],
+      "updatedAt": "2026-09-02T01:39:05Z"
+    },
+    {
+      "id": "ANN-P01-002",
+      "pageKey": "P01",
+      "target": {
+        "selector": "[aria-label=\"返回\"]",
+        "fallbackText": "返回",
+        "strategy": "aria",
+        "sourceElementId": "P01-E004",
+        "boundsHint": {
+          "text": "返回",
+          "selector": "[aria-label=\"返回\"]"
+        }
+      },
+      "title": "返回计划首页",
+      "contentMarkdown": "### 业务含义\n\n说明活动详情页返回入口对用户行程上下文的影响。\n\n### 交互规则\n\n- 点击返回回到 `plan.html`。\n- 返回不会新增会话，也不会改变心愿单。\n- 如果活动详情由轮播或对话进入，返回后恢复首页上下文。\n\n### 页面流转\n\n- 来源：活动详情页；目标：`plan.html`；返回后恢复首页上下文。\n\n### 待确认\n\n- 根据当前原型结构推断，来源参数缺失时的默认返回策略需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P01-004"
+      },
+      "evidence": [
+        "页面源码：P01",
+        "候选证据：CAND-P01-004"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P01-004",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P01-003",
+      "pageKey": "P01",
+      "target": {
+        "selector": "section \u003e div \u003e article \u003e div \u003e button",
+        "fallbackText": "预约活动",
+        "strategy": "path",
+        "sourceElementId": "P01-E006",
+        "boundsHint": {
+          "text": "预约活动",
+          "selector": "section \u003e div \u003e article \u003e div \u003e button"
+        }
+      },
+      "title": "预约活动入口",
+      "contentMarkdown": "### 业务含义\n\n说明活动预约入口当前仅承担反馈占位职责。\n\n### 交互规则\n\n- 点击后显示“已为您打开活动预约入口”的 Toast。\n- 当前为原型反馈，不创建预约记录、订单或支付状态。\n- 正式预约服务接入后，需要补充场次、名额和取消规则。\n\n### 页面流转\n\n- 来源：活动详情页；目标：当前页 Toast 反馈；不创建预约记录。\n\n### 待确认\n\n- 根据当前原型结构推断，正式预约服务的场次、名额与取消规则需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P01-006"
+      },
+      "evidence": [
+        "页面源码：P01",
+        "候选证据：CAND-P01-006"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P01-006",
+      "selectorQuality": {
+        "level": "acceptable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P01-004",
+      "pageKey": "P01",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "铜梁龙舞展演 近距离感受铜梁龙舞的动作、节奏与互动。",
+        "strategy": "class",
+        "sourceElementId": "P01-E001",
+        "boundsHint": {
+          "text": "铜梁龙舞展演 近距离感受铜梁龙舞的动作、节奏与互动。",
+          "selector": "html \u003e body \u003e main \u003e section"
+        }
+      },
+      "title": "活动信息内容",
+      "contentMarkdown": "### 业务含义\n\n说明活动详情卡片承载的活动识别信息与场次提示。\n\n### 显示规则\n\n- 展示活动图片、名称、简介和场次提示。\n- `name`、`image`、`intro` URL 参数存在时覆盖对应默认内容。\n- 场次提示只说明以当日信息为准，不承诺实时库存。\n\n### 待确认\n\n- 根据当前原型结构推断，正式活动数据更新时间与场次来源需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Data explanation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P01-001"
+      },
+      "evidence": [
+        "页面源码：P01",
+        "候选证据：CAND-P01-001"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P01-001",
+      "selectorQuality": {
+        "level": "acceptable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P13-004",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "吃",
+        "strategy": "path",
+        "sourceElementId": "P13-E008",
+        "boundsHint": {
+          "text": "吃",
+          "selector": "html \u003e body \u003e main \u003e section"
+        }
+      },
+      "title": "地图分类切换",
+      "contentMarkdown": "### 业务含义\n\n地图分类控制当前可浏览的 POI 范围，并与点位图标颜色保持一致。\n\n### 交互规则\n\n- 分类栏包含吃、住、游、购和心愿五项；图标居中置于竖向胶囊内。\n- 无心愿时默认展示当前位置周边 5km 内吃住游购全量 POI。\n- 有心愿时，心愿分类展示默认已选择的心愿点位；预览没有路线虚线。\n- 点击返回当前位置后显示当前位置周边 5km 内吃住游购全量 POI，不显示心愿点位。\n\n### 状态与异常\n\n- 定位不可用时仍可切换分类浏览，不展示伪造精确距离。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-008"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-008"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-008",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P13-005",
+      "pageKey": "P13",
+      "target": {
+        "selector": "[aria-label=\"查看当前位置\"]",
+        "fallbackText": "铜梁区玄天湖...",
+        "strategy": "aria",
+        "sourceElementId": "P13-E005",
+        "boundsHint": {
+          "text": "铜梁区玄天湖...",
+          "selector": "[aria-label=\"查看当前位置\"]"
+        }
+      },
+      "title": "查看当前位置",
+      "contentMarkdown": "### 业务含义\n\n说明当前位置能力仅用于地图定位与附近内容展示。\n\n### 交互规则\n\n- 首次进入首页不主动申请定位；用户进入地图或主动使用附近服务时，按需申请一次当前位置。\n- 一次定位结果只用于当前地图、附近服务和当前浏览上下文，不开启持续定位。\n- 授权成功后地图回到当前位置，并显示有可靠数据支撑的 POI。\n- 用户拒绝定位时，普通地图固定 POI 仍可浏览；附近服务不得生成伪造的附近结果或精确距离。\n- 用户再次主动使用需要定位的功能时，可以重新申请一次定位。\n\n### 风险提示\n\n- 权限边界：仅申请当前设备定位；拒绝后不阻断分类浏览。\n- 定位结果不写入对话历史，也不作为心愿地图展示已选心愿 POI 的前置条件。\n\n### 页面流转\n\n- 来源：地图页当前位置按钮或附近服务入口；目标：系统授权、当前位置地图、附近结果或原地图页。\n\n### 待确认\n\n- 当前规则已确认；系统定位授权文案需结合最终交互稿确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "permission",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Permission and risk",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-005"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-005"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-005",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P13-006",
+      "pageKey": "P13",
+      "target": {
+        "selector": "[aria-label=\"查看天气\"]",
+        "fallbackText": "晴 23℃",
+        "strategy": "aria",
+        "sourceElementId": "P13-E006",
+        "boundsHint": {
+          "text": "晴 23℃",
+          "selector": "[aria-label=\"查看天气\"]"
+        }
+      },
+      "title": "天气信息提示",
+      "contentMarkdown": "### 业务含义\n\n说明天气入口当前处于信息展示与功能占位状态。\n\n### 状态与异常\n\n- 当前天气作为页面上下文展示。\n- 点击后显示“近一周天气功能将于后续开放”。\n- 该入口当前不承担正式天气查询。\n- 触发条件：用户点击天气入口；异常状态：天气不可用时保留占位提示。\n\n### 页面流转\n\n- 来源：地图页天气摘要；目标：轻量提示，不跳转其他页面。\n\n### 待确认\n\n- 根据当前原型结构推断，天气数据刷新频率与失效展示需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "S",
+      "kind": "state",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "State and exception",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-006"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-006"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-006",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P13-007",
+      "pageKey": "P13",
+      "target": {
+        "selector": "[aria-label=\"返回在铜梁主页\"]",
+        "fallbackText": "返回在铜梁主页",
+        "strategy": "aria",
+        "sourceElementId": "P13-E007",
+        "boundsHint": {
+          "text": "返回在铜梁主页",
+          "selector": "[aria-label=\"返回在铜梁主页\"]"
+        }
+      },
+      "title": "返回在铜梁主页",
+      "contentMarkdown": "### 业务含义\n\n说明地图页主页入口对共享用户上下文的保持规则。\n\n### 交互规则\n\n- 点击返回 `plan.html`。\n- 返回时保留共享会话和心愿单上下文。\n\n### 页面流转\n\n- 来源：`explore.html`；目标：`plan.html`；返回后保留会话和心愿单。\n\n### 待确认\n\n- 根据当前原型结构推断，地图筛选状态是否需要在返回后恢复需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-007"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-007"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-007",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P13-008",
+      "pageKey": "P13",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "地图点位信息",
+        "strategy": "class",
+        "sourceElementId": "P13-E002",
+        "boundsHint": {
+          "text": "地图点位信息",
+          "selector": "html \u003e body \u003e main \u003e section"
+        }
+      },
+      "title": "POI 信息卡",
+      "contentMarkdown": "### 业务含义\n\nPOI 卡片让用户从地图点位继续查看详情、导航、管理心愿或发起咨询。\n\n### 显示与交互规则\n\n- 卡片展示图片、商户名称、蓝色地址导航行和底部操作。图片和名称进入详情。\n- 点击地址行的导航图标或文本进入地图导航页，并带入当前 POI 名称和地址。\n- 普通 POI 的心愿与咨询为靠右相邻的圆形图标。\n- 心愿 POI 额外显示同步的“还没去/去过了”胶囊；到访状态控制地图红蓝颜色。\n- 取消当前心愿后，点位和关联路线立即移除；刷新页面后不得恢复。\n\n### 状态与异常\n\n- 缺少可靠地址或坐标时，不生成导航、距离或路线。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "business",
+        "interaction"
+      ],
+      "dimension": "Data explanation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P13-E002"
+      },
+      "evidence": [
+        "页面源码：P13",
+        "候选证据：CAND-P13-E002"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P13-E002",
+      "selectorQuality": {
+        "level": "acceptable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P14-002",
+      "visible": false,
+      "pageKey": "P14",
+      "target": {
+        "selector": "[aria-label=\"打开对话菜单\"]",
+        "fallbackText": "打开对话菜单",
+        "strategy": "aria",
+        "sourceElementId": "P14-E005",
+        "boundsHint": {
+          "text": "打开对话菜单",
+          "selector": "[aria-label=\"打开对话菜单\"]"
+        }
+      },
+      "title": "打开历史对话抽屉",
+      "contentMarkdown": "### 业务含义\n\n说明历史对话抽屉承担本机记录浏览与恢复职责。\n\n### 数据留存与分组\n\n- 仅展示当前设备最近 180 天（6 个月）的记录，超过 180 天不可查看且不提供历史搜索入口；日期按中国标准时间 UTC+8 判断。\n- 第一组固定为“今天”，第二组固定为“昨天”，之后按具体日期倒序；同一天内按最近更新时间倒序。\n- 没有记录的日期不生成空分组，超过 7 天仍按具体日期连续展示，不切换月份分组。\n\n### 交互规则\n\n- 点击历史记录恢复该对话及其消息上下文。\n- 新开对话先保存当前非空对话，再创建新的当前对话；空对话不创建历史记录。\n- 删除单条历史只删除该记录及消息，不影响心愿单；抽屉关闭后回到当前页面，不清除当前会话。\n- 历史只保存在当前设备，不做跨设备同步；后台可异步清理过期数据。\n\n### 页面流转\n\n- 来源：计划页菜单；目标：历史对话抽屉；关闭后返回计划页。\n\n### 待确认\n\n- 当前规则已确认；搜索无结果及删除后的撤销提示需结合最终交互稿确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-005"
+      },
+      "evidence": [
+        "页面源码：P14",
+        "候选证据：CAND-P14-005"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P14-005",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P14-003",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[aria-label=\"切换为英文\"]",
+        "fallbackText": "中 / EN",
+        "strategy": "aria",
+        "sourceElementId": "P14-E006",
+        "boundsHint": {
+          "text": "中 / EN",
+          "selector": "[aria-label=\"切换为英文\"]"
+        }
+      },
+      "title": "中 / EN 语言切换（顶部按钮）",
+      "contentMarkdown": "### 业务含义\n\n计划首页顶部的“中 / EN”按钮用于切换当前会话的界面语言，并决定切换后的新 AI 回复语言。\n\n### 交互规则\n\n- 点击“中 / EN”后，在中文与英文界面之间切换；页面固定文案包括导航、按钮、状态、空状态、错误提示、操作反馈、帮助提示、灵感跑马灯和附近服务面板文案。\n- 切换为英文时，首页三行跑马灯胶囊全部显示对应英文文案；切回中文时恢复中文文案，主题 key、排序、点击入口和当前滚动位置保持不变。\n- 切换为英文时，附近服务面板显示“Nearby services / Food / Stay / Explore / Shop / Parking / Restroom”；切回中文时恢复原文，分类编码和点击后的固定提示词保持不变。\n- 切换为英文时，智能体添加强制规则，新生成的回复只能使用英文。\n- 已经显示的历史 AI 消息不因切换语言而重新翻译；切换完成后，新发送的消息由 AI 按当前页面语言组织回复。\n- 用户可以使用中文或英文输入；英文界面下，智能体仍只能以英文回复，不因用户输入语言改变。\n- 景点、商户、商品、活动名称和地址默认保留中文原名；英文界面可在中文原名后增加英文解释或类别说明，不强制创造未经确认的官方英文名。\n- 价格、电话、日期和地址中的数字及格式不因语言切换改变业务含义。\n- 语言偏好只在本次用户会话内保持，不跨设备或跨登录会话长期保存；每次重新进入产品时恢复中文。\n- 切换语言不改变当前对话、历史消息、心愿单、定位或页面路由状态。\n\n### 页面流转\n\n- 来源：计划首页顶部语言按钮；目标：当前页面中文/英文显示状态、跑马灯和附近服务面板文案及后续 AI 回复语言。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-006"
+      },
+      "evidence": [
+        "页面源码：P14",
+        "候选证据：CAND-P14-006"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P14-006",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-03T00:40:00+08:00"
+    },
+    {
+      "id": "ANN-P14-004",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[aria-label=\"进入边走边耍地图\"]",
+        "fallbackText": "进入边走边耍地图",
+        "strategy": "aria",
+        "sourceElementId": "P14-E007",
+        "boundsHint": {
+          "text": "进入边走边耍地图",
+          "selector": "[aria-label=\"进入边走边耍地图\"]"
+        }
+      },
+      "title": "进入边走边耍地图",
+      "contentMarkdown": "### 业务含义\n\n说明计划页进入地图浏览的主导航入口。\n\n### 交互规则\n\n- 点击进入 `explore.html` 地图页。\n- 首页与地图页共享会话、语言和心愿单状态。\n\n### 页面流转\n\n- 来源：`plan.html`；目标：`explore.html`；共享会话、语言和心愿单状态。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-007"
+      },
+      "evidence": [
+        "页面源码：P14",
+        "候选证据：CAND-P14-007"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P14-007",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P14-005",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[data-ann=\"inspiration-marquee\"]",
+        "fallbackText": "铜梁游玩灵感",
+        "strategy": "aria",
+        "sourceElementId": "P14-E010",
+        "boundsHint": {
+          "text": "铜梁游玩灵感",
+          "selector": "[data-ann=\"inspiration-marquee\"]"
+        }
+      },
+      "title": "灵感跑马灯",
+      "contentMarkdown": "### 业务含义\n\n首页通过三行灵感跑马灯展示可直接发起 AI 对话的游玩话题。\n\n### 数据来源与展示\n\n- 跑马灯主题列表由运营后台配置，包含展示文案、提示词、排序、启用状态、有效期。\n- 前端固定展示三行；最多 20 条跑马灯胶囊形态。顺序按照后台配置的自然数从上到下、从左到右依次显示。\n- 主题过期或加载失败时加载最近一次有效主题快照。\n\n### 点击效果\n\n- 点击胶囊后才将该灵感写入当前会话，并展开半屏对话面板。\n- AI 回复中涉及商品或商户时，统一使用截图样式的横向推荐卡片：展示图片、名称和类型/地址摘要，多张卡片支持左右滑动；卡片底部仅保留定位与加入心愿单两个圆形图标。\n\n### 页面流转\n\n- 来源：首页灵感跑马灯；目标：当前会话中的主题对话、AI 结果或后续推荐内容。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "ai",
+      "topics": [
+        "ai",
+        "interaction",
+        "state",
+        "exception"
+      ],
+      "dimension": "AI and automation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-010"
+      },
+      "evidence": [
+        "页面源码：P14",
+        "候选证据：CAND-P14-010"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P14-010",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-03T01:00:00+08:00"
+    },
+    {
+      "id": "ANN-P14-017",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[data-ann=\"operation-theme\"]",
+        "fallbackText": "周末到铜梁 啷个耍，才安逸哟",
+        "strategy": "attribute",
+        "sourceElementId": "P14-E031",
+        "boundsHint": {
+          "text": "周末到铜梁 啷个耍，才安逸哟",
+          "selector": "[data-ann=\"operation-theme\"]"
+        }
+      },
+      "title": "运营主题",
+      "contentMarkdown": "### 业务含义\n\n运营主题是首页当前有效主题的主视觉和内容上下文，统一承载背景、主题标语、灵感跑马灯和特色轮播。\n\n### 数据来源与展示\n\n- 运营主题由后台配置，包含跑马灯、主题文案、背景资源（宽高自适应）、轮播主图、启用状态和有效期。\n- 前端只展示同一份有效主题快照中的资源，不跨主题拼接内容。\n- 主题过期或加载失败时，整体加载最近一次有效主题；没有可用快照时使用产品默认主题或空状态。\n\n### 点击效果\n\n- 主题主视觉本身不单独创建对话或跳转；用户通过其中的跑马灯胶囊或特色轮播主图进入对应 AI 对话、知识攻略或后续内容。\n- 主题切换不清除当前对话、心愿单或语言状态。\n\n### 页面流转\n\n- 来源：后台有效运营主题配置；目标：首页主题展示及其下属跑马灯、轮播入口。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "source",
+        "business",
+        "state",
+        "exception"
+      ],
+      "dimension": "Data explanation",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-E031"
+      },
+      "evidence": [
+        "页面源码：P14-E031",
+        "V7用户端规则定义文档：运营主题与主题快照规则"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "依据 V7 用户端规则定义文档新增独立运营主题标注。"
+      },
+      "updatedAt": "2026-09-03T02:00:00+08:00"
+    },
+    {
+      "id": "ANN-P14-006",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[data-ann=\"feature-carousel\"]",
+        "fallbackText": "铜梁特色推荐",
+        "strategy": "class",
+        "sourceElementId": "P14-E032",
+        "boundsHint": {
+          "text": "铜梁特色推荐",
+          "selector": "[data-ann=\"feature-carousel\"]"
+        }
+      },
+      "title": "特色轮播浏览",
+      "contentMarkdown": "### 业务含义\n\n说明轮播主图承载运营推荐内容，并作为主题对话入口。\n\n### 数据来源与展示\n\n- 主图、提示词、有效时间和启用状态在后台配置；用户点击后，根据提示词进行回复。\n- 前端当前展示 9 张主图，最多显示 10 张图；排版中间默认显示第 2 至第 3 张，两侧露出相邻卡片作为可滑动提示。\n- 后台配置更新后，前端重新读取有效配置；加载失败时使用最近一次有效轮播配置。\n\n### 点击与滑动效果\n\n- 用户可以左右滑动轮播图，每次滑动一个图位，可左右循环滑动。\n- 点击主图后，根据提示词进行对话，并将对话面板展开至半屏。\n- 示例的玄天湖、周末组合和环湖骑行等主题进入统一追问流程；关联商户/商品动作可继续进入详情、地图或心愿单。\n- 对话中的商品/商户推荐卡片右下角只保留定位和加入心愿单两个图标；定位图标为蓝色 pin，尺寸与心愿单图标一致。点击卡片主体进入详情，点击定位进入应用内地图，点击心愿单加入记录；同一对象不得重复加入。\n\n### 页面流转\n\n- 来源：计划页轮播主图；目标：根据提示词进入主题对话及其后续详情、地图或心愿单操作。\n\n### 轮播配置规则\n\n- 轮播主图由后台配置，包含主图、提示词、有效时间和启用状态；用户点击后，根据提示词进行回复。\n- 用户可以左右滑动轮播图，每次滑动一个图位，可左右循环滑动；中间默认显示第 2 至第 3 张，两侧露出相邻卡片作为可滑动提示。配置更新按整体有效快照替换，失败时使用最近一次有效轮播配置。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "R",
+      "kind": "rule",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Form and validation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-E032"
+      },
+      "evidence": [
+        "页面源码：P14",
+        "候选证据：CAND-P14-E032"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P14-E032",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-03T01:10:00+08:00"
+    },
+    {
+      "id": "ANN-P14-007",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[aria-label=\"清除对话内容\"]",
+        "fallbackText": "•••",
+        "strategy": "aria",
+        "sourceElementId": "P14-E003",
+        "boundsHint": {
+          "text": "•••",
+          "selector": "[aria-label=\"清除对话内容\"]"
+        }
+      },
+      "title": "清空当前对话记录",
+      "contentMarkdown": "### 业务含义\n\n说明右上角扫帚图标只处理当前活动会话及其临时上下文。\n\n### 交互规则\n\n- 点击扫帚图标（名称为“清空当前对话记录”）清空当前活动对话消息、当前地图对话消息和当前临时计划状态。\n- 当前存在消息时先二次确认；确认后执行清空。取消不改变任何内容。\n- 当前没有消息时不弹窗，提示“当前没有可清空的对话”。\n- 清空后回到空对话状态，不自动插入欢迎消息，也不创建空历史记录。\n- 清空不影响其他历史会话、心愿单记录、勾选状态、语言偏好或已确认的运营主题配置。\n- 长按或右键对话消息不弹出操作菜单。\n\n### AI 消息操作\n\n- 每条 AI 回复底部保留复制、喜欢、不喜欢操作。\n- AI 回复末尾显示“内容由 AI 生成，仅供参考”。\n\n### 页面流转\n\n- 来源：计划页或地图页对话区；目标：当前会话空状态或二次确认。\n- 清空后其他历史对话仍可从左侧抽屉恢复。\n\n### 待确认\n\n- 根据当前原型结构推断，清空确认后的撤销能力是否提供需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "risk",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Permission and risk",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-003"
+      },
+      "evidence": [
+        "页面源码：P14",
+        "候选证据：CAND-P14-003"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P14-003",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P14-008",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[aria-label=\"查看当前位置\"]",
+        "fallbackText": "铜梁区玄天湖...",
+        "strategy": "aria",
+        "sourceElementId": "P14-E008",
+        "boundsHint": {
+          "text": "铜梁区玄天湖...",
+          "selector": "[aria-label=\"查看当前位置\"]"
+        }
+      },
+      "title": "查看当前位置",
+      "contentMarkdown": "### 业务含义\n\n说明计划页当前位置入口连接地图与一次性定位能力。\n\n### 交互规则\n\n- 点击后进入地图或触发一次性定位授权。\n- 定位失败时保留首页，不展示伪造距离。\n\n### 页面流转\n\n- 来源：计划页当前位置按钮；目标：`explore.html` 或定位授权；失败返回当前页。\n\n### 待确认\n\n- 根据当前原型结构推断，已授权用户再次点击时的直接跳转行为需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-008"
+      },
+      "evidence": [
+        "页面源码：P14",
+        "候选证据：CAND-P14-008"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P14-008",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-002",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"返回上一级\"]",
+        "fallbackText": "返回上一级",
+        "strategy": "aria",
+        "sourceElementId": "P15-E004",
+        "boundsHint": {
+          "text": "返回上一级",
+          "selector": "[aria-label=\"返回上一级\"]"
+        }
+      },
+      "title": "返回来源页面",
+      "contentMarkdown": "### 业务含义\n\n说明详情页返回入口对来源页面和心愿单上下文的保持规则。\n\n### 交互规则\n\n- 优先返回进入详情前记录的来源页面。\n- 没有来源时返回 `plan.html`。\n- 返回时恢复心愿单上下文，不进入已归档页面。\n\n### 页面流转\n\n- 来源：来源页或 `plan.html`；目标：来源页；无来源时返回 `plan.html`。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-004"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-004"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-004",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-003",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"加入心愿单\"]",
+        "fallbackText": "加入心愿单",
+        "strategy": "aria",
+        "sourceElementId": "P15-E007",
+        "boundsHint": {
+          "text": "加入心愿单",
+          "selector": "[aria-label=\"加入心愿单\"]"
+        }
+      },
+      "title": "加入或移除心愿单",
+      "contentMarkdown": "### 业务含义\n\n说明详情页心愿单操作与实体有效状态的关系。\n\n### 交互规则\n\n- 点击心形图标切换当前实体的加入/移除状态。\n- 重复点击不会创建重复心愿记录。\n- 下架实体保留历史卡片，但禁用心愿操作并标记失效。\n\n### 页面流转\n\n- 来源：详情页心愿图标；目标：当前实体心愿状态更新。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-007"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-007"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-007",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-004",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"进入店铺查看详情\"]",
+        "fallbackText": "进入店铺查看详情",
+        "strategy": "aria",
+        "sourceElementId": "P15-E009",
+        "boundsHint": {
+          "text": "进入店铺查看详情",
+          "selector": "[aria-label=\"进入店铺查看详情\"]"
+        }
+      },
+      "title": "进入店铺查看详情",
+      "contentMarkdown": "### 业务含义\n\n紫色胶囊按钮是跳转进入商户外部平台主页的主操作入口。\n\n### 交互规则\n\n- 点击居中的紫色胶囊按钮。\n- 点击后跳转至商户外部平台主页。\n\n### 页面流转\n\n- 来源：商品或商户详情页；目标：商户外部平台主页。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-009"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-009"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-009",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-005",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"拨打商户电话\"]",
+        "fallbackText": "拨打商户电话",
+        "strategy": "aria",
+        "sourceElementId": "P15-E010",
+        "boundsHint": {
+          "text": "拨打商户电话",
+          "selector": "[aria-label=\"拨打商户电话\"]"
+        }
+      },
+      "title": "拨打商户电话",
+      "contentMarkdown": "### 业务含义\n\n说明商户电话入口用于联系商户，不改变详情页数据。\n\n### 交互规则\n\n- 点击后调用系统拨号能力。\n- 电话号码缺失时保留详情信息并禁用拨号入口。\n- 原型不记录通话结果。\n\n### 页面流转\n\n- 来源：详情页电话入口；目标：系统拨号界面；返回后仍在详情页。\n\n### 待确认\n\n- 根据当前原型结构推断，拨号权限拒绝时的提示文案需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-010"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-010"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-010",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-006",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[data-ann=\"product-info\"]",
+        "fallbackText": "商户简介 特色介绍",
+        "strategy": "class",
+        "sourceElementId": "P15-E008",
+        "boundsHint": {
+          "text": "商户简介 特色介绍",
+          "selector": "[data-ann=\"product-info\"]"
+        }
+      },
+      "title": "商品或商户信息区",
+      "contentMarkdown": "### 业务含义\n\n说明详情页展示商户或商品的可核验基础信息。\n\n### 显示规则\n\n- 展示图片，名称，地址、电话、商户简介和特色介绍。数据来源与商户端的门店信息。\n- 信息不足时显示待确认，不由 AI 编造。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Data explanation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-008"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-008"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-008",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-007",
+      "pageKey": "P15",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "商品/商户详情",
+        "strategy": "class",
+        "sourceElementId": "P15-E002",
+        "boundsHint": {
+          "text": "商品/商户详情",
+          "selector": "html \u003e body \u003e main \u003e section"
+        }
+      },
+      "title": "详情页推荐模块边界",
+      "contentMarkdown": "### 业务含义\n\n说明当前用户端详情页的内容边界与失效实体处理方式。\n\n### 规则说明\n\n- 所有商品和商户详情页不展示“推荐商品/套餐”模块。\n- 当前用户端不提供真实价格数据，提供跳转进入商户外部平台主页的操作入口。\n\n### 页面流转\n\n- 来源：商品或商户详情入口；目标：详情内容，提供跳转商户外部平台的操作入口",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "R",
+      "kind": "rule",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "State and exception",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-E002"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-E002"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-E002",
+      "selectorQuality": {
+        "level": "acceptable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P14-009",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[data-nearby-card]",
+        "fallbackText": "附近的服务 吃 住 游 购 停车位 卫生间",
+        "strategy": "attribute"
+      },
+      "title": "附近服务面板",
+      "contentMarkdown": "### 业务含义\n\n提供当前位置附近服务的快速筛选入口。\n\n### 交互规则\n\n- 由输入区工具按钮打开，支持吃、住、游、购、停车位和卫生间。分别通过写死的提示词“帮我推荐一下附近的好吃的/住宿/旅游景点/好物/停车场/卫生间”，在对话框进行引用和回答。\n- 页面切换为英文时，面板显示“Nearby services / Food / Stay / Explore / Shop / Parking / Restroom”；分类编码和点击后的固定提示词保持不变，切回中文时恢复原文。\n- 用户点击分类后，智能体自动调取该按钮对应的提示词，结合实时定位进行回复；对话框除文字回答外，如涉及商品或商户推荐，统一使用截图中的横向推荐卡片样式：展示图片、名称和类型/地址摘要，卡片右下角只保留定位和加入心愿单两个图标。\n- 首次主动使用时按需申请一次定位；定位结果只用于当前地图、附近服务和当前浏览上下文，不开启持续定位。\n- 附近推荐限定为当前定位 5 公里范围内的 POI。吃、住、游、购来源于实体地址关联的 POI；停车场和卫生间来源于地图提供的对应服务。\n- 用户拒绝或定位失败时，面板仍可关闭，普通地图分类仍可浏览，但不生成伪造附近结果或精确距离；后续再次主动使用可重新申请。\n- 点击面板外区域关闭，不清除当前对话。\n\n### 页面流转\n\n- 来源：计划页输入区工具按钮；目标：附近服务分类结果或定位授权；失败返回当前页面。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Secondary surface",
+      "priority": "medium",
+      "visible": true,
+      "surfaceId": "surface-P14-nearby-services",
+      "displayWhenClosed": "sidebar-only",
+      "fallbackAnchorSelector": "[data-composer-more]",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-nearby"
+      },
+      "evidence": [
+        "运行时模块：nearby-card"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-03T00:50:00+08:00"
+    },
+    {
+      "id": "ANN-P14-010",
+      "pageKey": "P14",
+      "target": {
+        "selector": ".composer input",
+        "fallbackText": "发送消息",
+        "strategy": "class"
+      },
+      "title": "文字消息输入框",
+      "contentMarkdown": "### 业务含义\n\n承载用户向 AI 输入文字需求。\n\n### 交互规则\n\n- 点击后进入文字输入状态，按回车或发送按钮提交。\n- 提交后消息进入当前对话并等待 AI 回复。\n\n### 待确认\n\n- 根据当前原型结构推断，单条消息长度上限和敏感词校验需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "surfaceId": "surface-P14-nearby-services",
+      "displayWhenClosed": "sidebar-only",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-composer"
+      },
+      "evidence": [
+        "运行时控件：composer input"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-02T10:20:00+08:00"
+    },
+    {
+      "id": "ANN-P14-011",
+      "pageKey": "P14",
+      "target": {
+        "selector": ".composer-camera",
+        "fallbackText": "打开相机",
+        "strategy": "class"
+      },
+      "title": "相机输入按钮",
+      "contentMarkdown": "### 业务含义\n\n提供通过相机补充输入的入口。\n\n### 状态与异常\n\n- 点击后当前原型显示“拍照功能准备中”。\n- 未接入正式拍照能力时不创建图片消息。\n\n### 待确认\n\n- 根据当前原型结构推断，相机权限申请和图片上传规则需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "exception"
+      ],
+      "dimension": "Permission and risk",
+      "priority": "medium",
+      "visible": true,
+      "surfaceId": "surface-P14-nearby-services",
+      "displayWhenClosed": "sidebar-only",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-camera"
+      },
+      "evidence": [
+        "运行时控件：composer-camera"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-02T10:20:00+08:00"
+    },
+    {
+      "id": "ANN-P14-012",
+      "pageKey": "P14",
+      "target": {
+        "selector": "[data-voice-input]",
+        "fallbackText": "语音输入",
+        "strategy": "attribute"
+      },
+      "title": "语音输入切换",
+      "contentMarkdown": "### 业务含义\n\n在文字输入与语音输入之间切换。\n\n### 交互规则\n\n- 点击后进入语音模式，再次点击切回文字模式。\n- 浏览器不支持语音识别时显示提示并保留文字输入。\n\n### 待确认\n\n- 根据当前原型结构推断，录音时长上限和识别失败重试规则需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "exception"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "surfaceId": "surface-P14-nearby-services",
+      "displayWhenClosed": "sidebar-only",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-voice"
+      },
+      "evidence": [
+        "运行时控件：data-voice-input"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-02T10:20:00+08:00"
+    },
+    {
+      "id": "ANN-P14-013",
+      "pageKey": "P14",
+      "target": {
+        "selector": ".conversation-drawer",
+        "fallbackText": "对话菜单 微信用户_7570 历史旅程对话",
+        "strategy": "class"
+      },
+      "title": "历史对话抽屉",
+      "contentMarkdown": "### 业务含义\n\n提供当前设备历史对话的检索、分组、删除和恢复入口。\n\n### 数据留存与分组\n\n- 仅展示当前设备最近 180 天（6 个月）的记录，超过 180 天完全不可查看且不提供历史搜索入口；日期按中国标准时间 UTC+8 判断。\n- 第一组固定为“今天”，第二组固定为“昨天”，之后按具体日期倒序；同一天内按最近更新时间倒序。\n- 没有记录的日期不生成空分组，超过 7 天仍按具体日期连续展示，不切换月份分组。\n\n### 交互规则\n\n- 支持搜索、新开对话、按日期分组展开或收起。\n- 用户首次扫码后获取用户头像和昵称，并在抽屉左上角显示；不展示手机号。\n- 搜索记录无结果时显示“无相关内容”。\n- 点击历史记录恢复该对话及其消息上下文；关闭抽屉返回当前页面。\n- 新开对话先保存当前非空对话；空对话不创建历史记录。\n- 删除单条历史只删除该条记录及其消息，不影响心愿单；历史只保存在当前设备，不做跨设备同步。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Secondary surface",
+      "priority": "high",
+      "visible": true,
+      "surfaceId": "surface-P14-conversation-drawer",
+      "displayWhenClosed": "sidebar-only",
+      "fallbackAnchorSelector": "[aria-label=\"打开对话菜单\"]",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-drawer"
+      },
+      "evidence": [
+        "运行时模块：conversation-drawer"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-03T00:00:00+08:00"
+    },
+    {
+      "id": "ANN-P14-014",
+      "pageKey": "P14",
+      "target": {
+        "selector": ".wishlist-drawer",
+        "fallbackText": "我的心愿单 清空心愿单",
+        "strategy": "class"
+      },
+      "title": "心愿单抽屉",
+      "contentMarkdown": "### 业务含义\n\n心愿单集中管理用户想去的 POI，并从所选心愿生成可浏览的计划路线。\n\n### 交互规则\n\n- 打开抽屉时，所有有效心愿默认勾选。每条记录显示吃住游购类型图标、名称、加入时间、选择框、到访状态和删除入口。\n- 加入时间按 `M/D HH:mm` 显示；到访状态默认“还没去”，点击可切换“去过了”。\n- 到访状态仅改变地图心愿 POI 颜色：未去为红色，已去为蓝色。\n- 删除或清空时同步移除选择、到访状态、地图点位和关联路线；清空仍需确认。\n- 至少选择两条心愿后显示“心愿计划”。点击后按需定位一次，在对话中以用户消息发起计划请求，并用虚线连接计划顺序中的已选点位。\n\n### 状态与异常\n\n- 心愿预览默认显示全部已选点位但不画路线，且所有点位显示红色。\n- 缺少可靠坐标的记录可保留在心愿单，但不进入地图或计划路线。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Secondary surface",
+      "priority": "high",
+      "visible": true,
+      "surfaceId": "surface-P14-wishlist-drawer",
+      "displayWhenClosed": "sidebar-only",
+      "fallbackAnchorSelector": "[data-wishlist-toggle]",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-wishlist"
+      },
+      "evidence": [
+        "运行时模块：wishlist-drawer"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P14-015",
+      "pageKey": "P14",
+      "target": {
+        "selector": ".map-background-layer",
+        "fallbackText": "吃 住 游 购 地图",
+        "strategy": "class"
+      },
+      "title": "首页内嵌地图区域",
+      "contentMarkdown": "### 业务含义\n\n首页内嵌地图把首页探索、POI 浏览、心愿单和心愿计划放在同一上下文中承接。\n\n### 交互规则\n\n- 无心愿时，地图默认展示当前位置周边 5km 内吃住游购全量 POI。\n- 有心愿时，打开抽屉后预览默认展示全部心愿点位；预览不显示路线虚线，点位均为红色。\n- 点击“心愿计划”后，地图按 AI 建议顺序以虚线连接已选点位，已去点位为蓝色、未去点位为红色。\n- 点击返回当前位置始终回到当前定位周边 5km 的吃住游购 POI 视图，不显示心愿点位。\n\n### 页面流转\n\n- 地图与首页共享会话和心愿状态；POI 卡片的详情、导航、心愿和咨询操作各自承接到对应页面或当前对话。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Secondary surface",
+      "priority": "high",
+      "visible": true,
+      "surfaceId": "surface-P14-embedded-map",
+      "displayWhenClosed": "sidebar-only",
+      "fallbackAnchorSelector": "[aria-label=\"进入边走边耍地图\"]",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-map"
+      },
+      "evidence": [
+        "运行时模块：map-background-layer"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P14-016",
+      "pageKey": "P14",
+      "target": {
+        "selector": ".map-background-layer [data-category=\"eat\"]",
+        "fallbackText": "吃",
+        "strategy": "attribute"
+      },
+      "title": "内嵌地图分类按钮",
+      "contentMarkdown": "### 业务含义\n\n分类栏是地图 POI 类型筛选入口，并以颜色和图标帮助用户识别吃住游购及心愿点位。\n\n### 交互规则\n\n- 分类顺序为吃、住、游、购和心愿；图标在竖向胶囊内居中展示。\n- 点击吃住游购分类后，显示相应类型的彩色 POI 图标。\n- 点击心愿分类后，显示当前已选择的有效心愿；心愿 POI 顶部显示“已有XX人”和心形，名称最多 10 个字。\n- 返回当前位置不是“吃”分类的快捷入口，而是显示当前位置周边 5km 内吃住游购全量 POI 的独立操作。\n\n### 状态与异常\n\n- 用户没有心愿时，心愿分类不制造空路线，地图继续提供当前位置周边 POI。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "surfaceId": "surface-P14-embedded-map",
+      "displayWhenClosed": "sidebar-only",
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P14-RUNTIME-map-category"
+      },
+      "evidence": [
+        "运行时控件：map-background-layer category"
+      ],
+      "candidateId": null,
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P16-001",
+      "pageKey": "P16",
+      "target": {
+        "selector": "main",
+        "fallbackText": "目的地信息",
+        "strategy": "tag"
+      },
+      "title": "地图导航 · 页面介绍",
+      "annotationType": "P",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+        "页面可见目的地信息与导航操作"
+      ],
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已根据当前地图导航页面和页面说明完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    },
+    {
+      "id": "ANN-P16-002",
+      "pageKey": "P16",
+      "target": {
+        "selector": "main",
+        "fallbackText": "目的地信息",
+        "strategy": "tag"
+      },
+      "title": "目的地信息与导航承接",
+      "contentMarkdown": "### 业务含义\n\n导航页承接 POI 卡片和对话推荐的地址操作，避免用户在跳转后丢失当前目的地。\n\n### 交互规则\n\n- 页面展示传入的目的地名称和地址；长地址自动换行，不遮挡导航操作。\n- 用户点击导航进入当前目的地的导航承接；打车和收藏未接入真实服务时仅给出原型反馈。\n\n### 页面流转\n\n- 来源：POI 卡片或对话推荐的蓝色地址导航行。\n- 目标：当前目的地导航操作；返回优先回到上一浏览页面，无可用上一页时回到首页。\n\n### 状态与异常\n\n- 地址或地图底图不可用时保留已有目的地信息和返回入口，不显示虚构路线。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "flow",
+      "topics": [
+        "business",
+        "interaction",
+        "flow",
+        "exception"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P16-001"
+      },
+      "evidence": [
+        "页面可见目的地信息和导航操作"
+      ],
+      "candidateId": "CAND-P16-001",
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已根据当前地图导航页面和页面说明完成审阅。"
+      },
+      "updatedAt": "2026-09-04T17:11:49+08:00"
+    }
+  ],
+  "project": {
+    "id": "prototype",
+    "name": "Prototype",
+    "source": "local"
+  },
+  "surfaces": [
+    {
+      "id": "surface-P14-nearby-services",
+      "type": "popover",
+      "name": "附近的服务",
+      "pageKey": "P14",
+      "openSelector": "[data-nearby-card]",
+      "triggerSelector": "[data-composer-more]",
+      "visibility": "on-trigger",
+      "titleText": "附近的服务",
+      "contentSelector": "[data-nearby-card]"
+    },
+    {
+      "id": "surface-P14-conversation-drawer",
+      "type": "drawer",
+      "name": "对话菜单",
+      "pageKey": "P14",
+      "openSelector": ".conversation-drawer",
+      "triggerSelector": "[aria-label=\"打开对话菜单\"]",
+      "visibility": "on-trigger",
+      "titleText": "对话菜单",
+      "contentSelector": ".conversation-drawer"
+    },
+    {
+      "id": "surface-P14-wishlist-drawer",
+      "type": "drawer",
+      "name": "我的心愿单",
+      "pageKey": "P14",
+      "openSelector": ".wishlist-drawer",
+      "triggerSelector": "[data-wishlist-toggle]",
+      "visibility": "on-trigger",
+      "titleText": "我的心愿单",
+      "contentSelector": ".wishlist-drawer"
+    },
+    {
+      "id": "surface-P14-embedded-map",
+      "type": "panel",
+      "name": "边走边耍地图",
+      "pageKey": "P14",
+      "openSelector": ".map-background-layer",
+      "triggerSelector": "[aria-label=\"进入边走边耍地图\"]",
+      "visibility": "on-trigger",
+      "titleText": "边走边耍地图",
+      "contentSelector": ".map-background-layer"
+    }
+  ],
+  "productProfile": {
+    "productName": "周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "annotationMode": "standard",
+    "enabledAnnotationTypes": [
+      "P",
+      "A",
+      "J",
+      "S",
+      "R",
+      "DATA",
+      "AI",
+      "FALLBACK"
+    ],
+    "inferred": true
+  },
+  "audienceMode": "product-review",
+  "productContext": {
+    "productName": "产品说明书：周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "enabledAnnotationTypes": [
+      "P",
+      "E",
+      "C",
+      "A",
+      "J",
+      "S",
+      "R",
+      "PERM",
+      "DATA",
+      "AI",
+      "PROMPT",
+      "CTX",
+      "HITL",
+      "FALLBACK"
+    ],
+    "roles": [],
+    "coreObjects": [],
+    "coreFlows": [],
+    "pages": [],
+    "generatedAt": "2026-09-04T09:11:49Z",
+    "sources": [
+      "D:\\project_codex\\codex_tl-wl\\产品说明书\\产品说明书-用户端-20260904-v1.md",
+      "D:\\project_codex\\codex_tl-wl\\prototype-mobile-v7-20260831\\V7用户端规则定义文档-20260831.md"
+    ]
+  }
+}
+</script>
+<!-- /Prototype Annotator runtime -->
+</body></html>

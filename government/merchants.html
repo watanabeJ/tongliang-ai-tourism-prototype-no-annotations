@@ -1,0 +1,611 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>商户增长</title><link rel="stylesheet" href="styles.css?v=20260828-v3"></head><body class="dashboard-page" data-page="merchants"><main class="phone-shell"><div class="statusbar"><span>15:30</span><span>● ● ●</span></div><header class="detail-header"><a href="index.html" aria-label="返回运营总览">‹</a><strong>商户增长</strong><span></span></header><div class="page-content"><div class="period-switch"><button class="active" data-period="today" data-ann="merchant-period">今日</button><button data-period="week">本周</button><button data-period="month">本月</button><button data-period="all">全部</button></div><div class="metric-row"><article class="metric-card"><span>商户总量</span><strong data-value="merchantsTotal">156</strong><small>该时段商户</small></article><article class="metric-card"><span>新增商户量</span><strong data-value="merchantsNew">12</strong><small class="positive" data-change="merchants">较上期 +20.0%</small></article></div><article class="chart-card tall-chart"><div class="card-title"><div><h2 data-ann="merchant-trend">商户变化趋势</h2><p data-trend-label>今日每 2 小时新增</p></div><span class="legend merchant"><i></i>新增商户</span></div><div class="line-chart large merchant-chart"><div class="chart-grid"><span></span><span></span><span></span><span></span></div><svg viewBox="0 0 300 130" preserveAspectRatio="none"><polyline data-line="merchants" points="0,106 75,89 150,67 225,49 300,26"></polyline><circle data-dot="merchants" cx="300" cy="26" r="4"></circle></svg><div class="chart-axis" data-axis="merchants"></div></div></article><article class="summary-card"><h2>趋势说明</h2><p data-merchant-summary>今日新增商户稳步增加，当前入驻速度较上期提升。</p></article></div></main><script src="app.js?v=20260828-v3"></script><!-- proto-spec-annotator-viewer:start -->
+
+
+<script>
+(function () {
+  const pageKey = "merchants";
+  const style = document.createElement("style");
+  style.textContent = ".proto-spec-switcher,.proto-spec-doc{--proto-spec-bg:#f5f7fa;--proto-spec-surface:#fff;--proto-spec-muted:#647083;--proto-spec-text:#1f2933;--proto-spec-border:#d8dee8;--proto-spec-soft:#eef2f6;--proto-spec-accent:#e65f3f;--proto-spec-accent-dark:#bd452d;--proto-spec-focus:#2563eb;box-sizing:border-box}.proto-spec-route-shell{min-height:100%}.proto-spec-switcher{position:fixed;top:16px;left:50%;z-index:2147483000;display:inline-flex;transform:translateX(-50%);gap:2px;border:1px solid var(--proto-spec-border);border-radius:8px;background:rgba(255,255,255,.96);padding:3px;box-shadow:0 10px 24px rgba(15,23,42,.12);backdrop-filter:blur(10px);cursor:grab;touch-action:none;user-select:none}.proto-spec-switcher.is-dragging,.proto-spec-switcher.is-dragging button{cursor:grabbing}.proto-spec-switcher button,.proto-spec-doc__toolbar button{-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:0;text-align:center;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;white-space:nowrap;-webkit-text-fill-color:currentColor;opacity:1;filter:none}.proto-spec-switcher button::before,.proto-spec-switcher button::after,.proto-spec-doc__toolbar button::before,.proto-spec-doc__toolbar button::after{content:none!important;display:none!important}.proto-spec-switcher button{min-width:88px;min-height:36px;border:0;border-radius:6px;background:transparent;color:var(--proto-spec-muted);cursor:pointer;font:700 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:0;padding:9px 13px}.proto-spec-switcher button:hover{background:var(--proto-spec-soft);color:var(--proto-spec-accent-dark);-webkit-text-fill-color:currentColor}.proto-spec-switcher button.is-active{background:var(--proto-spec-accent);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc{min-height:100vh;background:var(--proto-spec-bg);color:var(--proto-spec-text);padding:88px 24px 56px;font:14px/1.75 Inter,ui-sans-serif,system-ui,sans-serif}.proto-spec-doc *{box-sizing:border-box}.proto-spec-doc__inner{width:min(1040px,100%);margin:0 auto}.proto-spec-doc header{border-bottom:1px solid var(--proto-spec-border);margin:0 0 18px;padding:0 0 22px}.proto-spec-doc__eyebrow{color:var(--proto-spec-muted);font-size:12px;font-weight:800;letter-spacing:0;margin:0 0 8px;text-transform:uppercase}.proto-spec-doc h1{color:var(--proto-spec-text);font-size:30px;font-weight:800;line-height:1.2;margin:0 0 10px}.proto-spec-doc header p:not(.proto-spec-doc__eyebrow){color:var(--proto-spec-muted);font-size:15px;line-height:1.7;max-width:78ch;margin:0}.proto-spec-doc h2{border-top:1px solid var(--proto-spec-border);color:var(--proto-spec-text);font-size:20px;font-weight:800;line-height:1.35;margin:28px 0 12px;padding-top:24px}.proto-spec-doc h2:first-child{border-top:0;margin-top:0;padding-top:0}.proto-spec-doc h3{color:var(--proto-spec-text);font-size:16px;font-weight:800;line-height:1.45;margin:22px 0 8px}.proto-spec-doc h4{color:var(--proto-spec-muted);font-size:14px;font-weight:800;line-height:1.45;margin:18px 0 6px}.proto-spec-doc p{margin:0 0 12px}.proto-spec-doc a{color:var(--proto-spec-accent-dark);text-decoration:none}.proto-spec-doc a:hover{text-decoration:underline}.proto-spec-doc ul,.proto-spec-doc ol{margin:0 0 14px 22px;padding:0}.proto-spec-doc ul ul,.proto-spec-doc ul ol,.proto-spec-doc ol ul,.proto-spec-doc ol ol{margin-top:6px;margin-bottom:6px}.proto-spec-doc li{margin:5px 0}.proto-spec-doc li::marker{color:var(--proto-spec-accent)}.proto-spec-task-checkbox{width:15px;height:15px;margin:0 7px 0 0;vertical-align:-2px;accent-color:var(--proto-spec-accent)}.proto-spec-doc code{border-radius:5px;background:var(--proto-spec-soft);color:var(--proto-spec-text);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 5px}.proto-spec-doc mark{border-radius:4px;background:#fff2b8;color:var(--proto-spec-text);padding:1px 4px}.proto-spec-doc pre{overflow:auto;border:1px solid var(--proto-spec-border);border-radius:8px;background:#f8fafc;color:var(--proto-spec-text);margin:14px 0;padding:14px}.proto-spec-doc pre code{background:transparent;padding:0}.proto-spec-doc blockquote{border-left:4px solid var(--proto-spec-accent);color:var(--proto-spec-muted);margin:16px 0;padding:2px 0 2px 14px}.proto-spec-callout{border:1px solid var(--proto-spec-border)!important;border-left:4px solid var(--proto-spec-accent)!important;border-radius:8px;background:#fffaf7;color:var(--proto-spec-text)!important;padding:12px 14px!important}.proto-spec-callout__title{color:var(--proto-spec-accent-dark);font-weight:800;margin:0 0 6px!important}.proto-spec-doc img{display:block;max-width:100%;height:auto;border:1px solid var(--proto-spec-border);border-radius:8px;background:#fff;margin:14px 0}.proto-spec-doc__toolbar{position:sticky;top:66px;z-index:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 16px;padding:10px 0;background:var(--proto-spec-bg)}.proto-spec-doc__button,.proto-spec-doc__toolbar button{min-height:38px;border:1px solid var(--proto-spec-border);border-radius:6px;background:var(--proto-spec-surface);color:var(--proto-spec-text);cursor:pointer;font:800 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:0;padding:9px 12px}.proto-spec-doc__button:hover,.proto-spec-doc__button:active,.proto-spec-doc__toolbar button:hover,.proto-spec-doc__toolbar button:active{border-color:var(--proto-spec-accent);color:var(--proto-spec-accent-dark);-webkit-text-fill-color:currentColor}.proto-spec-doc__button--primary{border-color:var(--proto-spec-accent);background:var(--proto-spec-accent);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc__button--primary:hover,.proto-spec-doc__button--primary:active,.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent-dark);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc__toolbar button.proto-spec-doc__button--primary,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:hover,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:active,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent)!important;border-color:var(--proto-spec-accent)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:13px!important;line-height:1.2!important;text-indent:0!important;text-shadow:none!important;visibility:visible!important;opacity:1!important;overflow:visible!important}.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:hover,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:active,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent-dark)!important}.proto-spec-doc__mode-toggle{display:inline-flex;gap:2px;border:1px solid var(--proto-spec-border);border-radius:8px;background:var(--proto-spec-soft);padding:3px}.proto-spec-doc__mode-toggle button{min-height:32px;border:0;background:transparent;color:var(--proto-spec-muted);padding:7px 11px}.proto-spec-doc__mode-toggle button.is-active{background:var(--proto-spec-surface);box-shadow:0 1px 2px rgba(15,23,42,.08);color:var(--proto-spec-text);-webkit-text-fill-color:currentColor}.proto-spec-doc__status{color:var(--proto-spec-muted);font-size:13px;font-weight:700}.proto-spec-doc__content{background:var(--proto-spec-surface);border:1px solid var(--proto-spec-border);border-radius:8px;box-shadow:0 14px 30px rgba(15,23,42,.06);display:block;margin-top:0;padding:30px 34px}.proto-spec-doc__content>*{max-width:78ch}.proto-spec-doc__content table{border-collapse:collapse;width:100%;max-width:100%;background:white;margin:16px 0}.proto-spec-doc__content th,.proto-spec-doc__content td{border:1px solid var(--proto-spec-border);padding:9px 11px;text-align:left;vertical-align:top}.proto-spec-doc__content th{background:var(--proto-spec-soft);font-weight:800}.proto-spec-mermaid{border:1px solid var(--proto-spec-border);border-radius:8px;background:#fff;margin:16px 0;padding:14px;max-width:100%}.proto-spec-mermaid[data-rendered='loading']::after{content:'正在渲染 Mermaid 图表...';display:block;color:var(--proto-spec-muted);font-size:12px;font-weight:700;margin-top:8px}.proto-spec-mermaid[data-rendered='failed']::after{content:'Mermaid 图表渲染失败，已保留源码。';display:block;color:var(--proto-spec-accent-dark);font-size:12px;font-weight:700;margin-top:8px}.proto-spec-mermaid figcaption{color:var(--proto-spec-muted);font-size:12px;font-weight:800;letter-spacing:0;margin:0 0 8px;text-transform:uppercase}.proto-spec-mermaid svg{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}.proto-spec-mermaid foreignObject,.proto-spec-mermaid foreignObject *{box-sizing:content-box;line-height:1.2!important}.proto-spec-doc__editor{box-sizing:border-box;width:100%;min-height:64vh;border:1px solid var(--proto-spec-border);border-radius:8px;background:var(--proto-spec-surface);box-shadow:0 14px 30px rgba(15,23,42,.06);color:var(--proto-spec-text);font:14px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;padding:22px;resize:vertical}.proto-spec-doc__editor:focus,.proto-spec-doc button:focus-visible,.proto-spec-switcher button:focus-visible{outline:2px solid var(--proto-spec-focus);outline-offset:2px}@media (max-width:720px){.proto-spec-switcher{top:10px}.proto-spec-switcher button{min-width:auto;padding:8px 10px}.proto-spec-doc{padding:74px 14px 32px}.proto-spec-doc h1{font-size:24px}.proto-spec-doc__toolbar{top:54px}.proto-spec-doc__content{padding:22px 18px}.proto-spec-doc__content>*{max-width:100%}.proto-spec-doc__editor{min-height:58vh;padding:16px}}";
+  document.head.appendChild(style);
+  // Keep the original document/editor, with its only entry in the annotation toolbar.
+  const specPanel = document.createElement("section");
+  specPanel.id = "prototype-page-spec-panel";
+  specPanel.className = "proto-spec-doc pa-ui pa-page-spec-panel";
+  specPanel.setAttribute("role", "dialog");
+  specPanel.setAttribute("aria-label", "页面需求说明");
+  specPanel.hidden = true;
+  const panelHeader = '<header class="pa-page-spec-header"><h2>页面需求说明</h2><button type="button" class="proto-spec-doc__button" data-action="close">返回页面</button></header>';
+  specPanel.innerHTML = '<div class="proto-spec-doc__inner">' + panelHeader + '<p>正在加载...</p></div>';
+  document.body.appendChild(specPanel);
+  let returnFocus = null;
+  let frontmatterText = "";
+  let bodyMarkdown = "";
+  let draft = "";
+  let editing = false;
+  let editorMode = "write";
+  let status = "";
+  function splitFrontmatter(markdown) {
+    if (!markdown.startsWith("---\n")) return { frontmatterText: "", body: markdown.trim() };
+    const end = markdown.indexOf("\n---", 4);
+    if (end === -1) return { frontmatterText: "", body: markdown.trim() };
+    return {
+      frontmatterText: markdown.slice(4, end),
+      body: markdown.slice(end + 4).replace(/^\s*\n/, "").trim()
+    };
+  }
+  function composeMarkdown() {
+    return frontmatterText ? "---\n" + frontmatterText + "\n---\n\n" + draft.trim() + "\n" : draft.trim() + "\n";
+  }
+  function renderMarkdown(markdown) {
+    const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+    const out = [];
+    let paragraph = [];
+    function flushParagraph() {
+      if (!paragraph.length) return;
+      out.push("<p>" + paragraph.map(renderInline).join("<br>") + "</p>");
+      paragraph = [];
+    }
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index];
+      const trimmed = line.trim();
+      const fence = trimmed.match(/^```\s*([A-Za-z0-9_-]*)\s*$/);
+      if (fence) {
+        flushParagraph();
+        const lang = (fence[1] || "").toLowerCase();
+        const code = [];
+        index += 1;
+        while (index < lines.length && !lines[index].trim().startsWith("```")) {
+          code.push(lines[index]);
+          index += 1;
+        }
+        const codeText = code.join("\n");
+        out.push(lang === "mermaid"
+          ? '<figure class="proto-spec-mermaid" data-mermaid="' + escapeAttr(codeText) + '"><figcaption>Mermaid</figcaption><pre><code>' + escapeHtml(codeText) + "</code></pre></figure>"
+          : '<pre><code>' + escapeHtml(codeText) + "</code></pre>");
+        continue;
+      }
+      if (!trimmed) {
+        flushParagraph();
+        continue;
+      }
+      const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
+      if (heading) {
+        flushParagraph();
+        out.push("<h" + heading[1].length + ">" + renderInline(heading[2]) + "</h" + heading[1].length + ">");
+        continue;
+      }
+      if (isQuoteStart(trimmed)) {
+        flushParagraph();
+        const quote = renderQuoteBlock(lines, index);
+        out.push(quote.html);
+        index = quote.index - 1;
+        continue;
+      }
+      if (isTableStart(lines, index)) {
+        flushParagraph();
+        const headers = parseTableRow(lines[index]);
+        index += 2;
+        const rows = [];
+        while (index < lines.length && lines[index].trim().startsWith("|")) {
+          rows.push(parseTableRow(lines[index]));
+          index += 1;
+        }
+        index -= 1;
+        out.push(renderTable(headers, rows));
+        continue;
+      }
+      if (parseListItem(line)) {
+        flushParagraph();
+        const list = renderListBlock(lines, index);
+        out.push(list.html);
+        index = list.index - 1;
+        continue;
+      }
+      paragraph.push(line);
+    }
+    flushParagraph();
+    return out.join("");
+  }
+  function isQuoteStart(trimmed) {
+    return /^>\s?/.test(trimmed);
+  }
+  function renderQuoteBlock(lines, start) {
+    const quoteLines = [];
+    let index = start;
+    while (index < lines.length) {
+      const line = lines[index] || "";
+      if (!line.trim()) {
+        quoteLines.push("");
+        index += 1;
+        continue;
+      }
+      const quote = line.match(/^\s*>\s?(.*)$/);
+      if (!quote) break;
+      quoteLines.push(quote[1] || "");
+      index += 1;
+    }
+    const callout = quoteLines[0]?.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION|TODO|INFO|RISK)\]\s*(.*)$/i);
+    if (callout) {
+      const type = callout[1].toLowerCase();
+      const title = callout[2] || calloutLabel(type);
+      const body = quoteLines.slice(1).join("\n").trim();
+      return {
+        html: '<blockquote class="proto-spec-callout proto-spec-callout--' + escapeAttr(type) + '"><p class="proto-spec-callout__title">' + renderInline(title) + "</p>" + (body ? renderMarkdown(body) : "") + "</blockquote>",
+        index
+      };
+    }
+    return { html: "<blockquote>" + renderMarkdown(quoteLines.join("\n").trim()) + "</blockquote>", index };
+  }
+  function calloutLabel(type) {
+    return { note: "说明", tip: "建议", important: "重要", warning: "警告", caution: "注意", todo: "待办", info: "信息", risk: "风险" }[type] || "说明";
+  }
+  function parseListItem(line) {
+    const match = String(line || "").match(/^(\s*)([-*+]|\d+[.)])\s+(?:\[( |x|X)\]\s+)?(.+)$/);
+    if (!match) return null;
+    return {
+      indent: match[1].replace(/\t/g, "    ").length,
+      ordered: /^\d/.test(match[2]),
+      task: match[3] !== undefined,
+      checked: /x/i.test(match[3] || ""),
+      text: match[4]
+    };
+  }
+  function renderListBlock(lines, start) {
+    const first = parseListItem(lines[start]);
+    if (!first) return { html: "", index: start + 1 };
+    const tag = first.ordered ? "ol" : "ul";
+    const items = [];
+    let index = start;
+    while (index < lines.length) {
+      const item = parseListItem(lines[index]);
+      if (!item || item.indent !== first.indent || item.ordered !== first.ordered) break;
+      let content = (item.task ? renderTaskCheckbox(item.checked) : "") + renderInline(item.text);
+      index += 1;
+      while (index < lines.length) {
+        const next = parseListItem(lines[index]);
+        const raw = lines[index] || "";
+        if (!raw.trim()) {
+          index += 1;
+          continue;
+        }
+        if (next && next.indent > first.indent) {
+          const nested = renderListBlock(lines, index);
+          content += nested.html;
+          index = nested.index;
+          continue;
+        }
+        if (next && next.indent <= first.indent) break;
+        const continuationIndent = raw.match(/^\s*/)[0].replace(/\t/g, "    ").length;
+        if (continuationIndent > first.indent) {
+          content += "<br>" + renderInline(raw.trim());
+          index += 1;
+          continue;
+        }
+        break;
+      }
+      items.push("<li>" + content + "</li>");
+    }
+    return { html: "<" + tag + ">" + items.join("") + "</" + tag + ">", index };
+  }
+  function renderTaskCheckbox(checked) {
+    return '<input class="proto-spec-task-checkbox" type="checkbox" disabled' + (checked ? " checked" : "") + ' aria-label="' + (checked ? "已完成" : "未完成") + '">';
+  }
+  function isTableStart(lines, index) {
+    return Boolean(lines[index] && lines[index + 1] && lines[index].trim().startsWith("|") && lines[index + 1].trim().startsWith("|") && parseTableRow(lines[index + 1]).every(function (cell) { return /^:?-{3,}:?$/.test(cell); }));
+  }
+  function parseTableRow(line) {
+    return line.trim().replace(/^\||\|$/g, "").split("|").map(function (cell) { return cell.trim(); });
+  }
+  function renderTable(headers, rows) {
+    return "<table><thead><tr>" + headers.map(function (cell) { return "<th>" + renderInline(cell) + "</th>"; }).join("") + "</tr></thead><tbody>" + rows.map(function (row) { return "<tr>" + headers.map(function (_header, index) { return "<td>" + renderInline(row[index] || "") + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table>";
+  }
+  function renderInline(value) {
+    let output = "";
+    let cursor = 0;
+    const pattern = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)|\[([^\]]+)\]\(([^)\s]+)\)|`([^`]+)`|\*\*([^*]+)\*\*|==([^=]+)==/g;
+    let match;
+    while ((match = pattern.exec(value)) !== null) {
+      output += escapeHtml(value.slice(cursor, match.index));
+      if (match[1] !== undefined) output += '<img src="' + escapeAttr(match[2]) + '" alt="' + escapeAttr(match[1]) + '"' + (match[3] ? ' title="' + escapeAttr(match[3]) + '"' : "") + ">";
+      else if (match[4] !== undefined) output += '<a href="' + escapeAttr(match[5]) + '" target="_blank" rel="noreferrer">' + escapeHtml(match[4]) + "</a>";
+      else if (match[6] !== undefined) output += "<code>" + escapeHtml(match[6]) + "</code>";
+      else if (match[7] !== undefined) output += "<strong>" + escapeHtml(match[7]) + "</strong>";
+      else if (match[8] !== undefined) output += "<mark>" + escapeHtml(match[8]) + "</mark>";
+      cursor = match.index + match[0].length;
+    }
+    return output + escapeHtml(value.slice(cursor));
+  }
+  function loadMermaid() {
+    if (window.mermaid && typeof window.mermaid.render === "function") {
+      initializeMermaid(window.mermaid);
+      return Promise.resolve(window.mermaid);
+    }
+    if (window.__protoSpecMermaidPromise) return window.__protoSpecMermaidPromise;
+    window.__protoSpecMermaidPromise = new Promise(function (resolve, reject) {
+      const existing = document.querySelector("script[data-proto-spec-mermaid]");
+      if (existing) {
+        existing.addEventListener("load", function () {
+          if (window.mermaid && typeof window.mermaid.render === "function") {
+            initializeMermaid(window.mermaid);
+            resolve(window.mermaid);
+          } else {
+            reject(new Error("Mermaid failed to initialize."));
+          }
+        }, { once: true });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js";
+      script.async = true;
+      script.dataset.protoSpecMermaid = "true";
+      script.onload = function () {
+        if (window.mermaid && typeof window.mermaid.render === "function") {
+          initializeMermaid(window.mermaid);
+          resolve(window.mermaid);
+        } else {
+          reject(new Error("Mermaid failed to initialize."));
+        }
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+    return window.__protoSpecMermaidPromise;
+  }
+  function initializeMermaid(mermaid) {
+    if (window.__protoSpecMermaidInitialized) return;
+    if (typeof mermaid.initialize === "function") mermaid.initialize({ startOnLoad: false, securityLevel: "strict" });
+    window.__protoSpecMermaidInitialized = true;
+  }
+  function renderMermaidDiagrams() {
+    const nodes = Array.from(specPanel.querySelectorAll(".proto-spec-mermaid[data-mermaid]:not([data-rendered])"));
+    if (!nodes.length) return;
+    nodes.forEach(function (node) { node.setAttribute("data-rendered", "loading"); });
+    loadMermaid().then(function (mermaid) {
+      nodes.forEach(function (node, index) {
+      const code = node.getAttribute("data-mermaid") || "";
+      mermaid.render("proto-spec-mermaid-" + pageKey + "-" + index + "-" + Date.now(), code).then(function (result) {
+        node.setAttribute("data-rendered", "true");
+        node.innerHTML = result.svg || node.innerHTML;
+      }).catch(function () {
+        node.setAttribute("data-rendered", "failed");
+      });
+      });
+    }).catch(function () {
+      nodes.forEach(function (node) { node.setAttribute("data-rendered", "failed"); });
+    });
+  }
+  function renderSpec() {
+    const displayStatus = status || (editing && draft !== bodyMarkdown ? "未保存" : "");
+    const toolbar = editing
+      ? '<div class="proto-spec-doc__toolbar"><div class="proto-spec-doc__mode-toggle" role="group" aria-label="编辑模式"><button type="button" data-action="write" class="' + (editorMode === "write" ? "is-active" : "") + '">Markdown</button><button type="button" data-action="preview" class="' + (editorMode === "preview" ? "is-active" : "") + '">预览</button></div><button type="button" class="proto-spec-doc__button proto-spec-doc__button--primary" data-action="save">保存</button><button type="button" class="proto-spec-doc__button" data-action="cancel">取消</button>' + (displayStatus ? '<span class="proto-spec-doc__status">' + escapeHtml(displayStatus) + '</span>' : "") + '</div>'
+      : '<div class="proto-spec-doc__toolbar"><button type="button" class="proto-spec-doc__button" data-action="edit">编辑</button>' + (displayStatus ? '<span class="proto-spec-doc__status">' + escapeHtml(displayStatus) + '</span>' : "") + '</div>';
+    const content = editing && editorMode === "write"
+      ? '<textarea class="proto-spec-doc__editor"></textarea>'
+      : '<article class="proto-spec-doc__content">' + renderMarkdown(editing ? draft : bodyMarkdown) + '</article>';
+    specPanel.innerHTML = '<div class="proto-spec-doc__inner">' + panelHeader + toolbar + content + '</div>';
+    const editor = specPanel.querySelector(".proto-spec-doc__editor");
+    if (editor) editor.value = draft;
+    if (!editing) renderMermaidDiagrams();
+  }
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>]/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[ch]; });
+  }
+  function escapeAttr(value) {
+    return escapeHtml(value).replace(/"/g, "&quot;");
+  }
+  function embeddedSpecMarkdown() {
+    const nodes = Array.from(document.querySelectorAll("script[data-proto-spec-markdown]"));
+    const node = nodes.find(function (item) { return item.getAttribute("data-proto-spec-markdown") === pageKey; });
+    if (!node) return "";
+    try {
+      return JSON.parse(node.textContent || "\"\"");
+    } catch (error) {
+      return node.textContent || "";
+    }
+  }
+  async function fetchFirstText(urls) {
+    const embedded = embeddedSpecMarkdown();
+    if (embedded) return embedded;
+    let lastError = null;
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (res.ok) return res.text();
+        lastError = new Error(url + " returned " + res.status);
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw lastError || new Error("spec not found");
+  }
+  async function saveSpec() {
+    const editor = specPanel.querySelector(".proto-spec-doc__editor");
+    if (editor) draft = editor.value;
+    status = "保存中...";
+    renderSpec();
+    try {
+      const res = await fetch("/__prototype-specs/specs/" + encodeURIComponent(pageKey), {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ markdown: composeMarkdown() })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      bodyMarkdown = draft;
+      editing = false;
+      editorMode = "write";
+      status = "已保存";
+    } catch (error) {
+      status = "保存失败：请使用 node proto-spec-server.mjs 启动本地预览。";
+    }
+    renderSpec();
+  }
+  fetchFirstText([
+    "/__prototype-specs/specs/" + encodeURIComponent(pageKey),
+    "/prototype-specs/current/" + encodeURIComponent(pageKey) + ".md",
+    "../prototype-specs/current/" + encodeURIComponent(pageKey) + ".md"
+  ]).then(function (markdown) {
+    const parsed = splitFrontmatter(markdown);
+    frontmatterText = parsed.frontmatterText;
+    bodyMarkdown = parsed.body;
+    draft = bodyMarkdown;
+    renderSpec();
+  }).catch(function (error) {
+    specPanel.setAttribute("data-spec-error", error && (error.stack || error.message || String(error)) || "unknown");
+    specPanel.innerHTML = '<div class="proto-spec-doc__inner">' + panelHeader + '<p>读取需求说明失败。请确认已从项目根目录启动本地服务，或检查 prototype-specs/current/' + pageKey + '.md。</p></div>';
+  });
+  specPanel.addEventListener("click", function (event) {
+    const button = event.target.closest("button[data-action]");
+    if (!button) return;
+    if (button.dataset.action === "close") {
+      setView("product");
+      return;
+    }
+    if (button.dataset.action === "edit") {
+      editing = true;
+      editorMode = "write";
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "write" || button.dataset.action === "preview") {
+      const editor = specPanel.querySelector(".proto-spec-doc__editor");
+      if (editor) draft = editor.value;
+      editorMode = button.dataset.action === "preview" ? "preview" : "write";
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "cancel") {
+      editing = false;
+      editorMode = "write";
+      draft = bodyMarkdown;
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "save") saveSpec();
+  });
+  function setView(view) {
+    const showSpec = view === "spec";
+    if (showSpec && specPanel.hidden) returnFocus = document.activeElement;
+    specPanel.hidden = !showSpec;
+    if (showSpec) {
+      specPanel.querySelector('[data-action="close"]')?.focus();
+    } else if (returnFocus?.isConnected) {
+      returnFocus.focus();
+    }
+    window.dispatchEvent(new CustomEvent("prototypepagespecchange", { detail: { open: showSpec } }));
+  }
+  window.PrototypePageSpec = {
+    open: () => setView("spec"),
+    close: () => setView("product"),
+    isOpen: () => !specPanel.hidden
+  };
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !specPanel.hidden) setView("product");
+  });
+})();
+</script>
+<!-- proto-spec-annotator-viewer:end -->
+
+
+
+
+<!-- Prototype Annotator runtime -->
+<script>
+</script>
+<script id="prototype-annotations-data" type="application/json">
+{
+  "version": 1,
+  "project": {
+    "id": "government",
+    "name": "铜梁文旅政府端运营总览",
+    "source": "local"
+  },
+  "productContext": {
+    "summary": "面向政府运营人员的移动端数据工作台，汇总用户、商户和热点问题，并提供 AI 运行报告。",
+    "sourceRule": "热点问题来源于用户提问中对问题主题的提问次数。"
+  },
+  "productProfile": {
+    "productName": "铜梁文旅政府端运营总览",
+    "productType": "data_dashboard",
+    "productForms": [
+      "B端应用",
+      "数据产品",
+      "移动端原型"
+    ],
+    "primaryUsers": [
+      "政府运营人员"
+    ],
+    "annotationMode": "standard",
+    "enabledAnnotationTypes": [
+      "P",
+      "C",
+      "A",
+      "J",
+      "R",
+      "DATA",
+      "AI"
+    ]
+  },
+  "audienceMode": "product-review",
+  "pages": [
+    {
+      "pageKey": "P04",
+      "title": "商户增长",
+      "path": "merchants.html",
+      "route": "/merchants.html"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "ANN-P04-001",
+      "pageKey": "P04",
+      "target": {
+        "selector": "header",
+        "fallbackText": "商户增长",
+        "strategy": "tag"
+      },
+      "title": "商户增长 · 页面介绍",
+      "contentMarkdown": "### 页面功能介绍\n\n本页展示所选时间范围内的商户规模和新增趋势。\n\n### 核心内容\n\n- 商户总量、新增商户量和相对上期变化。\n- 新增商户折线趋势与趋势说明。\n\n### 业务流程\n\n- 从运营总览进入本页，选择时间范围后查看商户指标和趋势。\n- 点击顶部返回按钮回到运营总览。\n\n### 主要操作\n\n- 切换时间范围查看对应数据。\n- 阅读趋势说明。\n\n### 待确认",
+      "audienceMode": "product-review",
+      "annotationType": "P",
+      "kind": "note",
+      "topics": [
+        "business",
+        "data",
+        "flow"
+      ],
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "page-spec",
+        "ref": "prototype-specs/current/merchants.md#页面摘要"
+      },
+      "evidence": [
+        "页面标题：商户增长",
+        "页面包含指标与折线趋势"
+      ],
+      "candidateId": "CAND-P04-002",
+      "maintenancePolicy": "annotation-owned",
+      "createdBy": "ai",
+      "review": {
+        "required": false,
+        "status": "completed"
+      },
+      "updatedAt": "2026-09-03T06:35:00Z"
+    },
+    {
+      "id": "ANN-P04-002",
+      "pageKey": "P04",
+      "target": {
+        "selector": "[data-ann=\"merchant-period\"]",
+        "fallbackText": "今日",
+        "strategy": "data"
+      },
+      "title": "商户统计时间范围",
+      "contentMarkdown": "### 交互规则\n\n- 默认选中“今日”。\n- 切换后同步刷新商户指标、对比文案、趋势横轴、折线和趋势说明。\n- 趋势粒度依次为今日按 2 小时、本周按日、本月按周、全部按月。",
+      "audienceMode": "product-review",
+      "annotationType": "R",
+      "kind": "interaction",
+      "topics": [
+        "interaction",
+        "state",
+        "data"
+      ],
+      "dimension": "Filter and refresh",
+      "priority": "high",
+      "visible": true,
+      "source": {
+        "type": "page-spec",
+        "ref": "prototype-specs/current/merchants.md#【时间范围】交互规则说明"
+      },
+      "evidence": [
+        "时间范围按钮",
+        "共享脚本会更新商户指标与趋势"
+      ],
+      "candidateId": "CAND-P04-004",
+      "maintenancePolicy": "annotation-owned",
+      "createdBy": "ai",
+      "review": {
+        "required": false,
+        "status": "completed"
+      },
+      "updatedAt": "2026-09-03T06:35:00Z"
+    },
+    {
+      "id": "ANN-P04-003",
+      "pageKey": "P04",
+      "target": {
+        "selector": "main",
+        "fallbackText": "商户总量 新增商户量",
+        "strategy": "tag"
+      },
+      "title": "商户指标口径",
+      "contentMarkdown": "### 业务含义\n\n- 商户总量展示所选时间范围对应的商户规模。\n- 新增商户量展示所选时间范围内的新增数量。\n- 今日、本周、本月展示与上一对应周期的变化；全部展示平台累计口径。",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "data"
+      ],
+      "dimension": "Metric definition",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "page-spec",
+        "ref": "prototype-specs/current/merchants.md#【商户指标】显示规则说明"
+      },
+      "evidence": [
+        "页面指标：商户总量、新增商户量、较上期变化"
+      ],
+      "candidateId": "CAND-P04-001",
+      "maintenancePolicy": "annotation-owned",
+      "createdBy": "ai",
+      "review": {
+        "required": false,
+        "status": "completed"
+      },
+      "updatedAt": "2026-09-03T06:35:00Z"
+    },
+    {
+      "id": "ANN-P04-004",
+      "pageKey": "P04",
+      "target": {
+        "selector": "[data-ann=\"merchant-trend\"]",
+        "fallbackText": "商户变化趋势",
+        "strategy": "data"
+      },
+      "title": "商户变化趋势",
+      "contentMarkdown": "### 业务含义\n\n- 折线表示所选时间范围内的新增商户变化。\n- 横轴标签和末端数据点随时间范围更新。\n- 下方趋势说明与当前时间范围保持一致。",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "data"
+      ],
+      "dimension": "Chart and metric",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "page-spec",
+        "ref": "prototype-specs/current/merchants.md#【趋势图】显示规则说明"
+      },
+      "evidence": [
+        "页面模块：商户变化趋势",
+        "页面模块：趋势说明"
+      ],
+      "candidateId": "CAND-P04-008",
+      "maintenancePolicy": "annotation-owned",
+      "createdBy": "ai",
+      "review": {
+        "required": false,
+        "status": "completed"
+      },
+      "updatedAt": "2026-09-03T06:35:00Z"
+    }
+  ]
+}
+</script>
+<!-- /Prototype Annotator runtime -->
+</body></html>
+

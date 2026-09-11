@@ -1,0 +1,44 @@
+---
+specSchemaVersion: 2
+storageFormat: "markdown"
+pageKey: "merchant-profile-correction"
+version: 2
+pageName: "铜梁旅游商户端 - 补充商户资料"
+pageType: "业务页面"
+pageShape: "移动端页面"
+sourceType: "ai-reviewed"
+overwriteProtected: false
+specId: "merchant-profile-correction-spec"
+batchId: "v7-annotation-replan-20260904-104747"
+lastGeneratedAt: "2026-09-04T10:47:47+08:00"
+lastManualEditedAt: null
+aiReviewRequired: false
+aiReviewStatus: "completed"
+---
+
+# 补充商户资料
+
+## 页面摘要
+
+在资质状态为“需修改”时查看审核意见并重新提交指定材料。
+
+## 页面结构
+
+- 页面内容、字段、按钮和状态以当前原型为准。
+- 页面级说明用于整体理解；元素级标注只覆盖关键规则、AI 处理、状态和主操作。
+
+## 交互规则
+
+- “需修改”状态仍可登录并使用其他功能，仅当前资质资料需要重新提交。
+- 页面按审核意见重新上传经营许可证，提交后返回审核中状态。
+- 资质审核与知识内容的 AI 合规审核相互独立。
+
+## 状态与异常
+
+- 账号停用或受限后，已登录设备在下一次请求时失效，禁止继续保存或提交，并提示“账号已停用，请联系平台”。
+- 未提交的知识编辑不形成服务端记录；离开页面、关闭页面或退出登录后不保留。
+- 本页规则与旧产品说明冲突时，以《V7商户端规则定义文档-20260831.md》和用户最新确认内容为准。
+
+## 待确认
+
+- 无。本页规则均来自当前原型和已确认的 V7 商户端规则。

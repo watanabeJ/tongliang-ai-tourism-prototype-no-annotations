@@ -1,0 +1,1372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>商品展示</title>
+  <link rel="stylesheet" href="../styles.css?v=product-detail-navigation-v7">
+</head>
+<body>
+  <main class="stage"><section class="phone"><div class="screen product-detail-screen">
+    <header class="product-detail-header"><a class="product-detail-back" href="plan.html" data-product-back aria-label="返回上一级"><span data-icon="chevron-left"></span></a></header>
+    <article class="product-detail-content">
+      <section class="product-detail-gallery" data-product-gallery aria-label="商品图片"><div class="product-detail-track" data-product-track></div><span class="product-detail-counter" data-product-counter></span></section>
+      <div class="product-detail-title-row"><h1 data-product-name>推荐内容</h1><button class="product-favorite" type="button" data-product-wishlist aria-label="加入心愿单" aria-pressed="false" title="加入心愿单"><span data-icon="heart"></span></button></div>
+      <p class="product-detail-note" data-product-note></p>
+      <section class="product-detail-info" data-product-info data-ann="product-info"></section>
+      <button type="button" class="product-store-entry" data-store-entry aria-label="进入店铺查看详情"><span data-icon="store"></span><span>进入店铺查看详情</span><span data-icon="chevron"></span></button>
+    </article>
+  <div class="toast"></div></div></section></main>
+<script src="../app.js?v=companion-mode-removed-v1"></script>
+<script src="../data/researched-cards.js?v=20260908-v1"></script>
+  <script>
+  (() => {
+    const productCatalog = {
+      sanhuochun: {
+        name: '三活春油烧兔',
+        images: ['../assets/三活春油烧兔-1.png', '../assets/三活春油烧兔-2.png', '../assets/三活春油烧兔-3.png'],
+        merchant: '三活春（飞凤街店）',
+        status: '营业中',
+        hours: '周一至周日 09:00-21:00',
+        perPerson: '人均 ¥53',
+        info: {
+          address: '飞凤街158号春芳英佳楼下',
+          distance: '距您 5.6 km',
+          phone: '023-45678999',
+          description: '铜梁创意菜人气榜第 4，主打现杀现炒油烧兔，香料入味、肉质鲜嫩。包间免费，可自带酒水；路边停车方便，适合家庭聚餐或朋友小聚。',
+          specialties: ['油烧兔：柴籽油猛火炒制，兔肉外酥里嫩，香料味浓。', '酸菜鱼（约 3 斤）：酸萝卜汤底鲜厚开胃，鱼片滑嫩无刺。', '酸笋土滑肉：肉片爽滑，汤头酸爽解腻，暖胃又生津。']
+        },
+        packages: [
+          ['【谢师聚餐】【本土特色】招牌油烧兔套餐', '招牌油烧兔 1 份，送蔬菜套餐', '288', '../assets/三活春油烧兔-1.png'],
+          ['【谢师聚餐】【优质爆款】三活春家常套餐', '精品 2-3 人餐，含三活小煎鸡', '128', '../assets/三活春油烧兔-2.png'],
+          ['50 元代金券', '到店可抵扣消费', '45', '../assets/三活春油烧兔-3.png'],
+          ['【谢师聚餐】【味不可挡】特色地方菜套餐', '招牌油烧兔、老坛酸菜鱼等', '428', '../assets/三活春油烧兔-1.png'],
+          ['【谢师聚餐】三活春特色菜 10-12 人餐', '招牌菜、红烧芋儿鸡等', '788', '../assets/三活春油烧兔-2.png'],
+          ['【谢师聚餐】【高性价】三活春川味套餐', '招牌油烧兔、药膳鸡汤等', '688', '../assets/三活春油烧兔-3.png'],
+          ['【谢师聚餐】【特色尝鲜】尖椒巴骨肉套餐', '品质双人餐，含尖椒巴骨肉', '88', '../assets/三活春油烧兔-1.png'],
+          ['【谢师聚餐】三活春精品特色川菜', '招牌油烧兔、酸汤乌鱼花等', '888', '../assets/三活春油烧兔-2.png'],
+          ['【升学聚餐】【道道精品】地方菜套餐', '招牌油烧兔、特色泡椒鱼等', '558', '../assets/三活春油烧兔-3.png']
+        ]
+      },
+      toudaocai: {
+        name: '头刀菜',
+        images: ['../assets/头刀菜.jpeg'],
+        merchant: '头刀菜（金龙大道店）',
+        status: '营业中',
+        hours: '周一至周日 10:00-22:00',
+        perPerson: '人均 ¥56',
+        info: {
+          address: '迎春东街',
+          distance: '距您 48.7 km',
+          phone: '023-45678999',
+          description: '主打铜梁特色头刀菜、招牌油椒兔现杀现炒，肉质鲜嫩不柴。提供多种规格包间及独立卫生间，配备沙发会客区，适合家庭聚餐或小型宴席；路边免费停车，支持自带酒水。',
+          specialties: ['招牌油椒兔：青椒爆炒现杀兔肉，入口肉质紧实不柴，辣味鲜香浓郁。', '招牌红烧兔：传统烧制工艺，酱香与甜味交织，兔肉软糯入味。', '粉蒸羊肉：羊肉与米粉同蒸，口感软糯咸鲜，热气腾腾暖胃。']
+        },
+        packages: [
+          ['头刀菜推荐菜', '非遗泡椒头刀菜 1 份，适合 2-3 人分享', '128', '../assets/头刀菜.jpeg'],
+          ['30 元代金券', '代金券 1 张', '23.5', '../assets/头刀菜.jpeg']
+        ]
+      },
+      'xijiao-yashe': {
+        name: '西郊雅舍悠游谷·月色雅筑',
+        images: ['../assets/西郊雅社-1.jpeg', '../assets/西郊雅社-2.jpeg'],
+        merchant: '西郊雅舍悠游谷·月色雅筑',
+        status: '营业中',
+        hours: '营业时段待核实',
+        perPerson: '房价 ¥328 起',
+        info: {
+          address: '河东村会客厅旁',
+          distance: '距您 53 km',
+          phone: '023-45678999',
+          description: '位于河东村会客厅旁的乡村民宿，提供庭院住宿与周边休闲游览承接，适合安排玄天湖和安居古城行程中的住宿休憩。',
+          specialties: ['庭院住宿', '乡村休闲', '周边游览']
+        },
+        packages: [['湖景大床房', '1 张大床｜2 人入住｜含双早', '328', '../assets/西郊雅社-1.jpeg']]
+      },
+      'longcheng-hotel': {
+        type: 'stay',
+        name: '希岸 Deluxe 酒店重庆铜梁万达广场龙城天街店',
+        images: ['../assets/龙城天街连锁酒店-1.jpeg', '../assets/龙城天街连锁酒店-2.jpeg'],
+        merchant: '希岸 Deluxe 酒店重庆铜梁万达广场龙城天街店',
+        status: '高档型',
+        hours: '2019年开业｜锦江旗下',
+        perPerson: '房价 ¥246 起',
+        info: {
+          address: '铜梁商业中心区·民谐路龙城天街',
+          distance: '距龙城天街地铁站步行 950 米，约 12 分钟',
+          phone: '023-45678999',
+          description: '位于铜梁万达广场龙城天街商圈，页面展示品牌吹风机、智能客控与健身室等设施信息；住客评分 5.0，评价为“一次性拖鞋超贴心”。',
+          specialties: ['位置便利：步行约 950 米可达铜梁龙城天街地铁站。', '设施亮点：品牌吹风机、智能客控、健身室。', '预订提示：部分标准大床房支持限时付费取消，早餐方案以具体房型为准。']
+        },
+        packages: [
+          ['标准大床房', '1 张 1.8 米大床｜32-38 m²｜2 人入住', '246', '../assets/龙城天街连锁酒店-1.jpeg'],
+          ['标准大床房｜无早餐', '限时付费取消，确认较快', '246', '../assets/龙城天街连锁酒店-2.jpeg'],
+          ['标准大床房｜含 2 份早餐', '入住当天 18:00 前可免费取消', '270', '../assets/龙城天街连锁酒店-1.jpeg']
+        ]
+      },
+      'xuantian-lake-trail': {
+        type: 'tour',
+        name: '玄天湖环湖步道',
+        images: ['../assets/trip-day-tour-hd.png'],
+        merchant: '玄天湖景区', status: '可预约', hours: '开放时间以景区公告为准', perPerson: '体验 ¥68 起',
+        info: { address: '铜梁区玄天湖景区北门', phone: '023-45678999', description: '玄天湖景区环湖休闲步道，适合散步、骑行与观景。', specialties: ['约 10 公里环湖绿道', '北门游客服务中心', '湖景观景点'] },
+        packages: [['环湖骑行体验券', '单人自行车租赁 1 次｜路线咨询服务', '68', '../assets/玄天湖骑行案例.jpg']]
+      },
+      'tiandeng-stone': {
+        type: 'tour',
+        name: '天灯石景区',
+        images: ['../assets/trip-stone-scenic-hd.png'],
+        merchant: '天灯石景区', status: '可预约', hours: '开放时间以景区公告为准', perPerson: '门票 ¥48 起',
+        info: { address: '铜梁区天灯石景区', phone: '023-45678999', description: '铜梁特色石景游览点，可结合周边路线安排半日游。', specialties: ['特色石景', '半日游路线', '观景步道'] },
+        packages: [['天灯石景区成人票', '成人单人入园｜有效期以订单页为准', '48', '../assets/trip-stone-scenic-hd.png']]
+      },
+      'fire-dragon': {
+        type: 'tour',
+        name: '铜梁火龙',
+        images: ['../assets/火龙铁花.png', '../assets/打铁花实景.png'],
+        merchant: '铜梁龙文化演艺中心', status: '场次待确认', hours: '演出时间以当日场次为准', perPerson: '演出 ¥98 起',
+        info: { address: '铜梁区铜梁龙文化演艺中心', phone: '023-45678999', description: '铜梁火龙非遗演出，适合安排夜游体验。', specialties: ['火龙表演', '非遗演艺', '夜游体验'] },
+        packages: [['铜梁火龙演出成人票', '单人观演｜场次以订单确认页为准', '98', '../assets/火龙铁花.png']]
+      },
+      'lake-eco-fish': {
+        type: 'eat',
+        name: '湖畔生态鱼庄',
+        images: ['../assets/recommend-2.png'],
+        merchant: '湖畔生态鱼庄', status: '营业状态待确认', hours: '营业时间以商户实时信息为准', perPerson: '人均 ¥68 起',
+        info: { address: '铜梁区玄天湖西岸', phone: '023-45678999', description: '玄天湖西岸的川菜餐厅，以生态鱼和家常菜为主。', specialties: ['生态水库鱼', '家常川菜'] },
+        packages: [['生态鱼双人套餐', '生态鱼、时蔬、主食', '138', '../assets/recommend-2.png']]
+      },
+      'xuantian-hotpot': {
+        type: 'eat',
+        name: '玄天湖湖景火锅',
+        images: ['../assets/湖景火锅.jpeg'],
+        merchant: '玄天湖湖景火锅（玄天湖店）', status: '营业状态待确认', hours: '营业时间以商户实时信息为准', perPerson: '人均 ¥78 起',
+        info: { address: '铜梁区玄天湖景区内', phone: '18290357354', description: '临湖火锅餐厅，适合在游览玄天湖后到店用餐。', specialties: ['屠场毛肚', '湖景用餐'] },
+        packages: [['湖景火锅双人套餐', '锅底、荤菜拼盘、时蔬拼盘', '198', '../assets/湖景火锅.jpeg']]
+      }
+    };
+    const knowledgeDetailCatalog = {
+      'merchant-bayue-vegetarian': {
+        type: 'eat', name: '巴岳山素食餐厅', merchant: '巴岳素食餐厅', images: ['../assets/trip-day-tour-hd.png'], status: '待实时确认', hours: '营业时间请以实时信息为准', perPerson: '人均 ¥68 起',
+        info: { address: '铜梁区巴岳寺旁', phone: '17749985125', description: '巴岳寺旁素食餐厅，招牌为素佛跳墙。', specialties: ['素佛跳墙'] },
+        packages: [['素佛跳墙双人套餐', '素佛跳墙、时蔬与主食', '128', '../assets/trip-day-tour-hd.png']]
+      },
+      'merchant-xuantian-lake-dragon-hotpot': {
+        type: 'eat', name: '玄天湖龙火锅（龙舞广场店）', merchant: '玄天湖龙火锅（龙舞广场店）', images: ['../assets/湖景火锅.jpeg'], status: '待实时确认', hours: '营业时间请以实时信息为准', perPerson: '人均 ¥88 起',
+        info: { address: '铜梁区玄天湖景区内', phone: '18290357354', description: '玄天湖景区内特色火锅，招牌为屠场毛肚。', specialties: ['屠场毛肚'] },
+        packages: [['龙舞广场火锅双人套餐', '锅底、屠场毛肚、荤菜拼盘、时蔬', '218', '../assets/湖景火锅.jpeg']]
+      },
+      'merchant-xuantian-lake-view-hotpot': {
+        type: 'eat', name: '玄天湖湖景火锅', merchant: '玄天湖湖景火锅（玄天湖店）', images: ['../assets/湖景火锅.jpeg'], status: '待实时确认', hours: '营业时间请以实时信息为准', perPerson: '人均 ¥78 起',
+        info: { address: '铜梁区玄天湖景区内', phone: '18290357354', description: '玄天湖景区内特色火锅，招牌为屠场毛肚。', specialties: ['屠场毛肚'] },
+        packages: [['湖景火锅双人套餐', '锅底、荤菜拼盘、时蔬拼盘', '198', '../assets/湖景火锅.jpeg']]
+      },
+      'merchant-fujiang-shanju-food': {
+        type: 'eat', name: '涪江山居餐饮', merchant: '涪江山居餐饮', images: ['../assets/recommend-3.png'], status: '已入库', hours: '营业时间请以实时信息为准', perPerson: '人均 ¥68 起',
+        info: { address: '重庆市铜梁区安居镇油房街207-212号', phone: '18996066897', description: '安居古城内龙乡美食和特色江湖菜，招牌为翰林土鸡汤、步步高升、凡心善水莲和相思糍粑。', specialties: ['翰林土鸡汤', '步步高升', '凡心善水莲', '相思糍粑'] },
+        packages: [['安居古城特色双人餐', '翰林土鸡汤、特色小菜与主食', '158', '../assets/recommend-3.png']]
+      },
+      'merchant-xijiao-yashe-homestay': {
+        type: 'stay', name: '西郊雅社民宿', merchant: '西郊雅社民宿', images: ['../assets/西郊雅社-1.jpeg', '../assets/西郊雅社-2.jpeg'], status: '待实时确认', hours: '房态与入住时间请以实时信息为准', perPerson: '房价 ¥328 起',
+        info: { address: '铜梁区西来村', phone: '15683365560', description: '携程四钻民宿，10 间客房，支持携程线上预订。', specialties: [] },
+        packages: [['湖景大床房', '1 张大床｜2 人入住｜含双早', '328', '../assets/西郊雅社-1.jpeg']]
+      },
+      'merchant-west-hot-spring-hotel': {
+        type: 'stay', name: '重庆西温泉度假酒店', merchant: '重庆西温泉度假酒店', images: ['../assets/trip-day-tour-hd.png'], status: '待实时确认', hours: '房态与入住时间请以实时信息为准', perPerson: '房价 ¥468 起',
+        info: { address: '铜梁区玄天湖景区内', phone: '15797624663', description: '玄天湖景区内携程四钻度假酒店，资料登记 89 间客房，支持携程线上预订。', specialties: [] },
+        packages: [['温泉度假大床房', '1 张大床｜2 人入住｜含温泉体验', '468', '../assets/trip-day-tour-hd.png']]
+      },
+      'merchant-fengwu-market': {
+        type: 'shop', name: '风物集市', merchant: '风物集市', images: ['../assets/火龙冰箱贴.png'], status: '待实时确认', hours: '营业时间请以实时信息为准', perPerson: '商品 ¥58 起',
+        info: { address: '重庆市铜梁区安居镇西街110号', phone: '18996060673', description: '安居古城内文创与风物商品集合店。', specialties: ['安居八景', '十二生肖', '草编龙', '竹编制品', '安居古城扇'] },
+        packages: [['安居八景文创礼盒', '安居八景冰箱贴、古城扇等随机组合', '88', '../assets/火龙冰箱贴.png']]
+      },
+      'merchant-sanhuo-restaurant': {
+        type: 'eat', name: '铜梁区三活餐馆', merchant: '铜梁区三活餐馆', images: ['../assets/三活春油烧兔-1.png'], status: '待实时确认', hours: '营业时间请以实时信息为准', perPerson: '人均 ¥60 起',
+        info: { address: '重庆市铜梁区东城街道亚龙路145号', phone: '13452166298', description: '龙乡美食与铜梁特色餐饮商户，招牌包括非遗油烧兔、药膳炖铜梁黑鸡和特色炝炒鱼。', specialties: ['非遗油烧兔', '药膳炖铜梁黑鸡', '特色炝炒鱼'] },
+        packages: [['非遗油烧兔双人套餐', '油烧兔、时蔬与主食', '168', '../assets/三活春油烧兔-1.png']]
+      },
+      'merchant-yuanxiang-toudao': {
+        type: 'eat', name: '铜梁区原乡头刀菜餐饮店', merchant: '铜梁区原乡头刀菜餐饮店', images: ['../assets/头刀菜.jpeg'], status: '待实时确认', hours: '营业时间请以实时信息为准', perPerson: '人均 ¥58 起',
+        info: { address: '重庆市铜梁区东城街道金龙大道603号', phone: '13500302777', description: '龙乡美食与铜梁特色餐饮商户，招牌包括非遗泡椒头刀菜、双椒红袍鸡肾和招牌油烧兔。', specialties: ['非遗泡椒头刀菜', '双椒红袍鸡肾', '招牌油烧兔'] },
+        packages: [['头刀菜推荐菜', '非遗泡椒头刀菜 1 份，适合 2-3 人分享', '128', '../assets/头刀菜.jpeg']]
+      },
+      'merchant-fujiang-shanju-stay': {
+        type: 'stay', name: '涪江山居民宿', merchant: '涪江山居民宿', images: ['../assets/recommend-3.png'], status: '已入库', hours: '房态与入住时间请以实时信息为准', perPerson: '房价 ¥268 起',
+        info: { address: '重庆市铜梁区安居镇油房街207-212号', phone: '18996066897', description: '安居古城内全国乙级民宿，资料登记 20 间客房，支持携程线上预订。', specialties: [] },
+        packages: [['古城庭院大床房', '1 张大床｜2 人入住｜安居古城内', '268', '../assets/recommend-3.png']]
+      },
+      'merchant-hanlin-shanju': {
+        type: 'stay', name: '翰林山居民宿', merchant: '翰林山居民宿', images: ['../assets/recommend-3.png'], status: '已入库', hours: '房态与入住时间请以实时信息为准', perPerson: '房价 ¥228 起',
+        info: { address: '重庆市铜梁区安居镇会龙街53号', phone: '18996066897', description: '安居古城内全国丙级民宿，资料登记 38 间客房，支持携程线上预订。', specialties: [] },
+        packages: [['古城舒适大床房', '1 张大床｜2 人入住｜古城步行可达', '228', '../assets/recommend-3.png']]
+      },
+      'merchant-dragon-culture-media': {
+        type: 'shop', name: '重庆市铜梁区龙文化传媒有限公司', merchant: '重庆市铜梁区龙文化传媒有限公司', images: ['../assets/火龙冰箱贴.png'], status: '待实时确认', hours: '营业时间请以实时信息为准', perPerson: '商品 ¥39 起',
+        info: { address: '铜梁文创展厅', phone: '18996321456', description: '国有文创商铺，主营铜梁文创和非遗伴手礼，支持分钟级库存同步 API。', specialties: ['铜梁文创', '非遗伴手礼'] },
+        packages: [['铜梁火龙冰箱贴', '铜梁龙文创单件，款式随机发货', '39', '../assets/火龙冰箱贴.png']]
+      }
+    };
+    const productQuery = new URLSearchParams(location.search);
+    const researchRef = productQuery.get('researchRef');
+    const researchedProduct = (window.TongliangResearchedCards || []).find(entry => entry.id === researchRef);
+    if (researchRef && !researchedProduct) {
+      document.querySelector('[data-product-name]').textContent = '未找到该卡片';
+      document.querySelector('[data-product-info]').textContent = '请返回对话选择有效的推荐卡片。';
+      document.querySelector('[data-product-gallery]').hidden = true;
+      document.querySelector('[data-product-wishlist]').hidden = true;
+      document.querySelector('[data-store-entry]').remove();
+      return;
+    }
+    const productKey = productQuery.get('item');
+    const knowledgeRef = productQuery.get('knowledgeRef');
+    const historyName = productQuery.get('name') || '推荐内容';
+    const knownHistoryProduct = [...Object.values(knowledgeDetailCatalog), ...Object.values(productCatalog)]
+      .find(item => item.name === historyName || item.merchant === historyName);
+    const historyProduct = productKey === 'history' ? {
+      type: knownHistoryProduct?.type || 'tour',
+      name: historyName,
+      merchant: knownHistoryProduct?.merchant || historyName,
+      images: [productQuery.get('image') || knownHistoryProduct?.images?.[0] || '../assets/recommend-2.png'],
+      info: {
+        address: knownHistoryProduct?.info?.address || '重庆市铜梁区玄天湖景区周边',
+        phone: knownHistoryProduct?.info?.phone || '',
+        description: knownHistoryProduct?.info?.description || '铜梁文旅探索推荐内容，可结合地图导航安排到访。',
+        specialties: knownHistoryProduct?.info?.specialties || []
+      },
+      packages: knownHistoryProduct?.packages || []
+    } : null;
+    const selectedProduct = researchedProduct || knowledgeDetailCatalog[knowledgeRef] || historyProduct || productCatalog[productKey] || productCatalog.sanhuochun;
+    const product = {
+      ...selectedProduct,
+      merchant: selectedProduct.merchant || selectedProduct.name,
+      status: selectedProduct.status || '',
+      hours: selectedProduct.hours || '',
+      perPerson: selectedProduct.perPerson || '',
+      info: selectedProduct.info || {
+        address: '重庆市铜梁区玄天湖景区周边',
+        phone: '',
+        description: selectedProduct.note || '铜梁文旅探索推荐内容，可结合地图导航安排到访。',
+        specialties: []
+      },
+      packages: selectedProduct.packages || []
+    };
+    const escapeHTML = value => String(value ?? '').replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
+    document.querySelector('[data-product-name]').textContent = product.name;
+    const toast = document.querySelector('.toast');
+    const notify = message => {
+      toast.textContent = message;
+      toast.classList.add('show');
+      window.setTimeout(() => toast.classList.remove('show'), 1500);
+    };
+    const wishlistStorageKey = 'tongliang-added-wishlist-items-v1';
+    const wishlistItemId = researchRef || knowledgeRef || productKey || product.name;
+    const readWishlistItems = () => {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(wishlistStorageKey) || '[]');
+        return Array.isArray(saved) ? saved : [];
+      } catch (_) { return []; }
+    };
+    const writeWishlistItems = items => {
+      try { sessionStorage.setItem(wishlistStorageKey, JSON.stringify(items)); } catch (_) {}
+    };
+    const favoriteButton = document.querySelector('[data-product-wishlist]');
+    const updateFavoriteButton = () => {
+      const added = readWishlistItems().some(item => item.id === wishlistItemId);
+      favoriteButton.classList.toggle('is-favorited', added);
+      favoriteButton.setAttribute('aria-pressed', String(added));
+      favoriteButton.setAttribute('aria-label', added ? '从心愿单移除' : '加入心愿单');
+      favoriteButton.setAttribute('title', added ? '从心愿单移除' : '加入心愿单');
+    };
+    updateFavoriteButton();
+    favoriteButton.addEventListener('click', () => {
+      const items = readWishlistItems();
+      const index = items.findIndex(item => item.id === wishlistItemId);
+      if (index >= 0) {
+        items.splice(index, 1);
+        writeWishlistItems(items);
+        notify('已从心愿单移除');
+      } else {
+        items.unshift({ id: wishlistItemId, name: product.name, kind: product.type === 'eat' || product.type === 'shop' ? 'product' : 'merchant', addedAt: Date.now() });
+        writeWishlistItems(items);
+        notify('已加入心愿单');
+      }
+      updateFavoriteButton();
+    });
+    const note = document.querySelector('[data-product-note]');
+    note.innerHTML = `<div class="product-detail-note-head"><strong>${escapeHTML(product.merchant || product.name)}</strong></div>`;
+    const gallery = document.querySelector('[data-product-gallery]');
+    const track = document.querySelector('[data-product-track]');
+    const counter = document.querySelector('[data-product-counter]');
+    track.innerHTML = product.images.map((src, index) => `<img src="${src}" alt="${product.name}，第 ${index + 1} 张">`).join('');
+    let autoplayIndex = 0;
+    const updateCounter = () => {
+      const index = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+      autoplayIndex = Math.min(product.images.length - 1, Math.max(0, index));
+      counter.textContent = `${Math.min(product.images.length, index + 1)} / ${product.images.length}`;
+    };
+    gallery.setAttribute('aria-label', `${product.name}图片`);
+    counter.hidden = product.images.length < 2;
+    updateCounter();
+    track.addEventListener('scroll', updateCounter, { passive: true });
+    if (product.images.length > 1) {
+      window.setInterval(() => {
+        autoplayIndex = (autoplayIndex + 1) % product.images.length;
+        track.scrollTo({ left: autoplayIndex * track.clientWidth, behavior: 'smooth' });
+      }, 5000);
+    }
+    const info = document.querySelector('[data-product-info]');
+    if (product.info) {
+      const pinIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>';
+      const phoneIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3 4 5c0 8 7 15 15 15l2-3-5-3-2 2c-3-1-5-3-6-6l2-2-3-5Z"></path></svg>';
+      const address = product.info.address || '地址待补充';
+      const hasPhone = Boolean(product.info.phone);
+      const location = `<span class="product-detail-address" title="商户地址">${pinIcon}<span>${escapeHTML(address)}</span></span>`;
+      const phoneAction = hasPhone
+        ? `<a href="tel:${escapeHTML(product.info.phone)}" aria-label="拨打商户电话" title="拨打商户电话">${phoneIcon}</a>`
+        : '';
+      const specialties = Array.isArray(product.info.specialties) ? product.info.specialties : [];
+      info.innerHTML = `<div class="product-detail-facts">${location}${product.info.distance ? `<span class="product-detail-distance">${escapeHTML(product.info.distance)}</span>` : ''}${phoneAction ? `<span class="product-detail-actions">${phoneAction}</span>` : ''}</div><h2>商户简介</h2><p>${escapeHTML(product.info.description || '铜梁文旅探索推荐内容，可结合地图导航安排到访。')}</p>${specialties.length ? `<h2>特色介绍</h2><ul>${specialties.map(item => `<li>${escapeHTML(item)}</li>`).join('')}</ul>` : ''}`;
+    } else {
+      info.innerHTML = '<section class="product-detail-placeholder">此处可继续加入图文介绍、优惠、外部购买链接与地图导航。</section>';
+    }
+    if (researchedProduct) {
+      info.querySelector('h2').textContent = product.type === 'tour' ? '景点简介' : product.type === 'shop' ? '购物地简介' : '商户简介';
+      const sources = product.sources.map(source => `<li><a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.title)}</a>${source.publishedAt ? ` · 发布于${escapeHTML(source.publishedAt)}` : ' · 未标注发布日期'}</li>`).join('');
+      info.insertAdjacentHTML('beforeend', `<h2>出行提示</h2><p>${escapeHTML(product.visitNote)}</p><p>${escapeHTML(product.imageNote)}</p><h2>资料来源</h2><p>整理日期：${escapeHTML(product.checkedAt)}</p><ul>${sources}</ul>`);
+      document.querySelector('[data-store-entry]').remove();
+    }
+    document.querySelector('[data-store-entry]')?.addEventListener('click', () => notify(`${product.merchant || product.name}店铺详情已打开`));
+    const purchaseSheet = document.createElement('div');
+    purchaseSheet.className = 'purchase-flow-backdrop';
+    purchaseSheet.hidden = true;
+    purchaseSheet.innerHTML = `<section class="purchase-flow-sheet" role="dialog" aria-modal="true" aria-labelledby="purchase-flow-title"><button type="button" class="purchase-flow-close" data-purchase-close aria-label="关闭">×</button><div data-purchase-view="phone" class="purchase-phone-auth"><div class="purchase-auth-top">微信授权登录可继续操作</div><div class="purchase-auth-card"><div class="purchase-auth-brand"><img src="../assets/龙形象.png" alt=""><strong>周末到铜梁AI伴游</strong><span>ⓘ</span></div><h2 id="purchase-flow-title">申请获取并验证你的手机号</h2><p>注册用户账号且不会向外隐私泄露</p><button type="button" class="purchase-phone-option" data-phone-authorize><strong>133****0024</strong><small>上次提供</small></button><button type="button" class="purchase-flow-cancel" data-purchase-close>不允许</button><button type="button" class="purchase-other-phone">使用其它号码</button></div></div><div data-purchase-view="order" hidden><h2>确认套餐信息</h2><article class="purchase-order-item"><img data-order-image alt=""><div><strong data-order-name></strong><small data-order-desc></small></div><b data-order-price></b></article><div class="purchase-order-row"><span>手机号</span><b>159****7570</b></div><div class="purchase-order-row"><span>使用时间</span><b>到店核销</b></div><div class="purchase-order-total"><span>合计</span><strong data-order-total></strong></div><button type="button" class="purchase-submit" data-purchase-pay>提交订单并支付</button></div><div data-purchase-view="booking" hidden><h2>填写预订信息</h2><article class="purchase-order-item"><img data-booking-image alt=""><div><strong data-booking-name></strong><small data-booking-desc></small></div><b data-booking-price></b></article><label class="booking-field"><span>入住日期</span><button type="button">请选择入住日期 <i>›</i></button></label><label class="booking-field"><span>离店日期</span><button type="button">请选择离店日期 <i>›</i></button></label><label class="booking-field"><span>入住人</span><button type="button">1 间 1 晚，2 位住客 <i>›</i></button></label><div class="purchase-order-row"><span>联系人</span><b>159****7570</b></div><button type="button" class="purchase-submit" data-booking-next>下一步</button><p class="booking-template-note">这是酒店预订模板，日期、房间数、入住人和支付规则将在后续素材中补充。</p></div><div data-purchase-view="success" hidden><div class="purchase-success-mark">✓</div><h2>支付成功</h2><p>订单已提交给“${escapeHTML(product.merchant || product.name)}”，到店出示核销码即可使用。</p><button type="button" class="purchase-submit" data-purchase-done>查看订单</button></div></section>`;
+    document.body.append(purchaseSheet);
+    const purchaseViews = Object.fromEntries([...purchaseSheet.querySelectorAll('[data-purchase-view]')].map(view => [view.dataset.purchaseView, view]));
+    const bookingState = { checkIn: '8月22日', checkOut: '8月23日', nights: 1, rooms: 1, adults: 2, children: 0, unitPrice: 0 };
+    const bookingView = purchaseViews.booking;
+    bookingView.innerHTML = `<div class="purchase-flow-title-row"><h2>填写预订信息</h2></div><article class="purchase-order-item"><img data-booking-image alt=""><div><strong data-booking-name></strong><small data-booking-desc></small></div><b data-booking-price></b></article><button type="button" class="booking-field" data-booking-date><span>入住日期</span><b data-booking-dates>8月22日 - 8月23日</b><i>›</i></button><button type="button" class="booking-field" data-booking-guests><span>入住人</span><b data-booking-guests-value>1间 1晚，2位住客</b><i>›</i></button><section class="booking-policy-summary"><strong>预订说明</strong><p>免费取消时间与房态以订单确认页为准。</p></section><button type="button" class="purchase-submit" data-booking-next>下一步</button></div>`;
+    const bookingConfirmView = document.createElement('div');
+    bookingConfirmView.dataset.purchaseView = 'booking-confirm';
+    bookingConfirmView.hidden = true;
+    bookingConfirmView.innerHTML = `<div class="purchase-flow-title-row"><h2>确认预订</h2></div><section class="booking-confirm-card"><strong data-booking-confirm-hotel></strong><p data-booking-confirm-room></p><dl><div><dt>入住日期</dt><dd data-booking-confirm-dates></dd></div><div><dt>入住人数</dt><dd data-booking-confirm-guests></dd></div></dl></section><section class="booking-payment-methods"><strong>支付方式</strong><button type="button" class="is-selected" data-booking-payment="微信支付"><span>微信支付</span><i>✓</i></button></section><section class="booking-policy-summary"><strong>退改政策</strong><p>订单确认后可在入住前一天 18:00 前免费取消；超过时间按商户规则执行。</p></section><div class="booking-confirm-total"><span>合计</span><strong data-booking-confirm-total></strong></div><button type="button" class="purchase-submit" data-booking-submit>提交预订并支付</button></div>`;
+    purchaseViews.success.before(bookingConfirmView);
+    purchaseViews['booking-confirm'] = bookingConfirmView;
+    const bookingPicker = document.createElement('section');
+    bookingPicker.className = 'booking-picker';
+    bookingPicker.hidden = true;
+    purchaseSheet.querySelector('.purchase-flow-sheet').append(bookingPicker);
+    const renderBookingState = () => {
+      const total = bookingState.unitPrice * bookingState.rooms * bookingState.nights;
+      const guestCount = bookingState.adults + bookingState.children;
+      bookingView.querySelector('[data-booking-dates]').textContent = `${bookingState.checkIn} - ${bookingState.checkOut}`;
+      bookingView.querySelector('[data-booking-guests-value]').textContent = `${bookingState.rooms}间 ${bookingState.nights}晚，${guestCount}位住客`;
+      bookingConfirmView.querySelector('[data-booking-confirm-room]').textContent = `${bookingState.rooms}间 ${bookingState.nights}晚`;
+      bookingConfirmView.querySelector('[data-booking-confirm-dates]').textContent = `${bookingState.checkIn}入住，${bookingState.checkOut}离店`;
+      bookingConfirmView.querySelector('[data-booking-confirm-guests]').textContent = `${bookingState.rooms}间房，${bookingState.adults}位成人${bookingState.children ? `，${bookingState.children}位儿童` : ''}`;
+      bookingConfirmView.querySelector('[data-booking-confirm-total]').textContent = `¥${total}`;
+      bookingConfirmView.querySelector('[data-booking-submit]').textContent = `提交预订并支付 ¥${total}`;
+    };
+    const closeBookingPicker = () => { bookingPicker.hidden = true; };
+    let pendingCheckInDay = null;
+    let pendingCheckOutDay = null;
+    const updateDatePickerSelection = () => {
+      bookingPicker.querySelectorAll('[data-booking-date-option]').forEach(button => {
+        const day = 22 + Number(button.dataset.bookingDateOption);
+        button.classList.toggle('is-check-in', day === pendingCheckInDay);
+        button.classList.toggle('is-check-out', day === pendingCheckOutDay);
+        button.querySelector('em')?.remove();
+        if (day === pendingCheckInDay || day === pendingCheckOutDay) {
+          const marker = document.createElement('em');
+          marker.textContent = day === pendingCheckInDay ? '入住' : '离店';
+          button.append(marker);
+        }
+      });
+      const confirm = bookingPicker.querySelector('[data-booking-date-confirm]');
+      const helper = bookingPicker.querySelector('[data-booking-date-helper]');
+      const complete = Number.isInteger(pendingCheckInDay) && Number.isInteger(pendingCheckOutDay);
+      confirm.disabled = !complete;
+      confirm.textContent = complete ? `确认 ${pendingCheckOutDay - pendingCheckInDay} 晚` : '请选择离店日期';
+      helper.textContent = complete ? `已选择 ${pendingCheckInDay} 日入住，${pendingCheckOutDay} 日离店` : pendingCheckInDay ? `已选 ${pendingCheckInDay} 日入住，请继续选择离店日期` : '请先选择入住日期，再选择离店日期';
+    };
+    const openDatePicker = () => {
+      pendingCheckInDay = null;
+      pendingCheckOutDay = null;
+      bookingPicker.innerHTML = `<header><strong>选择入住和离店日期</strong><button type="button" data-booking-picker-close aria-label="关闭">×</button></header><p data-booking-date-helper>请先选择入住日期，再选择离店日期</p><div class="booking-date-grid">${['22', '23', '24', '25', '26', '27', '28'].map((day, index) => `<button type="button" data-booking-date-option="${index}"><b>8月${day}日</b><small>¥${bookingState.unitPrice || 328}</small></button>`).join('')}</div><button type="button" class="purchase-submit" data-booking-date-confirm disabled>请选择离店日期</button>`;
+      bookingPicker.hidden = false;
+    };
+    const openGuestPicker = () => {
+      bookingPicker.innerHTML = `<header><strong>入住条件</strong><button type="button" data-booking-picker-close aria-label="关闭">×</button></header><div class="booking-guest-controls"><div><span>房间数量</span><p><button type="button" data-booking-count="rooms:-">−</button><b data-booking-count-value="rooms">${bookingState.rooms}</b><button type="button" data-booking-count="rooms:+">+</button></p></div><div><span>成人数</span><p><button type="button" data-booking-count="adults:-">−</button><b data-booking-count-value="adults">${bookingState.adults}</b><button type="button" data-booking-count="adults:+">+</button></p></div><div><span>儿童数</span><p><button type="button" data-booking-count="children:-">−</button><b data-booking-count-value="children">${bookingState.children}</b><button type="button" data-booking-count="children:+">+</button></p></div></div><button type="button" class="purchase-submit" data-booking-guests-confirm>确定</button>`;
+      bookingPicker.hidden = false;
+    };
+    bookingView.querySelector('[data-booking-date]').addEventListener('click', openDatePicker);
+    bookingView.querySelector('[data-booking-guests]').addEventListener('click', openGuestPicker);
+    bookingPicker.addEventListener('click', event => {
+      if (event.target.closest('[data-booking-picker-close], [data-booking-guests-confirm]')) return closeBookingPicker();
+      if (event.target.closest('[data-booking-date-confirm]')) {
+        if (!Number.isInteger(pendingCheckInDay) || !Number.isInteger(pendingCheckOutDay)) return;
+        bookingState.checkIn = `8月${pendingCheckInDay}日`;
+        bookingState.checkOut = `8月${pendingCheckOutDay}日`;
+        bookingState.nights = pendingCheckOutDay - pendingCheckInDay;
+        renderBookingState();
+        closeBookingPicker();
+        return;
+      }
+      const date = event.target.closest('[data-booking-date-option]');
+      if (date) {
+        const day = 22 + Number(date.dataset.bookingDateOption);
+        if (!Number.isInteger(pendingCheckInDay) || Number.isInteger(pendingCheckOutDay) || day <= pendingCheckInDay) {
+          pendingCheckInDay = day;
+          pendingCheckOutDay = null;
+        } else {
+          pendingCheckOutDay = day;
+        }
+        updateDatePickerSelection();
+        return;
+      }
+      const counter = event.target.closest('[data-booking-count]');
+      if (!counter) return;
+      const [key, operation] = counter.dataset.bookingCount.split(':');
+      bookingState[key] = Math.max(key === 'children' ? 0 : 1, bookingState[key] + (operation === '+' ? 1 : -1));
+      bookingPicker.querySelector(`[data-booking-count-value="${key}"]`).textContent = String(bookingState[key]);
+    });
+    bookingConfirmView.querySelectorAll('[data-booking-payment]').forEach(button => button.addEventListener('click', () => {
+      bookingConfirmView.querySelectorAll('[data-booking-payment]').forEach(item => item.classList.toggle('is-selected', item === button));
+    }));
+    const showPurchaseView = name => {
+      purchaseSheet.classList.toggle('is-phone-auth', name === 'phone');
+      Object.entries(purchaseViews).forEach(([key, view]) => { view.hidden = key !== name; });
+    };
+    const closePurchaseSheet = () => { purchaseSheet.hidden = true; showPurchaseView('phone'); };
+    let selectedPackage;
+    const openPurchaseSheet = packageData => {
+      selectedPackage = packageData;
+      purchaseSheet.hidden = false;
+      showPurchaseView('phone');
+    };
+    purchaseSheet.querySelectorAll('[data-purchase-close]').forEach(button => button.addEventListener('click', closePurchaseSheet));
+    purchaseSheet.addEventListener('click', event => { if (event.target === purchaseSheet) closePurchaseSheet(); });
+    purchaseSheet.querySelector('[data-phone-authorize]').addEventListener('click', () => {
+      if (!selectedPackage) return;
+      const [name, desc, price, image] = selectedPackage;
+      if (product.type === 'stay') {
+        bookingState.unitPrice = Number(price) || 0;
+        purchaseSheet.querySelector('[data-booking-image]').src = image;
+        purchaseSheet.querySelector('[data-booking-image]').alt = name;
+        purchaseSheet.querySelector('[data-booking-name]').textContent = name;
+        purchaseSheet.querySelector('[data-booking-desc]').textContent = desc;
+        purchaseSheet.querySelector('[data-booking-price]').textContent = `¥${price} 起`;
+        bookingConfirmView.querySelector('[data-booking-confirm-hotel]').textContent = product.merchant || product.name;
+        renderBookingState();
+        showPurchaseView('booking');
+      } else {
+        purchaseSheet.querySelector('[data-order-image]').src = image;
+        purchaseSheet.querySelector('[data-order-image]').alt = name;
+        purchaseSheet.querySelector('[data-order-name]').textContent = name;
+        purchaseSheet.querySelector('[data-order-desc]').textContent = desc;
+        purchaseSheet.querySelector('[data-order-price]').textContent = `¥${price}`;
+        purchaseSheet.querySelector('[data-order-total]').textContent = `¥${price}`;
+        showPurchaseView('order');
+      }
+    });
+    purchaseSheet.querySelector('[data-purchase-pay]').addEventListener('click', () => showPurchaseView('success'));
+    purchaseSheet.querySelector('[data-booking-next]').addEventListener('click', () => showPurchaseView('booking-confirm'));
+    bookingConfirmView.querySelector('[data-booking-submit]').addEventListener('click', () => {
+      purchaseViews.success.querySelector('p').textContent = `预订已提交给“${product.merchant || product.name}”，正在等待商家确认，请稍后......`;
+      showPurchaseView('success');
+    });
+    purchaseSheet.querySelector('[data-purchase-done]').addEventListener('click', () => { closePurchaseSheet(); notify('订单已生成，可在我的订单中查看'); });
+    document.querySelector('[data-product-back]').addEventListener('click', event => {
+      event.preventDefault();
+      let returnUrl = '';
+      try {
+        returnUrl = sessionStorage.getItem('tongliang-product-return-v1') || '';
+        sessionStorage.removeItem('tongliang-product-return-v1');
+      } catch (_) {}
+      if (returnUrl && returnUrl !== location.href) {
+        location.href = returnUrl;
+      } else if (document.referrer && window.history.length > 1) {
+        window.history.back();
+      } else {
+        location.href = event.currentTarget.href;
+      }
+    });
+  })();
+  </script>
+<!-- proto-spec-annotator-viewer:start -->
+
+
+<script>
+(function () {
+  const pageKey = "product-detail";
+  const style = document.createElement("style");
+  style.textContent = ".proto-spec-switcher,.proto-spec-doc{--proto-spec-bg:#f5f7fa;--proto-spec-surface:#fff;--proto-spec-muted:#647083;--proto-spec-text:#1f2933;--proto-spec-border:#d8dee8;--proto-spec-soft:#eef2f6;--proto-spec-accent:#e65f3f;--proto-spec-accent-dark:#bd452d;--proto-spec-focus:#2563eb;box-sizing:border-box}.proto-spec-route-shell{min-height:100%}.proto-spec-switcher{position:fixed;top:16px;left:50%;z-index:2147483000;display:inline-flex;transform:translateX(-50%);gap:2px;border:1px solid var(--proto-spec-border);border-radius:8px;background:rgba(255,255,255,.96);padding:3px;box-shadow:0 10px 24px rgba(15,23,42,.12);backdrop-filter:blur(10px);cursor:grab;touch-action:none;user-select:none}.proto-spec-switcher.is-dragging,.proto-spec-switcher.is-dragging button{cursor:grabbing}.proto-spec-switcher button,.proto-spec-doc__toolbar button{-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:0;text-align:center;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;white-space:nowrap;-webkit-text-fill-color:currentColor;opacity:1;filter:none}.proto-spec-switcher button::before,.proto-spec-switcher button::after,.proto-spec-doc__toolbar button::before,.proto-spec-doc__toolbar button::after{content:none!important;display:none!important}.proto-spec-switcher button{min-width:88px;min-height:36px;border:0;border-radius:6px;background:transparent;color:var(--proto-spec-muted);cursor:pointer;font:700 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:0;padding:9px 13px}.proto-spec-switcher button:hover{background:var(--proto-spec-soft);color:var(--proto-spec-accent-dark);-webkit-text-fill-color:currentColor}.proto-spec-switcher button.is-active{background:var(--proto-spec-accent);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc{min-height:100vh;background:var(--proto-spec-bg);color:var(--proto-spec-text);padding:88px 24px 56px;font:14px/1.75 Inter,ui-sans-serif,system-ui,sans-serif}.proto-spec-doc *{box-sizing:border-box}.proto-spec-doc__inner{width:min(1040px,100%);margin:0 auto}.proto-spec-doc header{border-bottom:1px solid var(--proto-spec-border);margin:0 0 18px;padding:0 0 22px}.proto-spec-doc__eyebrow{color:var(--proto-spec-muted);font-size:12px;font-weight:800;letter-spacing:0;margin:0 0 8px;text-transform:uppercase}.proto-spec-doc h1{color:var(--proto-spec-text);font-size:30px;font-weight:800;line-height:1.2;margin:0 0 10px}.proto-spec-doc header p:not(.proto-spec-doc__eyebrow){color:var(--proto-spec-muted);font-size:15px;line-height:1.7;max-width:78ch;margin:0}.proto-spec-doc h2{border-top:1px solid var(--proto-spec-border);color:var(--proto-spec-text);font-size:20px;font-weight:800;line-height:1.35;margin:28px 0 12px;padding-top:24px}.proto-spec-doc h2:first-child{border-top:0;margin-top:0;padding-top:0}.proto-spec-doc h3{color:var(--proto-spec-text);font-size:16px;font-weight:800;line-height:1.45;margin:22px 0 8px}.proto-spec-doc h4{color:var(--proto-spec-muted);font-size:14px;font-weight:800;line-height:1.45;margin:18px 0 6px}.proto-spec-doc p{margin:0 0 12px}.proto-spec-doc a{color:var(--proto-spec-accent-dark);text-decoration:none}.proto-spec-doc a:hover{text-decoration:underline}.proto-spec-doc ul,.proto-spec-doc ol{margin:0 0 14px 22px;padding:0}.proto-spec-doc ul ul,.proto-spec-doc ul ol,.proto-spec-doc ol ul,.proto-spec-doc ol ol{margin-top:6px;margin-bottom:6px}.proto-spec-doc li{margin:5px 0}.proto-spec-doc li::marker{color:var(--proto-spec-accent)}.proto-spec-task-checkbox{width:15px;height:15px;margin:0 7px 0 0;vertical-align:-2px;accent-color:var(--proto-spec-accent)}.proto-spec-doc code{border-radius:5px;background:var(--proto-spec-soft);color:var(--proto-spec-text);font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;padding:2px 5px}.proto-spec-doc mark{border-radius:4px;background:#fff2b8;color:var(--proto-spec-text);padding:1px 4px}.proto-spec-doc pre{overflow:auto;border:1px solid var(--proto-spec-border);border-radius:8px;background:#f8fafc;color:var(--proto-spec-text);margin:14px 0;padding:14px}.proto-spec-doc pre code{background:transparent;padding:0}.proto-spec-doc blockquote{border-left:4px solid var(--proto-spec-accent);color:var(--proto-spec-muted);margin:16px 0;padding:2px 0 2px 14px}.proto-spec-callout{border:1px solid var(--proto-spec-border)!important;border-left:4px solid var(--proto-spec-accent)!important;border-radius:8px;background:#fffaf7;color:var(--proto-spec-text)!important;padding:12px 14px!important}.proto-spec-callout__title{color:var(--proto-spec-accent-dark);font-weight:800;margin:0 0 6px!important}.proto-spec-doc img{display:block;max-width:100%;height:auto;border:1px solid var(--proto-spec-border);border-radius:8px;background:#fff;margin:14px 0}.proto-spec-doc__toolbar{position:sticky;top:66px;z-index:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 16px;padding:10px 0;background:var(--proto-spec-bg)}.proto-spec-doc__button,.proto-spec-doc__toolbar button{min-height:38px;border:1px solid var(--proto-spec-border);border-radius:6px;background:var(--proto-spec-surface);color:var(--proto-spec-text);cursor:pointer;font:800 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:0;padding:9px 12px}.proto-spec-doc__button:hover,.proto-spec-doc__button:active,.proto-spec-doc__toolbar button:hover,.proto-spec-doc__toolbar button:active{border-color:var(--proto-spec-accent);color:var(--proto-spec-accent-dark);-webkit-text-fill-color:currentColor}.proto-spec-doc__button--primary{border-color:var(--proto-spec-accent);background:var(--proto-spec-accent);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc__button--primary:hover,.proto-spec-doc__button--primary:active,.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent-dark);color:#fff;-webkit-text-fill-color:#fff}.proto-spec-doc__toolbar button.proto-spec-doc__button--primary,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:hover,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:active,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent)!important;border-color:var(--proto-spec-accent)!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:13px!important;line-height:1.2!important;text-indent:0!important;text-shadow:none!important;visibility:visible!important;opacity:1!important;overflow:visible!important}.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:hover,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:active,.proto-spec-doc__toolbar button.proto-spec-doc__button--primary:focus{background:var(--proto-spec-accent-dark)!important}.proto-spec-doc__mode-toggle{display:inline-flex;gap:2px;border:1px solid var(--proto-spec-border);border-radius:8px;background:var(--proto-spec-soft);padding:3px}.proto-spec-doc__mode-toggle button{min-height:32px;border:0;background:transparent;color:var(--proto-spec-muted);padding:7px 11px}.proto-spec-doc__mode-toggle button.is-active{background:var(--proto-spec-surface);box-shadow:0 1px 2px rgba(15,23,42,.08);color:var(--proto-spec-text);-webkit-text-fill-color:currentColor}.proto-spec-doc__status{color:var(--proto-spec-muted);font-size:13px;font-weight:700}.proto-spec-doc__content{background:var(--proto-spec-surface);border:1px solid var(--proto-spec-border);border-radius:8px;box-shadow:0 14px 30px rgba(15,23,42,.06);display:block;margin-top:0;padding:30px 34px}.proto-spec-doc__content>*{max-width:78ch}.proto-spec-doc__content table{border-collapse:collapse;width:100%;max-width:100%;background:white;margin:16px 0}.proto-spec-doc__content th,.proto-spec-doc__content td{border:1px solid var(--proto-spec-border);padding:9px 11px;text-align:left;vertical-align:top}.proto-spec-doc__content th{background:var(--proto-spec-soft);font-weight:800}.proto-spec-mermaid{border:1px solid var(--proto-spec-border);border-radius:8px;background:#fff;margin:16px 0;padding:14px;max-width:100%}.proto-spec-mermaid[data-rendered='loading']::after{content:'正在渲染 Mermaid 图表...';display:block;color:var(--proto-spec-muted);font-size:12px;font-weight:700;margin-top:8px}.proto-spec-mermaid[data-rendered='failed']::after{content:'Mermaid 图表渲染失败，已保留源码。';display:block;color:var(--proto-spec-accent-dark);font-size:12px;font-weight:700;margin-top:8px}.proto-spec-mermaid figcaption{color:var(--proto-spec-muted);font-size:12px;font-weight:800;letter-spacing:0;margin:0 0 8px;text-transform:uppercase}.proto-spec-mermaid svg{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}.proto-spec-mermaid foreignObject,.proto-spec-mermaid foreignObject *{box-sizing:content-box;line-height:1.2!important}.proto-spec-doc__editor{box-sizing:border-box;width:100%;min-height:64vh;border:1px solid var(--proto-spec-border);border-radius:8px;background:var(--proto-spec-surface);box-shadow:0 14px 30px rgba(15,23,42,.06);color:var(--proto-spec-text);font:14px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;padding:22px;resize:vertical}.proto-spec-doc__editor:focus,.proto-spec-doc button:focus-visible,.proto-spec-switcher button:focus-visible{outline:2px solid var(--proto-spec-focus);outline-offset:2px}@media (max-width:720px){.proto-spec-switcher{top:10px}.proto-spec-switcher button{min-width:auto;padding:8px 10px}.proto-spec-doc{padding:74px 14px 32px}.proto-spec-doc h1{font-size:24px}.proto-spec-doc__toolbar{top:54px}.proto-spec-doc__content{padding:22px 18px}.proto-spec-doc__content>*{max-width:100%}.proto-spec-doc__editor{min-height:58vh;padding:16px}}";
+  document.head.appendChild(style);
+  // Keep the original document/editor, with its only entry in the annotation toolbar.
+  const specPanel = document.createElement("section");
+  specPanel.id = "prototype-page-spec-panel";
+  specPanel.className = "proto-spec-doc pa-ui pa-page-spec-panel";
+  specPanel.setAttribute("role", "dialog");
+  specPanel.setAttribute("aria-label", "页面需求说明");
+  specPanel.hidden = true;
+  const panelHeader = '<header class="pa-page-spec-header"><h2>页面需求说明</h2><button type="button" class="proto-spec-doc__button" data-action="close">返回页面</button></header>';
+  specPanel.innerHTML = '<div class="proto-spec-doc__inner">' + panelHeader + '<p>正在加载...</p></div>';
+  document.body.appendChild(specPanel);
+  let returnFocus = null;
+  let frontmatterText = "";
+  let bodyMarkdown = "";
+  let draft = "";
+  let editing = false;
+  let editorMode = "write";
+  let status = "";
+  function splitFrontmatter(markdown) {
+    if (!markdown.startsWith("---\n")) return { frontmatterText: "", body: markdown.trim() };
+    const end = markdown.indexOf("\n---", 4);
+    if (end === -1) return { frontmatterText: "", body: markdown.trim() };
+    return {
+      frontmatterText: markdown.slice(4, end),
+      body: markdown.slice(end + 4).replace(/^\s*\n/, "").trim()
+    };
+  }
+  function composeMarkdown() {
+    return frontmatterText ? "---\n" + frontmatterText + "\n---\n\n" + draft.trim() + "\n" : draft.trim() + "\n";
+  }
+  function renderMarkdown(markdown) {
+    const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+    const out = [];
+    let paragraph = [];
+    function flushParagraph() {
+      if (!paragraph.length) return;
+      out.push("<p>" + paragraph.map(renderInline).join("<br>") + "</p>");
+      paragraph = [];
+    }
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index];
+      const trimmed = line.trim();
+      const fence = trimmed.match(/^```\s*([A-Za-z0-9_-]*)\s*$/);
+      if (fence) {
+        flushParagraph();
+        const lang = (fence[1] || "").toLowerCase();
+        const code = [];
+        index += 1;
+        while (index < lines.length && !lines[index].trim().startsWith("```")) {
+          code.push(lines[index]);
+          index += 1;
+        }
+        const codeText = code.join("\n");
+        out.push(lang === "mermaid"
+          ? '<figure class="proto-spec-mermaid" data-mermaid="' + escapeAttr(codeText) + '"><figcaption>Mermaid</figcaption><pre><code>' + escapeHtml(codeText) + "</code></pre></figure>"
+          : '<pre><code>' + escapeHtml(codeText) + "</code></pre>");
+        continue;
+      }
+      if (!trimmed) {
+        flushParagraph();
+        continue;
+      }
+      const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
+      if (heading) {
+        flushParagraph();
+        out.push("<h" + heading[1].length + ">" + renderInline(heading[2]) + "</h" + heading[1].length + ">");
+        continue;
+      }
+      if (isQuoteStart(trimmed)) {
+        flushParagraph();
+        const quote = renderQuoteBlock(lines, index);
+        out.push(quote.html);
+        index = quote.index - 1;
+        continue;
+      }
+      if (isTableStart(lines, index)) {
+        flushParagraph();
+        const headers = parseTableRow(lines[index]);
+        index += 2;
+        const rows = [];
+        while (index < lines.length && lines[index].trim().startsWith("|")) {
+          rows.push(parseTableRow(lines[index]));
+          index += 1;
+        }
+        index -= 1;
+        out.push(renderTable(headers, rows));
+        continue;
+      }
+      if (parseListItem(line)) {
+        flushParagraph();
+        const list = renderListBlock(lines, index);
+        out.push(list.html);
+        index = list.index - 1;
+        continue;
+      }
+      paragraph.push(line);
+    }
+    flushParagraph();
+    return out.join("");
+  }
+  function isQuoteStart(trimmed) {
+    return /^>\s?/.test(trimmed);
+  }
+  function renderQuoteBlock(lines, start) {
+    const quoteLines = [];
+    let index = start;
+    while (index < lines.length) {
+      const line = lines[index] || "";
+      if (!line.trim()) {
+        quoteLines.push("");
+        index += 1;
+        continue;
+      }
+      const quote = line.match(/^\s*>\s?(.*)$/);
+      if (!quote) break;
+      quoteLines.push(quote[1] || "");
+      index += 1;
+    }
+    const callout = quoteLines[0]?.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION|TODO|INFO|RISK)\]\s*(.*)$/i);
+    if (callout) {
+      const type = callout[1].toLowerCase();
+      const title = callout[2] || calloutLabel(type);
+      const body = quoteLines.slice(1).join("\n").trim();
+      return {
+        html: '<blockquote class="proto-spec-callout proto-spec-callout--' + escapeAttr(type) + '"><p class="proto-spec-callout__title">' + renderInline(title) + "</p>" + (body ? renderMarkdown(body) : "") + "</blockquote>",
+        index
+      };
+    }
+    return { html: "<blockquote>" + renderMarkdown(quoteLines.join("\n").trim()) + "</blockquote>", index };
+  }
+  function calloutLabel(type) {
+    return { note: "说明", tip: "建议", important: "重要", warning: "警告", caution: "注意", todo: "待办", info: "信息", risk: "风险" }[type] || "说明";
+  }
+  function parseListItem(line) {
+    const match = String(line || "").match(/^(\s*)([-*+]|\d+[.)])\s+(?:\[( |x|X)\]\s+)?(.+)$/);
+    if (!match) return null;
+    return {
+      indent: match[1].replace(/\t/g, "    ").length,
+      ordered: /^\d/.test(match[2]),
+      task: match[3] !== undefined,
+      checked: /x/i.test(match[3] || ""),
+      text: match[4]
+    };
+  }
+  function renderListBlock(lines, start) {
+    const first = parseListItem(lines[start]);
+    if (!first) return { html: "", index: start + 1 };
+    const tag = first.ordered ? "ol" : "ul";
+    const items = [];
+    let index = start;
+    while (index < lines.length) {
+      const item = parseListItem(lines[index]);
+      if (!item || item.indent !== first.indent || item.ordered !== first.ordered) break;
+      let content = (item.task ? renderTaskCheckbox(item.checked) : "") + renderInline(item.text);
+      index += 1;
+      while (index < lines.length) {
+        const next = parseListItem(lines[index]);
+        const raw = lines[index] || "";
+        if (!raw.trim()) {
+          index += 1;
+          continue;
+        }
+        if (next && next.indent > first.indent) {
+          const nested = renderListBlock(lines, index);
+          content += nested.html;
+          index = nested.index;
+          continue;
+        }
+        if (next && next.indent <= first.indent) break;
+        const continuationIndent = raw.match(/^\s*/)[0].replace(/\t/g, "    ").length;
+        if (continuationIndent > first.indent) {
+          content += "<br>" + renderInline(raw.trim());
+          index += 1;
+          continue;
+        }
+        break;
+      }
+      items.push("<li>" + content + "</li>");
+    }
+    return { html: "<" + tag + ">" + items.join("") + "</" + tag + ">", index };
+  }
+  function renderTaskCheckbox(checked) {
+    return '<input class="proto-spec-task-checkbox" type="checkbox" disabled' + (checked ? " checked" : "") + ' aria-label="' + (checked ? "已完成" : "未完成") + '">';
+  }
+  function isTableStart(lines, index) {
+    return Boolean(lines[index] && lines[index + 1] && lines[index].trim().startsWith("|") && lines[index + 1].trim().startsWith("|") && parseTableRow(lines[index + 1]).every(function (cell) { return /^:?-{3,}:?$/.test(cell); }));
+  }
+  function parseTableRow(line) {
+    return line.trim().replace(/^\||\|$/g, "").split("|").map(function (cell) { return cell.trim(); });
+  }
+  function renderTable(headers, rows) {
+    return "<table><thead><tr>" + headers.map(function (cell) { return "<th>" + renderInline(cell) + "</th>"; }).join("") + "</tr></thead><tbody>" + rows.map(function (row) { return "<tr>" + headers.map(function (_header, index) { return "<td>" + renderInline(row[index] || "") + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table>";
+  }
+  function renderInline(value) {
+    let output = "";
+    let cursor = 0;
+    const pattern = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)|\[([^\]]+)\]\(([^)\s]+)\)|`([^`]+)`|\*\*([^*]+)\*\*|==([^=]+)==/g;
+    let match;
+    while ((match = pattern.exec(value)) !== null) {
+      output += escapeHtml(value.slice(cursor, match.index));
+      if (match[1] !== undefined) output += '<img src="' + escapeAttr(match[2]) + '" alt="' + escapeAttr(match[1]) + '"' + (match[3] ? ' title="' + escapeAttr(match[3]) + '"' : "") + ">";
+      else if (match[4] !== undefined) output += '<a href="' + escapeAttr(match[5]) + '" target="_blank" rel="noreferrer">' + escapeHtml(match[4]) + "</a>";
+      else if (match[6] !== undefined) output += "<code>" + escapeHtml(match[6]) + "</code>";
+      else if (match[7] !== undefined) output += "<strong>" + escapeHtml(match[7]) + "</strong>";
+      else if (match[8] !== undefined) output += "<mark>" + escapeHtml(match[8]) + "</mark>";
+      cursor = match.index + match[0].length;
+    }
+    return output + escapeHtml(value.slice(cursor));
+  }
+  function loadMermaid() {
+    if (window.mermaid && typeof window.mermaid.render === "function") {
+      initializeMermaid(window.mermaid);
+      return Promise.resolve(window.mermaid);
+    }
+    if (window.__protoSpecMermaidPromise) return window.__protoSpecMermaidPromise;
+    window.__protoSpecMermaidPromise = new Promise(function (resolve, reject) {
+      const existing = document.querySelector("script[data-proto-spec-mermaid]");
+      if (existing) {
+        existing.addEventListener("load", function () {
+          if (window.mermaid && typeof window.mermaid.render === "function") {
+            initializeMermaid(window.mermaid);
+            resolve(window.mermaid);
+          } else {
+            reject(new Error("Mermaid failed to initialize."));
+          }
+        }, { once: true });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js";
+      script.async = true;
+      script.dataset.protoSpecMermaid = "true";
+      script.onload = function () {
+        if (window.mermaid && typeof window.mermaid.render === "function") {
+          initializeMermaid(window.mermaid);
+          resolve(window.mermaid);
+        } else {
+          reject(new Error("Mermaid failed to initialize."));
+        }
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+    return window.__protoSpecMermaidPromise;
+  }
+  function initializeMermaid(mermaid) {
+    if (window.__protoSpecMermaidInitialized) return;
+    if (typeof mermaid.initialize === "function") mermaid.initialize({ startOnLoad: false, securityLevel: "strict" });
+    window.__protoSpecMermaidInitialized = true;
+  }
+  function renderMermaidDiagrams() {
+    const nodes = Array.from(specPanel.querySelectorAll(".proto-spec-mermaid[data-mermaid]:not([data-rendered])"));
+    if (!nodes.length) return;
+    nodes.forEach(function (node) { node.setAttribute("data-rendered", "loading"); });
+    loadMermaid().then(function (mermaid) {
+      nodes.forEach(function (node, index) {
+      const code = node.getAttribute("data-mermaid") || "";
+      mermaid.render("proto-spec-mermaid-" + pageKey + "-" + index + "-" + Date.now(), code).then(function (result) {
+        node.setAttribute("data-rendered", "true");
+        node.innerHTML = result.svg || node.innerHTML;
+      }).catch(function () {
+        node.setAttribute("data-rendered", "failed");
+      });
+      });
+    }).catch(function () {
+      nodes.forEach(function (node) { node.setAttribute("data-rendered", "failed"); });
+    });
+  }
+  function renderSpec() {
+    const displayStatus = status || (editing && draft !== bodyMarkdown ? "未保存" : "");
+    const toolbar = editing
+      ? '<div class="proto-spec-doc__toolbar"><div class="proto-spec-doc__mode-toggle" role="group" aria-label="编辑模式"><button type="button" data-action="write" class="' + (editorMode === "write" ? "is-active" : "") + '">Markdown</button><button type="button" data-action="preview" class="' + (editorMode === "preview" ? "is-active" : "") + '">预览</button></div><button type="button" class="proto-spec-doc__button proto-spec-doc__button--primary" data-action="save">保存</button><button type="button" class="proto-spec-doc__button" data-action="cancel">取消</button>' + (displayStatus ? '<span class="proto-spec-doc__status">' + escapeHtml(displayStatus) + '</span>' : "") + '</div>'
+      : '<div class="proto-spec-doc__toolbar"><button type="button" class="proto-spec-doc__button" data-action="edit">编辑</button>' + (displayStatus ? '<span class="proto-spec-doc__status">' + escapeHtml(displayStatus) + '</span>' : "") + '</div>';
+    const content = editing && editorMode === "write"
+      ? '<textarea class="proto-spec-doc__editor"></textarea>'
+      : '<article class="proto-spec-doc__content">' + renderMarkdown(editing ? draft : bodyMarkdown) + '</article>';
+    specPanel.innerHTML = '<div class="proto-spec-doc__inner">' + panelHeader + toolbar + content + '</div>';
+    const editor = specPanel.querySelector(".proto-spec-doc__editor");
+    if (editor) editor.value = draft;
+    if (!editing) renderMermaidDiagrams();
+  }
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>]/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[ch]; });
+  }
+  function escapeAttr(value) {
+    return escapeHtml(value).replace(/"/g, "&quot;");
+  }
+  function embeddedSpecMarkdown() {
+    const nodes = Array.from(document.querySelectorAll("script[data-proto-spec-markdown]"));
+    const node = nodes.find(function (item) { return item.getAttribute("data-proto-spec-markdown") === pageKey; });
+    if (!node) return "";
+    try {
+      return JSON.parse(node.textContent || "\"\"");
+    } catch (error) {
+      return node.textContent || "";
+    }
+  }
+  async function fetchFirstText(urls) {
+    const embedded = embeddedSpecMarkdown();
+    if (embedded) return embedded;
+    let lastError = null;
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (res.ok) return res.text();
+        lastError = new Error(url + " returned " + res.status);
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw lastError || new Error("spec not found");
+  }
+  async function saveSpec() {
+    const editor = specPanel.querySelector(".proto-spec-doc__editor");
+    if (editor) draft = editor.value;
+    status = "保存中...";
+    renderSpec();
+    try {
+      const res = await fetch("/__prototype-specs/specs/" + encodeURIComponent(pageKey), {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ markdown: composeMarkdown() })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      bodyMarkdown = draft;
+      editing = false;
+      editorMode = "write";
+      status = "已保存";
+    } catch (error) {
+      status = "保存失败：请使用 node proto-spec-server.mjs 启动本地预览。";
+    }
+    renderSpec();
+  }
+  fetchFirstText([
+    "/__prototype-specs/specs/" + encodeURIComponent(pageKey),
+    "/prototype-specs/current/" + encodeURIComponent(pageKey) + ".md",
+    "../prototype-specs/current/" + encodeURIComponent(pageKey) + ".md"
+  ]).then(function (markdown) {
+    const parsed = splitFrontmatter(markdown);
+    frontmatterText = parsed.frontmatterText;
+    bodyMarkdown = parsed.body;
+    draft = bodyMarkdown;
+    renderSpec();
+  }).catch(function (error) {
+    specPanel.setAttribute("data-spec-error", error && (error.stack || error.message || String(error)) || "unknown");
+    specPanel.innerHTML = '<div class="proto-spec-doc__inner">' + panelHeader + '<p>读取需求说明失败。请确认已从项目根目录启动本地服务，或检查 prototype-specs/current/' + pageKey + '.md。</p></div>';
+  });
+  specPanel.addEventListener("click", function (event) {
+    const button = event.target.closest("button[data-action]");
+    if (!button) return;
+    if (button.dataset.action === "close") {
+      setView("product");
+      return;
+    }
+    if (button.dataset.action === "edit") {
+      editing = true;
+      editorMode = "write";
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "write" || button.dataset.action === "preview") {
+      const editor = specPanel.querySelector(".proto-spec-doc__editor");
+      if (editor) draft = editor.value;
+      editorMode = button.dataset.action === "preview" ? "preview" : "write";
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "cancel") {
+      editing = false;
+      editorMode = "write";
+      draft = bodyMarkdown;
+      status = "";
+      renderSpec();
+    }
+    if (button.dataset.action === "save") saveSpec();
+  });
+  function setView(view) {
+    const showSpec = view === "spec";
+    if (showSpec && specPanel.hidden) returnFocus = document.activeElement;
+    specPanel.hidden = !showSpec;
+    if (showSpec) {
+      specPanel.querySelector('[data-action="close"]')?.focus();
+    } else if (returnFocus?.isConnected) {
+      returnFocus.focus();
+    }
+    window.dispatchEvent(new CustomEvent("prototypepagespecchange", { detail: { open: showSpec } }));
+  }
+  window.PrototypePageSpec = {
+    open: () => setView("spec"),
+    close: () => setView("product"),
+    isOpen: () => !specPanel.hidden
+  };
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !specPanel.hidden) setView("product");
+  });
+})();
+</script>
+<!-- proto-spec-annotator-viewer:end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Prototype Annotator runtime -->
+<script>
+</script>
+<script id="prototype-annotations-data" type="application/json">
+{
+  "version": 1,
+  "pages": [
+    {
+      "pageKey": "P15",
+      "title": "商品展示",
+      "path": "product-detail.html",
+      "route": "/product-detail.html"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "ANN-P15-001",
+      "pageKey": "P15",
+      "target": {
+        "selector": "h1",
+        "fallbackText": "推荐内容",
+        "strategy": "tag",
+        "sourceElementId": "P15-E006",
+        "boundsHint": {
+          "text": "推荐内容",
+          "tag": "h1"
+        }
+      },
+      "title": "商品展示 · 页面介绍",
+      "kind": "note",
+      "dimension": "Page overview",
+      "priority": "high",
+      "visible": true,
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按当前用户端产品说明书、V7规则文档和页面源码完成审阅。"
+      },
+      "annotationType": "P",
+      "source": {
+        "type": "page-spec",
+      },
+      "contentSource": {
+        "type": "markdown-file",
+        "format": "markdown"
+      },
+      "maintenancePolicy": "spec-owned",
+      "evidence": [
+      ],
+      "topics": [
+        "source",
+        "business",
+        "flow"
+      ],
+      "updatedAt": "2026-09-02T01:39:05Z"
+    },
+    {
+      "id": "ANN-P15-002",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"返回上一级\"]",
+        "fallbackText": "返回上一级",
+        "strategy": "aria",
+        "sourceElementId": "P15-E004",
+        "boundsHint": {
+          "text": "返回上一级",
+          "selector": "[aria-label=\"返回上一级\"]"
+        }
+      },
+      "title": "返回来源页面",
+      "contentMarkdown": "### 业务含义\n\n说明详情页返回入口对来源页面和心愿单上下文的保持规则。\n\n### 交互规则\n\n- 优先返回进入详情前记录的来源页面。\n- 没有来源时返回 `plan.html`。\n- 返回时恢复心愿单上下文，不进入已归档页面。\n\n### 页面流转\n\n- 来源：来源页或 `plan.html`；目标：来源页；无来源时返回 `plan.html`。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-004"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-004"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-004",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-003",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"加入心愿单\"]",
+        "fallbackText": "加入心愿单",
+        "strategy": "aria",
+        "sourceElementId": "P15-E007",
+        "boundsHint": {
+          "text": "加入心愿单",
+          "selector": "[aria-label=\"加入心愿单\"]"
+        }
+      },
+      "title": "加入或移除心愿单",
+      "contentMarkdown": "### 业务含义\n\n说明详情页心愿单操作与实体有效状态的关系。\n\n### 交互规则\n\n- 点击心形图标切换当前实体的加入/移除状态。\n- 重复点击不会创建重复心愿记录。\n- 下架实体保留历史卡片，但禁用心愿操作并标记失效。\n\n### 页面流转\n\n- 来源：详情页心愿图标；目标：当前实体心愿状态更新。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-007"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-007"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-007",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-004",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"进入店铺查看详情\"]",
+        "fallbackText": "进入店铺查看详情",
+        "strategy": "aria",
+        "sourceElementId": "P15-E009",
+        "boundsHint": {
+          "text": "进入店铺查看详情",
+          "selector": "[aria-label=\"进入店铺查看详情\"]"
+        }
+      },
+      "title": "进入店铺查看详情",
+      "contentMarkdown": "### 业务含义\n\n紫色胶囊按钮是跳转进入商户外部平台主页的主操作入口。\n\n### 交互规则\n\n- 点击居中的紫色胶囊按钮。\n- 点击后跳转至商户外部平台主页。\n\n### 页面流转\n\n- 来源：商品或商户详情页；目标：商户外部平台主页。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "A",
+      "kind": "interaction",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Primary action",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-009"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-009"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-009",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-005",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[aria-label=\"拨打商户电话\"]",
+        "fallbackText": "拨打商户电话",
+        "strategy": "aria",
+        "sourceElementId": "P15-E010",
+        "boundsHint": {
+          "text": "拨打商户电话",
+          "selector": "[aria-label=\"拨打商户电话\"]"
+        }
+      },
+      "title": "拨打商户电话",
+      "contentMarkdown": "### 业务含义\n\n说明商户电话入口用于联系商户，不改变详情页数据。\n\n### 交互规则\n\n- 点击后调用系统拨号能力。\n- 电话号码缺失时保留详情信息并禁用拨号入口。\n- 原型不记录通话结果。\n\n### 页面流转\n\n- 来源：详情页电话入口；目标：系统拨号界面；返回后仍在详情页。\n\n### 待确认\n\n- 根据当前原型结构推断，拨号权限拒绝时的提示文案需确认。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "J",
+      "kind": "navigation",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Flow and navigation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-010"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-010"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-010",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-006",
+      "pageKey": "P15",
+      "target": {
+        "selector": "[data-ann=\"product-info\"]",
+        "fallbackText": "商户简介 特色介绍",
+        "strategy": "class",
+        "sourceElementId": "P15-E008",
+        "boundsHint": {
+          "text": "商户简介 特色介绍",
+          "selector": "[data-ann=\"product-info\"]"
+        }
+      },
+      "title": "商品或商户信息区",
+      "contentMarkdown": "### 业务含义\n\n说明详情页展示商户或商品的可核验基础信息。\n\n### 显示规则\n\n- 展示图片，名称，地址、电话、商户简介和特色介绍。数据来源与商户端的门店信息。\n- 信息不足时显示待确认，不由 AI 编造。",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "DATA",
+      "kind": "data",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "Data explanation",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-008"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-008"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-008",
+      "selectorQuality": {
+        "level": "stable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    },
+    {
+      "id": "ANN-P15-007",
+      "pageKey": "P15",
+      "target": {
+        "selector": "html \u003e body \u003e main \u003e section",
+        "fallbackText": "商品/商户详情",
+        "strategy": "class",
+        "sourceElementId": "P15-E002",
+        "boundsHint": {
+          "text": "商品/商户详情",
+          "selector": "html \u003e body \u003e main \u003e section"
+        }
+      },
+      "title": "详情页推荐模块边界",
+      "contentMarkdown": "### 业务含义\n\n说明当前用户端详情页的内容边界与失效实体处理方式。\n\n### 规则说明\n\n- 所有商品和商户详情页不展示“推荐商品/套餐”模块。\n- 当前用户端不提供真实价格数据，提供跳转进入商户外部平台主页的操作入口。\n\n### 页面流转\n\n- 来源：商品或商户详情入口；目标：详情内容，提供跳转商户外部平台的操作入口",
+      "maintenancePolicy": "annotation-owned",
+      "audienceMode": "product-review",
+      "annotationType": "R",
+      "kind": "rule",
+      "topics": [
+        "business",
+        "interaction",
+        "flow"
+      ],
+      "dimension": "State and exception",
+      "priority": "medium",
+      "visible": true,
+      "source": {
+        "type": "mixed",
+        "ref": "CAND-P15-E002"
+      },
+      "evidence": [
+        "页面源码：P15",
+        "候选证据：CAND-P15-E002"
+      ],
+      "nextActions": [],
+      "dependencies": [],
+      "risks": [],
+      "openQuestions": [],
+      "candidateId": "CAND-P15-E002",
+      "selectorQuality": {
+        "level": "acceptable",
+        "issues": []
+      },
+      "createdBy": "ai",
+      "review": {
+        "required": true,
+        "status": "approved",
+        "reason": "已按页面源码、产品说明书和 V7 规则文档完成审阅。"
+      },
+      "updatedAt": "2026-09-02T10:10:00+08:00"
+    }
+  ],
+  "project": {
+    "id": "prototype",
+    "name": "Prototype",
+    "source": "local"
+  },
+  "surfaces": [],
+  "productProfile": {
+    "productName": "周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "annotationMode": "standard",
+    "enabledAnnotationTypes": [
+      "P",
+      "A",
+      "J",
+      "S",
+      "R",
+      "DATA",
+      "AI",
+      "FALLBACK"
+    ],
+    "inferred": true
+  },
+  "audienceMode": "product-review",
+  "productContext": {
+    "productName": "产品说明书：周末到铜梁 AI 文旅智能体（用户端）",
+    "productType": "ai_consumer_app",
+    "productForms": [
+      "C端应用",
+      "AI产品"
+    ],
+    "primaryUsers": [
+      "游客用户"
+    ],
+    "enabledAnnotationTypes": [
+      "P",
+      "E",
+      "C",
+      "A",
+      "J",
+      "S",
+      "R",
+      "PERM",
+      "DATA",
+      "AI",
+      "PROMPT",
+      "CTX",
+      "HITL",
+      "FALLBACK"
+    ],
+    "roles": [],
+    "coreObjects": [],
+    "coreFlows": [],
+    "pages": [],
+    "generatedAt": "2026-09-04T09:11:49Z",
+    "sources": [
+      "D:\\project_codex\\codex_tl-wl\\产品说明书\\产品说明书-用户端-20260904-v1.md",
+      "D:\\project_codex\\codex_tl-wl\\prototype-mobile-v7-20260831\\V7用户端规则定义文档-20260831.md"
+    ]
+  }
+}
+</script>
+<!-- /Prototype Annotator runtime -->
+</body>
+</html>
