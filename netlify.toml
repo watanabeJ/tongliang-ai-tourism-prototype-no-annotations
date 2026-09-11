@@ -1,0 +1,8 @@
+# Keep browser requests same-origin over HTTPS. Netlify forwards the API
+# requests (including chat, entities, map and health) to the Tencent backend.
+# Do not place model credentials in this file or in browser JavaScript.
+[[redirects]]
+  from = "/api/consumer-agent/*"
+  to = "http://122.51.235.55/api/consumer-agent/:splat"
+  status = 200
+  force = true
