@@ -8,6 +8,8 @@
   // Intrinsic dimensions of assets/map.png. Cover the initial viewport once;
   // never recalculate the image's world bounds when the viewport changes.
   const BACKDROP_SIZE = [408, 791];
+  const BACKDROP_OVERSCAN = 2;
+  const ZOOM_STEP = 0.25;
   const BACKDROP_NOTE = '静态示意底图 · 点位与道路不精确对应 · 不可导航';
 
   window.TongliangMap = {
@@ -20,6 +22,8 @@
       let backdrop = null;
       let reference = null;
       let planLayer = null;
+      let navigationBounds = null;
+      let limitingView = false;
 
       host.classList.add('has-real-map');
       canvas.setAttribute('role', 'region');
@@ -120,11 +124,31 @@
         });
       }
 
+      function constrainViewport() {
+        if (!map || !navigationBounds || limitingView) return;
+        limitingView = true;
+        try {
+          // Measure at the frozen reference zoom, not the current zoom. A
+          // resized viewport may need a different minimum without moving POIs.
+          const span = map.project(navigationBounds.getSouthEast(), reference.zoom)
+            .subtract(map.project(navigationBounds.getNorthWest(), reference.zoom));
+          const size = map.getSize();
+          const coverZoom = reference.zoom + Math.log2(Math.max(size.x / span.x, size.y / span.y));
+          const minZoom = Math.max(4, Math.ceil(coverZoom / ZOOM_STEP) * ZOOM_STEP);
+          map.setMaxZoom(Math.max(19, minZoom));
+          map.setMinZoom(minZoom);
+          map.panInsideBounds(navigationBounds, { animate: false });
+        } finally {
+          limitingView = false;
+        }
+      }
+
       function show() {
         // The plan page starts with this layer display:none.
         if (!canvas.clientWidth || !canvas.clientHeight) return false;
         if (map) {
           map.invalidateSize({ animate: false, pan: false });
+          constrainViewport();
           sync();
           return true;
         }
@@ -139,8 +163,14 @@
             attributionControl: false,
             minZoom: 4,
             maxZoom: 19,
+            zoomSnap: ZOOM_STEP,
+            zoomDelta: ZOOM_STEP,
+            maxBoundsViscosity: 1,
+            inertia: false,
+            bounceAtZoomLimits: false,
+            boxZoom: false,
             dragging: true,
-            touchZoom: true,
+            touchZoom: 'center',
             scrollWheelZoom: true,
             doubleClickZoom: true,
             keyboard: true,
@@ -160,10 +190,13 @@
           };
           map.on('click dragstart zoomstart', onMapInteraction);
           map.on('move zoom resize', sync);
+          // Native pinch moves run before moveend; constrain every frame so
+          // the edges cannot flash into view during a two-finger gesture.
+          map.on('move', event => { if (event.pinch) constrainViewport(); });
           // Anchor the bitmap to the same frozen projected coordinates as POIs.
-          // Preserve the previous centered "cover" framing on first display.
-          // Leaflet then transforms the image, markers and routes together.
-          const coverScale = Math.max(size.x / BACKDROP_SIZE[0], size.y / BACKDROP_SIZE[1]);
+          // Add room around the initial viewport, allowing zoom-out and pan.
+          // The image bounds are still frozen once and share POI coordinates.
+          const coverScale = Math.max(size.x / BACKDROP_SIZE[0], size.y / BACKDROP_SIZE[1]) * BACKDROP_OVERSCAN;
           const imageWidth = BACKDROP_SIZE[0] * coverScale;
           const imageHeight = BACKDROP_SIZE[1] * coverScale;
           const left = reference.x + (size.x - imageWidth) / 2;
@@ -181,6 +214,13 @@
           backdrop.on('load', () => setStatus(''));
           backdrop.on('error', () => setStatus('静态底图加载失败，请重试。', true));
           backdrop.addTo(map);
+          // A small inset keeps subpixel rounding at the bitmap edge offscreen.
+          navigationBounds = L.latLngBounds(
+            map.unproject([left + 4, top + imageHeight - 4], reference.zoom),
+            map.unproject([left + imageWidth - 4, top + 4], reference.zoom)
+          );
+          map.setMaxBounds(navigationBounds);
+          constrainViewport();
           host.classList.add('is-map-ready');
           sync();
           return true;
@@ -189,6 +229,7 @@
           map = null;
           backdrop = null;
           reference = null;
+          navigationBounds = null;
           host.classList.remove('is-map-ready');
           setStatus('地图初始化失败，请重试。', true);
           console.warn('Tongliang map initialization failed:', error);
