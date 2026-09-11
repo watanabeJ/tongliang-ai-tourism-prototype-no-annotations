@@ -5,7 +5,6 @@
   document.documentElement.lang = en ? 'en' : 'zh-CN';
   const mapElement = document.querySelector('#agent-map');
   const text = (selector, value) => { const node = document.querySelector(selector); if (node) node.textContent = value; };
-  let map;
   text('[data-back]', en ? 'Back to conversation' : '返回对话');
   text('[data-heading]', mapElement ? (en ? 'Destination map' : '推荐地点地图') : (en ? 'Project record' : '推荐地点资料'));
   text('[data-retry]', en ? 'Retry' : '重新查询');
@@ -13,10 +12,11 @@
   document.querySelector('[data-back]').addEventListener('click', event => {
     if (document.referrer.startsWith(location.origin + '/consumer/')) { event.preventDefault(); history.back(); }
   });
-  if (mapElement && window.L) {
-    map = L.map(mapElement, { zoomControl: false }).setView([29.85, 106.05], 11);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map)
-      .on('tileerror', () => status(en ? 'Some map tiles failed to load; external map search remains available.' : '部分底图加载失败，可使用下方高德地图入口。'));
+  if (mapElement) {
+    const backdrop = new URL('../assets/map.png', document.currentScript.src).href;
+    mapElement.style.background = `#d9f0d6 url("${backdrop}") center / cover no-repeat`;
+    mapElement.setAttribute('role', 'img');
+    mapElement.setAttribute('aria-label', en ? 'Static schematic map, not for navigation' : '静态示意底图，不可用于导航');
   }
   async function load() {
     const retry = document.querySelector('[data-retry]');
@@ -57,7 +57,7 @@
         for (const place of result.places) {
           const link = document.createElement('a');
           link.textContent = `${place.name} · ${place.address}`;
-          // GCJ-02 is never plotted directly on the WGS84 OSM basemap.
+          // Candidate coordinates are not plotted on this schematic backdrop.
           link.href = `https://uri.amap.com/marker?position=${encodeURIComponent(`${place.longitude},${place.latitude}`)}&name=${encodeURIComponent(place.name)}&coordinate=gaode&callnative=1`;
           link.target = '_blank'; link.rel = 'noopener noreferrer'; list.append(link);
         }

@@ -1,10 +1,11 @@
-/* Real basemap adapter. Business POIs remain explicitly labelled demo data. */
+/* No-annotations edition: local schematic backdrop, interactive POI/route overlay. */
 (() => {
   'use strict';
 
   const DEFAULT_CENTER = [29.7968734, 106.0581745];
   const DEFAULT_BOUNDS = [[29.7904470, 106.0487967], [29.8032265, 106.0820720]];
-  const TILE_URL = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const BACKDROP_URL = new URL('assets/map.png', document.currentScript.src).href;
+  const BACKDROP_NOTE = '静态示意底图 · 点位与道路不精确对应 · 不可导航';
 
   window.TongliangMap = {
     create(host, { onMapInteraction = () => {}, onViewChange = () => {} } = {}) {
@@ -13,22 +14,16 @@
       const markerLayer = host.querySelector('.marker-layer');
       const referenceMarker = host.querySelector('.map-current-location');
       let map = null;
-      let tiles = null;
+      let backdrop = null;
       let reference = null;
-      let loadTimer = null;
-      let tileErrors = 0;
-      let tileSuccesses = 0;
       let planLayer = null;
 
       host.classList.add('has-real-map');
       canvas.setAttribute('role', 'region');
-      canvas.setAttribute('aria-label', '玄天湖真实地图，可拖动，使用滚轮或双指缩放');
+      canvas.setAttribute('aria-label', '玄天湖静态示意底图，点位与路线图层可拖动缩放，不可用于导航');
       const note = document.createElement('div');
       note.className = 'map-data-note';
-      note.textContent = '真实底图 · 商户点位、路线为演示';
-      const credits = document.createElement('div');
-      credits.className = 'map-credits';
-      credits.innerHTML = '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>';
+      note.textContent = BACKDROP_NOTE;
       const status = document.createElement('div');
       status.className = 'map-load-status';
       status.setAttribute('role', 'status');
@@ -39,7 +34,7 @@
       retry.textContent = '重试';
       retry.hidden = true;
       status.append(message, retry);
-      host.append(note, credits, status);
+      host.append(note, status);
       if (referenceMarker) {
         referenceMarker.setAttribute('aria-label', '玄天湖参考中心，非设备定位');
         referenceMarker.title = '玄天湖参考中心，非设备定位';
@@ -162,43 +157,20 @@
           };
           map.on('click dragstart zoomstart', onMapInteraction);
           map.on('move zoom resize', sync);
-          tiles = L.tileLayer(TILE_URL, {
-            minZoom: 4,
-            maxZoom: 19,
-            updateWhenIdle: true,
-            keepBuffer: 1,
-            detectRetina: false,
-            referrerPolicy: 'strict-origin-when-cross-origin'
-          });
-          tiles.on('loading', () => {
-            tileErrors = 0;
-            tileSuccesses = 0;
-            setStatus('正在加载真实地图…');
-            window.clearTimeout(loadTimer);
-            loadTimer = window.setTimeout(() => {
-              setStatus('地图加载较慢，请检查网络或重试。', true);
-            }, 12000);
-          });
-          tiles.on('tileload', () => { tileSuccesses += 1; });
-          tiles.on('tileerror', () => {
-            tileErrors += 1;
-            setStatus('部分底图未加载，请检查网络后重试。', true);
-          });
-          tiles.on('load', () => {
-            window.clearTimeout(loadTimer);
-            setStatus(tileErrors
-              ? (tileSuccesses ? '部分底图未加载，可重试。' : '底图加载失败，请检查网络后重试。')
-              : '', tileErrors > 0);
-          });
-          tiles.addTo(map);
+          // This bitmap is a schematic, not a georeferenced road layer.
+          // Keep the existing coordinate math for POIs and itinerary geometry.
+          canvas.style.background = `#d9f0d6 url("${BACKDROP_URL}") center / cover no-repeat`;
+          backdrop = new Image();
+          backdrop.onload = () => setStatus('');
+          backdrop.onerror = () => setStatus('静态底图加载失败，请重试。', true);
+          backdrop.src = BACKDROP_URL;
           host.classList.add('is-map-ready');
           sync();
           return true;
         } catch (error) {
-          window.clearTimeout(loadTimer);
           map?.remove();
           map = null;
-          tiles = null;
+          backdrop = null;
           reference = null;
           host.classList.remove('is-map-ready');
           setStatus('地图初始化失败，请重试。', true);
@@ -207,12 +179,12 @@
         }
       }
 
-      function reloadTiles() {
-        if (show()) tiles?.redraw();
+      function reloadBackdrop() {
+        if (show() && backdrop) backdrop.src = BACKDROP_URL;
       }
       function clearPlan() {
         if (planLayer) { planLayer.remove(); planLayer = null; }
-        note.textContent = '真实底图 · 商户点位、路线为演示';
+        note.textContent = BACKDROP_NOTE;
       }
       function showPlan(route, { renderStopIcon, onStopClick } = {}) {
         const L = window.L;
@@ -244,9 +216,7 @@
           bounds.push(point);
         });
         const en = host.closest?.('[data-language]')?.getAttribute('data-language') === 'en';
-        note.textContent = route.simulated ? (en ? 'MOCK route · test only · not for navigation' : '模拟路线 · 仅用于功能测试 · 不可导航')
-          : en ? 'AMap driving route · same stop order as the itinerary · from first stop'
-          : '高德驾车路线 · 与本次回复同序 · 从首站出发';
+        note.textContent = en ? 'Schematic backdrop · route overlay is not aligned to pictured roads · not for navigation' : BACKDROP_NOTE;
         const panel = host.closest?.('.plan-screen')?.querySelector('.plan-conversation-panel');
         const mapBox = canvas.getBoundingClientRect();
         const panelBox = panel?.getBoundingClientRect();
@@ -255,9 +225,9 @@
         map.fitBounds(bounds, { paddingTopLeft: [35, 150], paddingBottomRight: [80, covered], maxZoom: 15, animate: false });
         return true;
       }
-      retry.addEventListener('click', reloadTiles);
+      retry.addEventListener('click', reloadBackdrop);
       window.addEventListener('online', () => {
-        if (map && canvas.clientWidth && !status.hidden) reloadTiles();
+        if (map && canvas.clientWidth && !status.hidden) reloadBackdrop();
       });
       const resizeObserver = typeof ResizeObserver === 'function'
         ? new ResizeObserver(() => show()) : null;
