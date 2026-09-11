@@ -5,6 +5,9 @@
   const DEFAULT_CENTER = [29.7968734, 106.0581745];
   const DEFAULT_BOUNDS = [[29.7904470, 106.0487967], [29.8032265, 106.0820720]];
   const BACKDROP_URL = new URL('assets/map.png', document.currentScript.src).href;
+  // Intrinsic dimensions of assets/map.png. Cover the initial viewport once;
+  // never recalculate the image's world bounds when the viewport changes.
+  const BACKDROP_SIZE = [408, 791];
   const BACKDROP_NOTE = '静态示意底图 · 点位与道路不精确对应 · 不可导航';
 
   window.TongliangMap = {
@@ -157,13 +160,27 @@
           };
           map.on('click dragstart zoomstart', onMapInteraction);
           map.on('move zoom resize', sync);
-          // This bitmap is a schematic, not a georeferenced road layer.
-          // Keep the existing coordinate math for POIs and itinerary geometry.
-          canvas.style.background = `#d9f0d6 url("${BACKDROP_URL}") center / cover no-repeat`;
-          backdrop = new Image();
-          backdrop.onload = () => setStatus('');
-          backdrop.onerror = () => setStatus('静态底图加载失败，请重试。', true);
-          backdrop.src = BACKDROP_URL;
+          // Anchor the bitmap to the same frozen projected coordinates as POIs.
+          // Preserve the previous centered "cover" framing on first display.
+          // Leaflet then transforms the image, markers and routes together.
+          const coverScale = Math.max(size.x / BACKDROP_SIZE[0], size.y / BACKDROP_SIZE[1]);
+          const imageWidth = BACKDROP_SIZE[0] * coverScale;
+          const imageHeight = BACKDROP_SIZE[1] * coverScale;
+          const left = reference.x + (size.x - imageWidth) / 2;
+          const top = reference.y + (size.y - imageHeight) / 2;
+          const imageBounds = [
+            map.unproject([left, top + imageHeight], reference.zoom),
+            map.unproject([left + imageWidth, top], reference.zoom)
+          ];
+          canvas.style.background = '#d9f0d6';
+          backdrop = L.imageOverlay(BACKDROP_URL, imageBounds, {
+            interactive: false,
+            alt: '玄天湖静态示意底图',
+            className: 'map-static-backdrop'
+          });
+          backdrop.on('load', () => setStatus(''));
+          backdrop.on('error', () => setStatus('静态底图加载失败，请重试。', true));
+          backdrop.addTo(map);
           host.classList.add('is-map-ready');
           sync();
           return true;
@@ -180,7 +197,7 @@
       }
 
       function reloadBackdrop() {
-        if (show() && backdrop) backdrop.src = BACKDROP_URL;
+        if (show() && backdrop) backdrop.setUrl(BACKDROP_URL);
       }
       function clearPlan() {
         if (planLayer) { planLayer.remove(); planLayer = null; }

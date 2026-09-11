@@ -11,6 +11,15 @@
 .map-screen.has-real-map:not(.is-map-ready) .marker-layer,
 .map-screen.has-real-map:not(.is-map-ready) .map-current-location { visibility: hidden; }
 .map-screen.has-real-map .map-current-location { pointer-events: none; }
+.map-screen.has-real-map .map-static-backdrop {
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  pointer-events: none;
+}
 .map-screen.has-real-map .map-canvas .leaflet-tile {
   max-width: none !important;
   max-height: none !important;
